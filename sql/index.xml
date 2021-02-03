@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lin&#39;s Hugo Site</title>
-    <link>https://slinviz.github.io/</link>
-    <description>Recent content on Lin&#39;s Hugo Site</description>
+    <title>SQLs on Lin&#39;s Hugo Site</title>
+    <link>https://slinviz.github.io/sql/</link>
+    <description>Recent content in SQLs on Lin&#39;s Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Feb 2021 21:43:48 +0800</lastBuildDate>
     
-	<atom:link href="https://slinviz.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://slinviz.github.io/sql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,18 +21,6 @@
 DBMS   层次数据库HDB： 数据以层次结构（树形结构）进行组织； 关系数据库RDB： 二维表形式组织数据； 面向对象数据库OODB： 把数据及对数据的操作集合起来以对象为单位进行管理； XML数据库 XMLDB： 以XML形式进行数据组织和高速处理； 键值存储系统KVS： 使用主键（Key）和值（Value）的组合的数据库。   RDBMS表结构 列（字段）：数据项目 行（记录）：数据 关系数据库必须以行为单位进行数据读写。
 SQL  SQL可分为DDL、DML和DCL。
  DDL：数据定义语言。用来创建或删除存储数据用的数据库以及数据库中的表等对象。包含CREATE, DROP, ALTER 等指令； DML：数据操纵语言。查询或变更表中的记录。包含SELECT, INSERT, UPDATE, DELETE 等指令； DCL：数据控制语言。用来却或取消对数据库中的数据进行的变更和对RDBMS的用户权限管理。包含COMMIT, ROLLBACK, GRANT, REVOKE 等指令。   SQL的基本语法规则  SQL语句以分号; 结尾； SQL语句不区分关键字大小写：习惯上关键字将大写； SQL中常数（字符串、日期、数字等）书写方式是固定的； 单词需要用半角空格或者换行来分隔。  </description>
-    </item>
-    
-    <item>
-      <title>Mvn Repo Modify</title>
-      <link>https://slinviz.github.io/scala/mvn-repo/</link>
-      <pubDate>Fri, 08 Jan 2021 14:37:20 +0800</pubDate>
-      
-      <guid>https://slinviz.github.io/scala/mvn-repo/</guid>
-      <description>可以直接修改${M2_HOME}/conf/settings.xml,也可以复制到${HOME}/.m2/,然后修改setting.xml文件.
-${M2_HOME}/conf/setting.xml # 全局配置 ${user.home}/.m2/setting.xml # 用户配置 # 两个配置文件允许同时存在,同时存在时内容会被合并-用户配置优先 本地默认仓库 在setting.xml中找到localRepository选项,然后修改路径即可.
-&amp;lt;!-- path to the local repository default ${user.home}/.m2/repository --&amp;gt; &amp;lt;localRepository&amp;gt;/path/to/local/repo&amp;lt;/localRepository&amp;gt; 远程仓库 修改远程仓库地址需要在mirrors中的mirror选项中进行配置.
-&amp;lt;!-- &amp;lt;mirrors&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;mirrorId&amp;lt;/id&amp;gt; &amp;lt;mirrorOf&amp;gt;repositoryId&amp;lt;/mirrorOf&amp;gt; &amp;lt;name&amp;gt;Human readable name for this mirror&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://my.repository.com/repo/path&amp;lt;/url&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;mirror&amp;gt; .... &amp;lt;/mirror&amp;gt; &amp;lt;/mirrors&amp;gt; --&amp;gt; &amp;lt;mirrors&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public&amp;lt;/url&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;/mirrors&amp;gt; </description>
     </item>
     
   </channel>
