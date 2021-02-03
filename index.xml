@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linstarsc&#39;s Hugo Site</title>
-    <link>https://linstarsc.github.io/</link>
-    <description>Recent content on linstarsc&#39;s Hugo Site</description>
+    <title>Lin&#39;s Hugo Site</title>
+    <link>https://slinviz.github.io/</link>
+    <description>Recent content on Lin&#39;s Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 Jan 2021 14:37:20 +0800</lastBuildDate>
     
-	<atom:link href="https://linstarsc.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://slinviz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mvn Repo Modify</title>
-      <link>https://linstarsc.github.io/scala/mvn-repo/</link>
+      <link>https://slinviz.github.io/scala/mvn-repo/</link>
       <pubDate>Fri, 08 Jan 2021 14:37:20 +0800</pubDate>
       
-      <guid>https://linstarsc.github.io/scala/mvn-repo/</guid>
+      <guid>https://slinviz.github.io/scala/mvn-repo/</guid>
       <description>可以直接修改${M2_HOME}/conf/settings.xml,也可以复制到${HOME}/.m2/,然后修改setting.xml文件.
 ${M2_HOME}/conf/setting.xml # 全局配置 ${user.home}/.m2/setting.xml # 用户配置 # 两个配置文件允许同时存在,同时存在时内容会被合并-用户配置优先 本地默认仓库 在setting.xml中找到localRepository选项,然后修改路径即可.
 &amp;lt;!-- path to the local repository default ${user.home}/.m2/repository --&amp;gt; &amp;lt;localRepository&amp;gt;/path/to/local/repo&amp;lt;/localRepository&amp;gt; 远程仓库 修改远程仓库地址需要在mirrors中的mirror选项中进行配置.
