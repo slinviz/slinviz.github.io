@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lin&#39;s Hugo Site</title>
+    <title>Main on Lin&#39;s Blog Site</title>
     <link>https://slinviz.github.io/</link>
-    <description>Recent content on Lin&#39;s Hugo Site</description>
+    <description>Recent content in Main on Lin&#39;s Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Feb 2021 21:43:48 +0800</lastBuildDate>
     
 	<atom:link href="https://slinviz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Hadoop Overview</title>
+      <link>https://slinviz.github.io/hadoop/overview/</link>
+      <pubDate>Sat, 13 Feb 2021 20:38:25 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/hadoop/overview/</guid>
+      <description>1. Hadoop 大规模分布式计算框架，支持扩展到数千台服务器，每台服务器都提供本地存储和计算，自带应用层故障检测和故障处理。
+ 高可靠性 高扩展性 高效性 高容错性 低成本  Hadoop的适用场景
+ 特别适合写一次，读多次的场景
+大规模数据 流数据（写一次，读多次）
+商用硬件
+ Hadoop不适用的场景
+ 低延时数据访问 大量小文件 频繁修改文件
+  Hadoop的3大核心  HDFS MapReduce YARN   Hadoop的4大模块  Hadoop Common：支持其他Hadoop模块的公共使用程序 Hadoop HDFS：提供对应用程序数据高吞吐访问的分布式文件系统 Hadoop MapReduce：基于yarn的大型数据集并行处理系统 Hadoop yarn：作业调度和集群资源调度框架    2. HDFS Master/Slave架构，核心架构目标：错误检测和快速、自动的恢复（硬件错误是常态不是异常）。
+简单的一致性模型：文件经创建、写入和关闭后就不需要改变（一次写、多次读），简化了数据一致性问题。
+HDFS中的文件都是一次性写入的，并且严格要求任何时候只能有一个写入者。
+进程：NameNode, SecondaryNameNode, DataNode
+数据块副本存放策略（机架感知）：大多数情况下副本系数为3，HDFS的存放策略将一个副本存放在本地机架的节点上，一个副本放在同一机架的另一个节点上，最后一个副本放在不同机架的节点上。
+读取策略：尽量读取距离最近的副本。
+安全模式：处于安全模式的Namenode是不会进行数据块的复制的。每个数据块都有一个指定的最小副本数。当Namenode检测确认某个数据块的副本数目达到这个最小值，那么该数据块就会被认为是副本安全(safely replicated)的；在一定百分比（这个参数可配置）的数据块被Namenode检测确认是安全之后（加上一个额外的30秒等待时间），Namenode将退出安全模式状态。接下来它会确定还有哪些数据块的副本没有达到指定数目，并将这些数据块复制到其他Datanode上。
+HDFS不允许在同一个DataNode上存放多个相同的Block，因此副本可设置的最大数量为DataNode的数量。 当副本数大于3，则之后的副本随机选取存放的机架，每个机架可存放的副本上限为(replicas-1)/racks + 2
+通信协议：HDFS的通信协议都是建立在TCP/IP协议之上，client与NameNode之间使用ClientProtocol，DataNode与NameNode之间使用DatanodeProtocal。
+健壮性
+ 磁盘数据错误，心跳检测和重新复制：当DataNode宕机或者副本遭到破坏，副本系数增加等，经NameNode不断检测判断后启动重新复制。
+集群均衡：自动将数据移动到其它空闲的DataNode上；当某些文件请求增加，可启动计划重新创建新的副本并平衡集群数据。 数据完整性：计算数据块检验和，并将检验和以隐藏文件的形式存储到同一个HDFS命名空间下，客户端获取和进行检验，如果不对则读取其它副本。 元数据磁盘错误：支持维护多个fsimage 和Editlog，修改同步到副本上。
+ NameNode 管理整个HDFS集群的元数据：文件目录树，权限设置，副本数，BlockID，客户端对文件系统的访问等</description>
+    </item>
+    
+    <item>
       <title>Database&amp;SQL</title>
-      <link>https://slinviz.github.io/sql/db_sql/</link>
+      <link>https://slinviz.github.io/SQL/db_sql/</link>
       <pubDate>Wed, 03 Feb 2021 21:43:48 +0800</pubDate>
       
-      <guid>https://slinviz.github.io/sql/db_sql/</guid>
+      <guid>https://slinviz.github.io/SQL/db_sql/</guid>
       <description>1 基本概念 数据库DB：可以用计算机进行高效访问的，可以进行加工和处理的有组织的数据集合； 数据库管理系统DBMS：用来管理数据库的计算机软件； SQL：Structured Query Language 即结构化查询语言。 使用数据库管理系统的好处：共享数据、海量数据管理、容错、故障恢复、自动化。
 DBMS   层次数据库HDB： 数据以层次结构（树形结构）进行组织； 关系数据库RDB： 二维表形式组织数据； 面向对象数据库OODB： 把数据及对数据的操作集合起来以对象为单位进行管理； XML数据库 XMLDB： 以XML形式进行数据组织和高速处理； 键值存储系统KVS： 使用主键（Key）和值（Value）的组合的数据库。   RDBMS表结构 列（字段）：数据项目 行（记录）：数据 关系数据库必须以行为单位进行数据读写。
 SQL  SQL可分为DDL、DML和DCL。
@@ -33,6 +60,23 @@ SQL  SQL可分为DDL、DML和DCL。
 ${M2_HOME}/conf/setting.xml # 全局配置 ${user.home}/.m2/setting.xml # 用户配置 # 两个配置文件允许同时存在,同时存在时内容会被合并-用户配置优先 本地默认仓库 在setting.xml中找到localRepository选项,然后修改路径即可.
 &amp;lt;!-- path to the local repository default ${user.home}/.m2/repository --&amp;gt; &amp;lt;localRepository&amp;gt;/path/to/local/repo&amp;lt;/localRepository&amp;gt; 远程仓库 修改远程仓库地址需要在mirrors中的mirror选项中进行配置.
 &amp;lt;!-- &amp;lt;mirrors&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;mirrorId&amp;lt;/id&amp;gt; &amp;lt;mirrorOf&amp;gt;repositoryId&amp;lt;/mirrorOf&amp;gt; &amp;lt;name&amp;gt;Human readable name for this mirror&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://my.repository.com/repo/path&amp;lt;/url&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;mirror&amp;gt; .... &amp;lt;/mirror&amp;gt; &amp;lt;/mirrors&amp;gt; --&amp;gt; &amp;lt;mirrors&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public&amp;lt;/url&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;/mirrors&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://slinviz.github.io/papers/TPDS/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://slinviz.github.io/papers/TPDS/</guid>
+      <description>背景 边缘异构环境下，由于设备异构（如硬件、软件栈等）导致基于Gossip的深度学习模型训练收敛速度慢和额外延迟。
+目的 提出新的方法，旨在加速边缘异构环境下基于Gossip的深度学习模型训练。
+方法 核心思想：让慢的节点跟上快的节点，根据每个边缘计算节点的性能，动态调整该节点需要处理（训练）的数据，即计算能力较差的节点只需要处理对模型参数更新影响大的那一小部分数据，使得整个系统中各节点训练步调基本一致，减少模型训练的时间。 关键：
+ 如何识别和删除训练过程中对模型参数更新影响较小那部分数据？ 随着模型的训练，冗余的数据比例增大，且冗余数据随模型训练会有所迁移，如何解决？  1. 聚合数据点的应用 根据训练数据间的相似性，将高度相似的数据聚合在一起，使用它们的平均来近似表示这部分高度相似的数据。 对每个节点上的数据单独生成压缩点，并且只在训练开始之前生成一次。 为了减少生成聚合数据点的开销，先对原始数据进行降维，然后根据降维后的数据的相似性进行划分，最后根据划分结果生成聚合数据点。 降维：SVD，Incremental SVD， Hash 划分：LSH，K-Means 聚合：均值
+2. 节点性能评估模块 负责评估当前节点的性能。具体地，采集当前节点完成一个迭代所需要的时间，并像Gossip训练平衡模块报告结果。
+3. Gossip训练平衡模块 根据各个节点性能评估模块报告的信息，以运行最快的节点为基础，计算其它个节点需要删除的冗余数据的比例并反馈给各节点。
+4. 精度感知的训练模块 评估指标：当前模型在聚合数据点的损失值 聚合数据点的损失值以批量的形式计算。 使用聚合数据点评估训练数据对当前模型参数更新的影响，排序后删除影响较小的部分训练数据，比例由Gossip训练平衡模块确定。
+评估 1CPU（Intel E5-2695） + 2GPU（12GB TiTAN Xp, 11G GeForce RTX 2080Ti） 服务器
+LeNet AlexNet SqueezeNet MobileNet-v2 MNIST CIFAR10 lr=0.01 bs=64 momentum=0.9</description>
     </item>
     
   </channel>

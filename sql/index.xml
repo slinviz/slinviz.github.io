@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SQLs on Lin&#39;s Hugo Site</title>
-    <link>https://slinviz.github.io/sql/</link>
-    <description>Recent content in SQLs on Lin&#39;s Hugo Site</description>
+    <title>SQL on Lin&#39;s Blog Site</title>
+    <link>https://slinviz.github.io/SQL/</link>
+    <description>Recent content in SQL on Lin&#39;s Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Feb 2021 21:43:48 +0800</lastBuildDate>
     
-	<atom:link href="https://slinviz.github.io/sql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://slinviz.github.io/SQL/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Database&amp;SQL</title>
-      <link>https://slinviz.github.io/sql/db_sql/</link>
+      <link>https://slinviz.github.io/SQL/db_sql/</link>
       <pubDate>Wed, 03 Feb 2021 21:43:48 +0800</pubDate>
       
-      <guid>https://slinviz.github.io/sql/db_sql/</guid>
+      <guid>https://slinviz.github.io/SQL/db_sql/</guid>
       <description>1 基本概念 数据库DB：可以用计算机进行高效访问的，可以进行加工和处理的有组织的数据集合； 数据库管理系统DBMS：用来管理数据库的计算机软件； SQL：Structured Query Language 即结构化查询语言。 使用数据库管理系统的好处：共享数据、海量数据管理、容错、故障恢复、自动化。
 DBMS   层次数据库HDB： 数据以层次结构（树形结构）进行组织； 关系数据库RDB： 二维表形式组织数据； 面向对象数据库OODB： 把数据及对数据的操作集合起来以对象为单位进行管理； XML数据库 XMLDB： 以XML形式进行数据组织和高速处理； 键值存储系统KVS： 使用主键（Key）和值（Value）的组合的数据库。   RDBMS表结构 列（字段）：数据项目 行（记录）：数据 关系数据库必须以行为单位进行数据读写。
 SQL  SQL可分为DDL、DML和DCL。

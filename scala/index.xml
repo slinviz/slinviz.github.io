@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scalas on Lin&#39;s Hugo Site</title>
+    <title>Scala on Lin&#39;s Blog Site</title>
     <link>https://slinviz.github.io/scala/</link>
-    <description>Recent content in Scalas on Lin&#39;s Hugo Site</description>
+    <description>Recent content in Scala on Lin&#39;s Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 Jan 2021 14:37:20 +0800</lastBuildDate>
