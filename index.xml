@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Main on Lin&#39;s Blog Site</title>
+    <title>Lin on Lin&#39;s Blog Site</title>
     <link>https://slinviz.github.io/</link>
-    <description>Recent content in Main on Lin&#39;s Blog Site</description>
+    <description>Recent content in Lin on Lin&#39;s Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -29,10 +29,10 @@ LeNet AlexNet SqueezeNet MobileNet-v2 MNIST CIFAR10 lr=0.01 bs=64 momentum=0.9</
     
     <item>
       <title>Hadoop Overview</title>
-      <link>https://slinviz.github.io/hadoop/overview/</link>
+      <link>https://slinviz.github.io/bigdata/hadoop/overview/</link>
       <pubDate>Sat, 13 Feb 2021 20:38:25 +0800</pubDate>
       
-      <guid>https://slinviz.github.io/hadoop/overview/</guid>
+      <guid>https://slinviz.github.io/bigdata/hadoop/overview/</guid>
       <description>1. Hadoop 大规模分布式计算框架，支持扩展到数千台服务器，每台服务器都提供本地存储和计算，自带应用层故障检测和故障处理。
  高可靠性 高扩展性 高效性 高容错性 低成本  Hadoop的适用场景
  特别适合写一次，读多次的场景
@@ -57,10 +57,10 @@ HDFS不允许在同一个DataNode上存放多个相同的Block，因此副本可
     
     <item>
       <title>DBSQL</title>
-      <link>https://slinviz.github.io/SQL/dbsql/</link>
+      <link>https://slinviz.github.io/database/dbsql/</link>
       <pubDate>Wed, 03 Feb 2021 21:43:48 +0800</pubDate>
       
-      <guid>https://slinviz.github.io/SQL/dbsql/</guid>
+      <guid>https://slinviz.github.io/database/dbsql/</guid>
       <description>1 基本概念 数据库DB：可以用计算机进行高效访问的，可以进行加工和处理的有组织的数据集合；
 数据库管理系统DBMS：用来管理数据库的计算机软件；
 SQL：Structured Query Language 即结构化查询语言;
@@ -72,10 +72,10 @@ SQL  SQL可分为DDL、DML和DCL。
     
     <item>
       <title>Mvn Repo Modify</title>
-      <link>https://slinviz.github.io/scala/mvn-repo/</link>
+      <link>https://slinviz.github.io/programminglanguage/scala/mvn-repo/</link>
       <pubDate>Fri, 08 Jan 2021 14:37:20 +0800</pubDate>
       
-      <guid>https://slinviz.github.io/scala/mvn-repo/</guid>
+      <guid>https://slinviz.github.io/programminglanguage/scala/mvn-repo/</guid>
       <description>可以直接修改${M2_HOME}/conf/settings.xml,也可以复制到${HOME}/.m2/,然后修改setting.xml文件.
 ${M2_HOME}/conf/setting.xml # 全局配置 ${user.home}/.m2/setting.xml # 用户配置 # 两个配置文件允许同时存在,同时存在时内容会被合并-用户配置优先 本地默认仓库 在setting.xml中找到localRepository选项,然后修改路径即可.
 &amp;lt;!-- path to the local repository default ${user.home}/.m2/repository --&amp;gt; &amp;lt;localRepository&amp;gt;/path/to/local/repo&amp;lt;/localRepository&amp;gt; 远程仓库 修改远程仓库地址需要在mirrors中的mirror选项中进行配置.

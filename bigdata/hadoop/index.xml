@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hadoop on Lin&#39;s Blog Site</title>
-    <link>https://slinviz.github.io/hadoop/</link>
+    <link>https://slinviz.github.io/bigdata/hadoop/</link>
     <description>Recent content in Hadoop on Lin&#39;s Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://slinviz.github.io/hadoop/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://slinviz.github.io/bigdata/hadoop/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hadoop Overview</title>
-      <link>https://slinviz.github.io/hadoop/overview/</link>
+      <link>https://slinviz.github.io/bigdata/hadoop/overview/</link>
       <pubDate>Sat, 13 Feb 2021 20:38:25 +0800</pubDate>
       
-      <guid>https://slinviz.github.io/hadoop/overview/</guid>
+      <guid>https://slinviz.github.io/bigdata/hadoop/overview/</guid>
       <description>1. Hadoop 大规模分布式计算框架，支持扩展到数千台服务器，每台服务器都提供本地存储和计算，自带应用层故障检测和故障处理。
  高可靠性 高扩展性 高效性 高容错性 低成本  Hadoop的适用场景
  特别适合写一次，读多次的场景
