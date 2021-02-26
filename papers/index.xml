@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Papers on Lin&#39;s Blog Site</title>
+    <title>Paper Review on Lin&#39;s Blog Site</title>
     <link>https://slinviz.github.io/papers/</link>
-    <description>Recent content in Papers on Lin&#39;s Blog Site</description>
+    <description>Recent content in Paper Review on Lin&#39;s Blog Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -11,9 +11,9 @@
     
     
     <item>
-      <title></title>
+      <title>TPDS</title>
       <link>https://slinviz.github.io/papers/TPDS/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 26 Feb 2021 19:42:14 +0800</pubDate>
       
       <guid>https://slinviz.github.io/papers/TPDS/</guid>
       <description>背景 边缘异构环境下，由于设备异构（如硬件、软件栈等）导致基于Gossip的深度学习模型训练收敛速度慢和额外延迟。

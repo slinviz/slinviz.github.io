@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://slinviz.github.io/hadoop/</loc>
-    <lastmod>2021-02-26T16:43:21+08:00</lastmod>
+    <loc>https://slinviz.github.io/papers/TPDS/</loc>
+    <lastmod>2021-02-26T19:47:09+08:00</lastmod>
   </url>
   
   <url>
@@ -18,27 +18,17 @@
   </url>
   
   <url>
-    <loc>https://slinviz.github.io/SQL/</loc>
-    <lastmod>2021-02-03T22:34:21+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://slinviz.github.io/scala/mvn-repo/</loc>
     <lastmod>2021-01-08T15:04:55+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slinviz.github.io/scala/</loc>
-    <lastmod>2021-01-08T15:04:55+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slinviz.github.io/papers/TPDS/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://slinviz.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/hadoop/</loc>
+    <lastmod>2021-02-26T19:47:09+08:00</lastmod>
   </url>
   
   <url>
@@ -48,6 +38,17 @@
   
   <url>
     <loc>https://slinviz.github.io/papers/</loc>
+    <lastmod>2021-02-26T19:47:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/scala/</loc>
+    <lastmod>2021-02-26T19:47:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/SQL/</loc>
+    <lastmod>2021-02-26T19:47:09+08:00</lastmod>
   </url>
   
   <url>
