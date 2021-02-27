@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Mermaidtest</title>
+      <link>https://slinviz.github.io/papers/mermaidtest/</link>
+      <pubDate>Fri, 26 Feb 2021 22:50:38 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/papers/mermaidtest/</guid>
+      <description>Test Mermaid Pie   document.addEventListener(&#34;DOMContentLoaded&#34;, function(event) { mermaid.initialize({ flowchart: { useMaxWidth: true } }); });  pie title Pets adopted by volunteers &#34;Dogs&#34; : 386 &#34;Cats&#34; : 85 &#34;Rats&#34; : 15  Journel sequenceDiagram Alice-Bob: Hello Bob, how are you? alt is sick Bob-Alice: Not so good :( else is well Bob-Alice: Feeling fresh like a daisy end opt Extra response Bob-Alice: Thanks for asking end  Graph graph TD A[Start] -- B{Is it?</description>
+    </item>
+    
+    <item>
       <title>TPDS</title>
       <link>https://slinviz.github.io/papers/TPDS/</link>
       <pubDate>Fri, 26 Feb 2021 19:42:14 +0800</pubDate>

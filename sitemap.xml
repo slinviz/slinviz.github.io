@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://slinviz.github.io/papers/mermaidtest/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/papers/TPDS/</loc>
     <lastmod>2021-02-26T19:47:09+08:00</lastmod>
   </url>
@@ -24,6 +29,7 @@
   
   <url>
     <loc>https://slinviz.github.io/bigdata/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
   </url>
   
   <url>
@@ -31,8 +37,18 @@
   </url>
   
   <url>
+    <loc>https://slinviz.github.io/programmingbasic/dsalg/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/bigdata/hadoop/</loc>
-    <lastmod>2021-02-26T21:09:29+08:00</lastmod>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/programminglanguage/java/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
   </url>
   
   <url>
@@ -41,26 +57,67 @@
   </url>
   
   <url>
+    <loc>https://slinviz.github.io/machinelearning/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/database/mysql/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/programmingbasic/os/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/papers/</loc>
     <lastmod>2021-02-26T19:47:09+08:00</lastmod>
   </url>
   
   <url>
+    <loc>https://slinviz.github.io/programmingbasic/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/programminglanguage/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/programminglanguage/python/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/database/redis/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/programminglanguage/scala/</loc>
-    <lastmod>2021-02-26T21:09:29+08:00</lastmod>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/bigdata/spark/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/database/</loc>
-    <lastmod>2021-02-26T21:09:29+08:00</lastmod>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/programmingbasic/cn/</loc>
+    <lastmod>2021-02-27T08:32:13+08:00</lastmod>
   </url>
   
 </urlset>

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="BigData">
+<meta name="description" content="Mermaidtest">
 
-<title>BigData | Lin&#39;s Blog Site</title>
+<title>Mermaidtest | Lin&#39;s Blog Site</title>
 
 <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -31,7 +31,6 @@
 <link rel="preload" href="/custom.css" as="style">
 <link rel="stylesheet" href="/custom.css" media="all">
 
-<link rel="alternate" type="application/rss+xml" href="https://slinviz.github.io/bigdata/index.xml" title="Lin's Blog Site" />
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
 </head>
@@ -218,7 +217,7 @@
 
             <li>
             
-            <input type="checkbox" id="navtree-49728d74" class="gdoc-nav__toggle" >
+            <input type="checkbox" id="navtree-49728d74" class="gdoc-nav__toggle" checked>
             <label for="navtree-49728d74" class="flex justify-between">
             
             
@@ -250,7 +249,7 @@
             
             
                 <span class="flex">
-                    <a href="/papers/mermaidtest/" class="gdoc-nav__entry ">
+                    <a href="/papers/mermaidtest/" class="gdoc-nav__entry is-active">
                         Mermaidtest
                     </a>
                 </span>
@@ -757,7 +756,15 @@
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>BigData</span><meta itemprop='position' content='2' /></li>
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/papers/' href='/papers/'><span itemprop='name'>Paper Review</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Mermaidtest</span><meta itemprop='position' content='3' /></li>
+    
+
     
 
     
@@ -769,7 +776,7 @@
     <div>
         <span class="editpage">
             <svg class="icon code"><use xlink:href="#code"></use></svg>
-            <a href="https://github.com/slinviz/linblog/tree/main/content/bigdata/_index.md">
+            <a href="https://github.com/slinviz/linblog/tree/main/content/papers/mermaidtest.md">
                 Edit this page
             </a>
         </span>
@@ -777,9 +784,60 @@
     
 </div>
 
+
     <article class="gdoc-markdown">
-        <h1>BigData</h1>
-        
+        <h1>Mermaidtest</h1>
+        <h1 id="test-mermaid">Test Mermaid</h1>
+<h2 id="pie">Pie</h2>
+
+
+<script defer src="/js/mermaid-71505ed73e.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        mermaid.initialize({
+            flowchart: { useMaxWidth: true }
+        });
+    });
+</script>
+
+
+
+<pre class="gdoc-mermaid mermaid">
+    pie title Pets adopted by volunteers
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 15
+</pre>
+
+<h2 id="journel">Journel</h2>
+
+
+<pre class="gdoc-mermaid mermaid">
+sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you?
+    alt is sick
+        Bob->>Alice: Not so good :(
+    else is well
+        Bob->>Alice: Feeling fresh like a daisy
+    end
+    opt Extra response
+        Bob->>Alice: Thanks for asking
+    end
+</pre>
+
+<h2 id="graph">Graph</h2>
+
+
+<pre class="gdoc-mermaid mermaid">
+    graph TD
+    A[Start] --> B{Is it?};
+    B -->|Yes| C[OK];
+    C --> D[Rethink];
+    D --> B;
+    B ---->|No| E[End];
+</pre>
+
+
 
     </article>
 
