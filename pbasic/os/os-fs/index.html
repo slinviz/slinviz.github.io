@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="文件管理">
+
+<title>文件管理 | Lin&#39;s Doc Site</title>
+
+<link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
+
+<link rel="preload" as="font" href="/fonts/Metropolis.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-Bold.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-BoldItalic.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-Italic.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationMono.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/DroidSans.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/GeekdocIcons.woff2" type="font/woff2" crossorigin="anonymous">
+
+<link rel="preload" href="/main-f5793ba4b9.min.css" as="style">
+<link rel="stylesheet" href="/main-f5793ba4b9.min.css" media="all">
+
+<link rel="preload" href="/mobile-2eb10ce87d.min.css" as="style">
+<link rel="stylesheet" href="/mobile-2eb10ce87d.min.css" media="screen and (max-width: 45rem)">
+
+<link rel="preload" href="/print-f79fc3e5d7.min.css" as="style">
+<link rel="stylesheet" href="/print-f79fc3e5d7.min.css" media="print">
+
+<link rel="preload" href="/custom.css" as="style">
+<link rel="stylesheet" href="/custom.css" media="all">
+
+<!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
+
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage">
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_back" xmlns="http://www.w3.org/2000/svg"><path d="M24 10.526v2.947H5.755l8.351 8.421-2.105 2.105-12-12 12-12 2.105 2.105-8.351 8.421H24z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_left_alt" xmlns="http://www.w3.org/2000/svg"><path d="M5.965 10.526V6.035L0 12l5.965 5.965v-4.491H24v-2.947H5.965z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_right_alt" xmlns="http://www.w3.org/2000/svg"><path d="M18.035 10.526V6.035L24 12l-5.965 5.965v-4.491H0v-2.947h18.035z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="bitbucket" xmlns="http://www.w3.org/2000/svg"><path d="M15.905 13.355c.189 1.444-1.564 2.578-2.784 1.839-1.375-.602-1.375-2.784-.034-3.403 1.151-.705 2.818.223 2.818 1.564zm1.907-.361c-.309-2.44-3.076-4.056-5.328-3.042-1.426.636-2.389 2.148-2.32 3.747.086 2.097 2.08 3.815 4.176 3.626s3.729-2.234 3.472-4.331zm4.108-9.315c-.756-.997-2.045-1.169-3.179-1.358-3.214-.516-6.513-.533-9.727.034-1.066.172-2.269.361-2.939 1.323 1.1 1.031 2.664 1.186 4.073 1.358 2.544.327 5.156.344 7.699.017 1.426-.172 3.008-.309 4.073-1.375zm.979 17.788c-.481 1.684-.206 3.953-1.994 4.932-3.076 1.701-6.806 1.89-10.191 1.289-1.787-.327-3.884-.894-4.864-2.578-.43-1.65-.705-3.334-.98-5.018l.103-.275.309-.155c5.121 3.386 12.288 3.386 17.427 0 .808.241.206 1.22.189 1.805zM26.01 4.951c-.584 3.764-1.255 7.51-1.908 11.257-.189 1.1-1.255 1.719-2.148 2.183-3.214 1.615-6.96 1.89-10.483 1.512-2.389-.258-4.829-.894-6.771-2.389-.911-.705-.911-1.908-1.083-2.922-.602-3.523-1.289-7.046-1.719-10.604.206-1.547 1.942-2.217 3.231-2.698C6.848.654 8.686.362 10.508.19c3.884-.378 7.854-.241 11.618.859 1.341.395 2.784.945 3.695 2.097.412.533.275 1.203.189 1.805z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="bookmark" xmlns="http://www.w3.org/2000/svg"><path d="M15.268 4.392q.868 0 1.532.638t.664 1.506v17.463l-7.659-3.268-7.608 3.268V6.536q0-.868.664-1.506t1.532-.638h10.876zm4.34 14.144V4.392q0-.868-.638-1.532t-1.506-.664H6.537q0-.868.664-1.532T8.733 0h10.876q.868 0 1.532.664t.664 1.532v17.412z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="code" xmlns="http://www.w3.org/2000/svg"><path d="M9.917 24.5a1.75 1.75 0 10-3.501.001 1.75 1.75 0 003.501-.001zm0-21a1.75 1.75 0 10-3.501.001A1.75 1.75 0 009.917 3.5zm11.666 2.333a1.75 1.75 0 10-3.501.001 1.75 1.75 0 003.501-.001zm1.75 0a3.502 3.502 0 01-1.75 3.026c-.055 6.581-4.721 8.039-7.82 9.023-2.898.911-3.846 1.349-3.846 3.117v.474a3.502 3.502 0 011.75 3.026c0 1.932-1.568 3.5-3.5 3.5s-3.5-1.568-3.5-3.5c0-1.294.711-2.424 1.75-3.026V6.526A3.502 3.502 0 014.667 3.5c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5a3.502 3.502 0 01-1.75 3.026v9.06c.93-.456 1.914-.766 2.807-1.039 3.391-1.075 5.323-1.878 5.359-5.687a3.502 3.502 0 01-1.75-3.026c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="date" xmlns="http://www.w3.org/2000/svg"><path d="M27.192 28.844V11.192H4.808v17.652h22.384zm0-25.689q1.277 0 2.253.976t.976 2.253v22.459q0 1.277-.976 2.216t-2.253.939H4.808q-1.352 0-2.291-.901t-.939-2.253V6.385q0-1.277.939-2.253t2.291-.976h1.577V.001h3.23v3.155h12.769V.001h3.23v3.155h1.577zm-3.155 11.267v3.155h-3.23v-3.155h3.23zm-6.46 0v3.155h-3.155v-3.155h3.155zm-6.384 0v3.155h-3.23v-3.155h3.23z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="download" xmlns="http://www.w3.org/2000/svg"><path d="M2.866 28.209h26.269v3.79H2.866v-3.79zm26.268-16.925L16 24.418 2.866 11.284h7.493V.001h11.283v11.283h7.493z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="email" xmlns="http://www.w3.org/2000/svg"><path d="M28.845 9.615v-3.23L16 14.422 3.155 6.385v3.23L16 17.577zm0-6.46q1.277 0 2.216.977T32 6.385v19.23q0 1.277-.939 2.253t-2.216.977H3.155q-1.277 0-2.216-.977T0 25.615V6.385q0-1.277.939-2.253t2.216-.977h25.69z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="git" xmlns="http://www.w3.org/2000/svg"><path d="M27.472 12.753L15.247.529a1.803 1.803 0 00-2.55 0l-2.84 2.84 2.137 2.137a2.625 2.625 0 013.501 3.501l3.499 3.499a2.625 2.625 0 11-1.237 1.237l-3.499-3.499c-.083.04-.169.075-.257.106v7.3a2.626 2.626 0 11-1.75 0v-7.3a2.626 2.626 0 01-1.494-3.607L8.62 4.606l-8.09 8.09a1.805 1.805 0 000 2.551l12.225 12.224a1.803 1.803 0 002.55 0l12.168-12.168a1.805 1.805 0 000-2.551z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="github" xmlns="http://www.w3.org/2000/svg"><path d="M16 .394c8.833 0 15.999 7.166 15.999 15.999 0 7.062-4.583 13.062-10.937 15.187-.813.146-1.104-.354-1.104-.771 0-.521.021-2.25.021-4.396 0-1.5-.5-2.458-1.083-2.958 3.562-.396 7.312-1.75 7.312-7.896 0-1.75-.625-3.167-1.646-4.291.167-.417.708-2.042-.167-4.25-1.333-.417-4.396 1.646-4.396 1.646a15.032 15.032 0 00-8 0S8.937 6.602 7.603 7.018c-.875 2.208-.333 3.833-.167 4.25-1.021 1.125-1.646 2.542-1.646 4.291 0 6.125 3.729 7.5 7.291 7.896-.458.417-.875 1.125-1.021 2.146-.917.417-3.25 1.125-4.646-1.333-.875-1.521-2.458-1.646-2.458-1.646-1.562-.021-.104.979-.104.979 1.042.479 1.771 2.333 1.771 2.333.938 2.854 5.396 1.896 5.396 1.896 0 1.333.021 2.583.021 2.979 0 .417-.292.917-1.104.771C4.582 29.455-.001 23.455-.001 16.393-.001 7.56 7.165.394 15.998.394zM6.063 23.372c.042-.083-.021-.187-.146-.25-.125-.042-.229-.021-.271.042-.042.083.021.187.146.25.104.062.229.042.271-.042zm.646.709c.083-.062.062-.208-.042-.333-.104-.104-.25-.146-.333-.062-.083.062-.062.208.042.333.104.104.25.146.333.062zm.625.937c.104-.083.104-.25 0-.396-.083-.146-.25-.208-.354-.125-.104.062-.104.229 0 .375s.271.208.354.146zm.875.875c.083-.083.042-.271-.083-.396-.146-.146-.333-.167-.417-.062-.104.083-.062.271.083.396.146.146.333.167.417.062zm1.187.521c.042-.125-.083-.271-.271-.333-.167-.042-.354.021-.396.146s.083.271.271.312c.167.062.354 0 .396-.125zm1.313.104c0-.146-.167-.25-.354-.229-.187 0-.333.104-.333.229 0 .146.146.25.354.229.187 0 .333-.104.333-.229zm1.208-.208c-.021-.125-.187-.208-.375-.187-.187.042-.312.167-.292.312.021.125.187.208.375.167s.312-.167.292-.292z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gitlab" xmlns="http://www.w3.org/2000/svg"><path d="M1.629 11.034L14 26.888.442 17.048a1.09 1.09 0 01-.39-1.203l1.578-4.811zm7.217 0h10.309l-5.154 15.854zM5.753 1.475l3.093 9.559H1.63l3.093-9.559a.548.548 0 011.031 0zm20.618 9.559l1.578 4.811c.141.437-.016.922-.39 1.203l-13.558 9.84 12.371-15.854zm0 0h-7.216l3.093-9.559a.548.548 0 011.031 0z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="heart" xmlns="http://www.w3.org/2000/svg"><path d="M16 29.714a1.11 1.11 0 01-.786-.321L4.072 18.643c-.143-.125-4.071-3.714-4.071-8 0-5.232 3.196-8.357 8.535-8.357 3.125 0 6.053 2.464 7.464 3.857 1.411-1.393 4.339-3.857 7.464-3.857 5.339 0 8.535 3.125 8.535 8.357 0 4.286-3.928 7.875-4.089 8.035L16.785 29.392c-.214.214-.5.321-.786.321z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="keyborad_arrow_down" xmlns="http://www.w3.org/2000/svg"><path d="M3.281 5.36L14 16.079 24.719 5.36 28 8.641l-14 14-14-14z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="keyborad_arrow_left" xmlns="http://www.w3.org/2000/svg"><path d="M25.875 28.25L22.125 32 6.126 16.001 22.125.002l3.75 3.75-12.25 12.25z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="keyborad_arrow_right" xmlns="http://www.w3.org/2000/svg"><path d="M6.125 28.25L18.375 16 6.125 3.75 9.875 0l15.999 15.999L9.875 31.998z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="link" xmlns="http://www.w3.org/2000/svg"><path d="M24.037 7.963q3.305 0 5.634 2.366T32 16t-2.329 5.671-5.634 2.366h-6.46v-3.08h6.46q2.028 0 3.493-1.465t1.465-3.493-1.465-3.493-3.493-1.465h-6.46v-3.08h6.46zM9.615 17.578v-3.155h12.77v3.155H9.615zM3.005 16q0 2.028 1.465 3.493t3.493 1.465h6.46v3.08h-6.46q-3.305 0-5.634-2.366T0 16.001t2.329-5.671 5.634-2.366h6.46v3.08h-6.46q-2.028 0-3.493 1.465t-1.465 3.493z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="menu" xmlns="http://www.w3.org/2000/svg"><path d="M.001 5.334h31.998v3.583H.001V5.334zm0 12.416v-3.5h31.998v3.5H.001zm0 8.916v-3.583h31.998v3.583H.001z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="notification" xmlns="http://www.w3.org/2000/svg"><path d="M22.615 19.384l2.894 2.894v1.413H2.49v-1.413l2.894-2.894V12.25q0-3.365 1.716-5.856t4.745-3.231v-1.01q0-.875.606-1.514T13.999 0t1.548.639.606 1.514v1.01q3.029.74 4.745 3.231t1.716 5.856v7.134zM14 27.999q-1.211 0-2.053-.808t-.841-2.019h5.788q0 1.144-.875 1.986T14 27.999z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="path" xmlns="http://www.w3.org/2000/svg"><path d="M28 12.62h-9.793V8.414h-2.826v11.173h2.826v-4.206H28V26.62h-9.793v-4.206H12.62v-14H9.794v4.206H.001V1.381h9.793v4.206h8.413V1.381H28V12.62z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="person" xmlns="http://www.w3.org/2000/svg"><path d="M16 20.023q5.052 0 10.526 2.199t5.473 5.754v4.023H0v-4.023q0-3.555 5.473-5.754t10.526-2.199zM16 16q-3.275 0-5.614-2.339T8.047 8.047t2.339-5.661T16 0t5.614 2.386 2.339 5.661-2.339 5.614T16 16z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="search" xmlns="http://www.w3.org/2000/svg"><path d="M11.925 20.161q3.432 0 5.834-2.402t2.402-5.834-2.402-5.834-5.834-2.402-5.834 2.402-2.402 5.834 2.402 5.834 5.834 2.402zm10.981 0L32 29.255 29.255 32l-9.094-9.094v-1.458l-.515-.515q-3.26 2.831-7.721 2.831-4.976 0-8.45-3.432T.001 11.925t3.474-8.45 8.45-3.474 8.407 3.474 3.432 8.45q0 1.802-.858 4.075t-1.973 3.646l.515.515h1.458z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="shield" xmlns="http://www.w3.org/2000/svg"><path d="M22.167 15.166V3.5h-8.166v20.726c.93-.492 2.424-1.349 3.883-2.497 1.95-1.531 4.284-3.919 4.284-6.562zm3.499-13.999v14c0 7.674-10.737 12.523-11.192 12.724-.146.073-.31.109-.474.109s-.328-.036-.474-.109c-.456-.201-11.192-5.049-11.192-12.724v-14C2.334.529 2.863 0 3.501 0H24.5c.638 0 1.167.529 1.167 1.167z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="tags" xmlns="http://www.w3.org/2000/svg"><path d="M6.606 7.549c0-1.047-.84-1.887-1.887-1.887s-1.887.84-1.887 1.887.84 1.887 1.887 1.887 1.887-.84 1.887-1.887zm15.732 8.493c0 .501-.206.988-.546 1.327l-7.239 7.254c-.354.339-.84.546-1.342.546s-.988-.206-1.327-.546L1.342 14.066C.59 13.329 0 11.899 0 10.852V4.718a1.9 1.9 0 011.887-1.887h6.134c1.047 0 2.477.59 3.229 1.342L21.792 14.7c.339.354.546.84.546 1.342zm5.661 0c0 .501-.206.988-.546 1.327l-7.239 7.254c-.354.339-.84.546-1.342.546-.767 0-1.15-.354-1.651-.87l6.93-6.93c.339-.339.546-.826.546-1.327s-.206-.988-.546-1.342L13.609 4.173c-.752-.752-2.182-1.342-3.229-1.342h3.303c1.047 0 2.477.59 3.229 1.342L27.454 14.7c.339.354.546.84.546 1.342z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="telescope" xmlns="http://www.w3.org/2000/svg"><path d="M25.026 3.335a.466.466 0 00-.646-.238L13.362 8.91a.463.463 0 00-.216.575l.227.593-6.36 3.488a.462.462 0 00-.205.583l.211.508-6.755 3.228a.463.463 0 00-.228.595l1.386 3.341a.463.463 0 00.583.259l7.056-2.5.211.508a.462.462 0 00.557.267l6.733-1.941.202.527a.46.46 0 00.566.277l12.03-3.702a.46.46 0 00.293-.613L25.026 3.335zM2.109 21.061l-1.049-2.53 6.314-3.018 1.332 3.211-6.596 2.337zm7.857-1.708l-.22-.531-1.706-4.113-.22-.53 5.863-3.216 2.197 5.676.347.908-6.261 1.806zm7.505-1.146l-.188-.491c-.003-.01-.001-.022-.006-.032l-.572-1.478-2.549-6.668 10.201-5.381 4.249 10.624-11.136 3.428zm8.943-16.723a.463.463 0 00-.86.344l5.552 13.881a.464.464 0 00.602.258.464.464 0 00.258-.602L26.413 1.484zM16.268 20.627h-2.776c-1.055 0-1.851.796-1.851 1.851v1.217l-5.44 6.347a.462.462 0 10.702.602l5.415-6.316h2.101v6.015a.463.463 0 00.926 0v-6.015h2.101l5.414 6.316a.462.462 0 10.703-.602l-5.44-6.347v-1.148c0-1.076-.813-1.92-1.851-1.92zm.925 2.777h-4.627v-.925c0-.545.38-.925.925-.925h2.776c.527 0 .925.428.925.995v.856z"/></symbol></svg>
+
+    <div class="wrapper">
+        <input type="checkbox" class="hidden" id="menu-control" />
+        <header class="gdoc-header">
+    <div class="container flex align-center justify-between">
+        
+        <label for="menu-control" class="gdoc-nav__control">
+            <svg class="icon menu"><use xlink:href="#menu"></use></svg>
+            <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
+        </label>
+        
+        <a class="gdoc-header__link" href="https://slinviz.github.io/">
+            <span class="gdoc-brand flex align-center">
+                <img class="gdoc-brand__img" src="/logo.jpeg" alt="" width=38 height=38>
+                Lin&#39;s Doc Site
+            </span>
+        </a>
+    </div>
+</header>
+
+
+        <main class="container flex flex-even">
+            <aside class="gdoc-nav">
+                <nav>
+    
+    <div class="gdoc-search">
+        <svg class="icon search"><use xlink:href="#search"></use></svg>
+        <input type="text" id="gdoc-search-input" class="gdoc-search__input" placeholder="Search..."
+            aria-label="Search" maxlength="64" />
+        <div class="gdoc-search__spinner spinner hidden"></div>
+        <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
+    </div>
+
+
+
+    <section class="gdoc-nav--main">
+        <h2>Navigation</h2>
+        
+            
+
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">BigData</span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Hadoop</span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/bigdata/hadoop/overview/" class="gdoc-nav__entry ">
+                        Overview
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Spark</span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Machine Learning</span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-49728d74" class="gdoc-nav__toggle" >
+            <label for="navtree-49728d74" class="flex justify-between">
+            
+            
+                <span class="flex">Paper Review</span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/papers/mermaidtest/" class="gdoc-nav__entry ">
+                        Mermaidtest
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/papers/TPDS/" class="gdoc-nav__entry ">
+                        TPDS
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">数据库</span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/database/dbsql/" class="gdoc-nav__entry ">
+                        DBSQL
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">MySQL</span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Redis</span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">编程基础</span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">操作系统OS</span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/os/os-fs/" class="gdoc-nav__entry is-active">
+                        文件管理
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">数据结构与算法</span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/cn/" class="gdoc-nav__entry ">
+                        计算机网络
+                    </a>
+                </span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/cn/cn-arch/" class="gdoc-nav__entry ">
+                        OSI与TCP/IP架构
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/cn/cn-tcpudp/" class="gdoc-nav__entry ">
+                        TCP与UDP协议的区别
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/cn/cn-tcp/" class="gdoc-nav__entry ">
+                        TCP协议
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">编程语言</span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Java</span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Python</span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Scala</span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/plang/scala/mvn-repo/" class="gdoc-nav__entry ">
+                        Mvn Repo Modify
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+
+
+
+
+        
+    </section>
+
+    <section class="gdoc-nav--more">
+        
+            <h2>More</h2>
+            
+
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                <svg class="icon notification"><use xlink:href="#notification"></use></svg>
+                <a href="/"
+                    class="gdoc-nav__entry ">
+                    News
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                <svg class="icon download"><use xlink:href="#download"></use></svg>
+                <a href="https://github.com/slinviz/linblog/releases"
+                    class="gdoc-nav__entry ">
+                    Releases
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                <svg class="icon github"><use xlink:href="#github"></use></svg>
+                <a href="https://github.com/slinviz/linblog"
+                    class="gdoc-nav__entry ">
+                    View Source
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+
+
+
+
+        
+    </section>
+</nav>
+
+            </aside>
+
+            <div class="gdoc-page">
+                
+    
+
+
+    
+
+
+
+
+
+
+<div class="gdoc-page__header flex flex-wrap
+     justify-between 
+    
+    " itemprop="breadcrumb">
+    
+    <div>
+        <svg class="icon path hidden-mobile"><use xlink:href="#path"></use></svg>
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            
+            
+            
+            
+    
+    
+        
+        
+        
+        
+    
+    
+        
+        
+        
+        
+    
+    
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/pbasic/' href='/pbasic/'><span itemprop='name'>编程基础</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/pbasic/os/' href='/pbasic/os/'><span itemprop='name'>操作系统OS</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>文件管理</span><meta itemprop='position' content='4' /></li>
+    
+
+    
+
+    
+
+    
+
+        </ol>
+    </div>
+    
+    
+    <div>
+        <span class="editpage">
+            <svg class="icon code"><use xlink:href="#code"></use></svg>
+            <a href="https://github.com/slinviz/linblog/tree/main/content/pbasic/os/os-fs.md">
+                Edit this page
+            </a>
+        </span>
+    </div>
+    
+</div>
+
+
+    <article class="gdoc-markdown">
+        <h1>文件管理</h1>
+        
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-文件和文件系统">1. 文件和文件系统</a>
+      <ul>
+        <li><a href="#11-文件层次关系">1.1 文件层次关系</a>
+          <ul>
+            <li><a href="#111-数据项">1.1.1 数据项</a></li>
+            <li><a href="#112-记录">1.1.2 记录</a></li>
+            <li><a href="#113-文件">1.1.3 文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#12-文件类型">1.2 文件类型</a></li>
+        <li><a href="#13-文件系统模型">1.3 文件系统模型</a></li>
+        <li><a href="#14-文件操作">1.4 文件操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-文件的逻辑结构">2. 文件的逻辑结构</a>
+      <ul>
+        <li><a href="#21-记录式文件">2.1 记录式文件</a>
+          <ul>
+            <li><a href="#211-顺序文件">2.1.1 顺序文件</a></li>
+            <li><a href="#212-索引文件">2.1.2 索引文件</a></li>
+            <li><a href="#213-索引顺序文件">2.1.3 索引顺序文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#22-直接文件和哈希文件">2.2 直接文件和哈希文件</a>
+          <ul>
+            <li><a href="#221-直接文件">2.2.1 直接文件</a></li>
+            <li><a href="#222-哈希文件">2.2.2 哈希文件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-外存分配方式">3. 外存分配方式</a>
+      <ul>
+        <li><a href="#31-连续分配方式">3.1 连续分配方式</a></li>
+        <li><a href="#32-链接分配">3.2 链接分配</a></li>
+        <li><a href="#33-索引分配">3.3 索引分配</a>
+          <ul>
+            <li><a href="#331-单级索引分配">3.3.1 单级索引分配</a></li>
+            <li><a href="#332-多级索引分配">3.3.2 多级索引分配</a></li>
+            <li><a href="#333-混合索引分配">3.3.3 混合索引分配</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-目录管理">4. 目录管理</a>
+      <ul>
+        <li><a href="#41-文件控制块和索引节点">4.1 文件控制块和索引节点</a></li>
+        <li><a href="#42-文件目录结构">4.2 文件目录结构</a>
+          <ul>
+            <li><a href="#421-单级目录结构">4.2.1 单级目录结构</a></li>
+            <li><a href="#422-两级目录">4.2.2 两级目录</a></li>
+            <li><a href="#431-多级目录">4.3.1 多级目录</a></li>
+          </ul>
+        </li>
+        <li><a href="#43-目录查询技术">4.3 目录查询技术</a>
+          <ul>
+            <li><a href="#431-线性检索法">4.3.1 线性检索法</a></li>
+            <li><a href="#431-hash检索法">4.3.1 Hash检索法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5-文件存储空间管理">5. 文件存储空间管理</a>
+      <ul>
+        <li><a href="#51-空闲表法和空闲链表法">5.1 空闲表法和空闲链表法</a></li>
+        <li><a href="#52-位示图法">5.2 位示图法</a></li>
+        <li><a href="#53-成组链接法">5.3 成组链接法</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-文件共享与文件保护">6. 文件共享与文件保护</a>
+      <ul>
+        <li><a href="#61-文件共享">6.1 文件共享</a></li>
+        <li><a href="#62-文件保护">6.2 文件保护</a>
+          <ul>
+            <li><a href="#621-磁盘容错技术">6.2.1 磁盘容错技术</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#7-数据一致性控制">7. 数据一致性控制</a>
+      <ul>
+        <li><a href="#71-事务">7.1 事务</a></li>
+        <li><a href="#72-检查点">7.2 检查点</a></li>
+        <li><a href="#73-并发控制">7.3 并发控制</a></li>
+      </ul></nav><hr></div>
+
+
+<h1 id="1-文件和文件系统">1. 文件和文件系统</h1>
+<p>文件系统的管理功能是通过将其所管理的程序和数据组织成一系列文件来实现的。</p>
+<h2 id="11-文件层次关系">1.1 文件层次关系</h2>
+<h3 id="111-数据项">1.1.1 数据项</h3>
+<p>在文件系统中，数据项是最低级的数据组织形式，包括<strong>基本数据项</strong>和<strong>组合数据项</strong>。基本数据项是用于描述一个对象的某种属性的字符集，是数据组织中可以命名的最小逻辑数据单位，即原子数据，又称为数据元素或字段。组合数据项是有若干基本数据项组成的，简称组项。</p>
+<h3 id="112-记录">1.1.2 记录</h3>
+<p>记录是一组相关数据项的集合，用于描述一个对象在某方面的属性。</p>
+<h3 id="113-文件">1.1.3 文件</h3>
+<p>文件是指由创建者所定义的、具有文件名的一组相关记录的集合，可分为<strong>有结构文件</strong>（若干相关记录组成的文件）和<strong>无结构文件</strong>（文件被看做字符流）。文件具有自己的属性：文件类型、文件长度、文件的物理位置、文件的创建时间等。</p>
+<p><img src="/pbasic/os-fs-1.png" alt="文件、记录和数据项之间的层次关系"  /></p>
+<h2 id="12-文件类型">1.2 文件类型</h2>
+<ul>
+<li>普通文件：由ASCII码或二进制码组成的字符文件。</li>
+<li>目录文件：由文件目录组成，用来管理和实现文件系统功能的系统文件，通过目录文件可对其他文件的信息进行检索。</li>
+<li>特殊文件：特指系统中的各类I/O设备，可分为块设备文件和字符设备文件。</li>
+</ul>
+<h2 id="13-文件系统模型">1.3 文件系统模型</h2>
+<p>文件系统模型可分为三个层次：对象及其属性；对对象进行操纵和管理的软件集合；文件系统接口。</p>
+<p><img src="/pbasic/os-fs-2.png" alt="文件系统模型"  /></p>
+<blockquote class="gdoc-hint info">
+  <p><strong>对象及其属性</strong></p>
+<p>文件管理系统管理的对象有：</p>
+<ol>
+<li>文件：文件管理的直接对象</li>
+<li>目录：方便对文件的存取和索引，每个目录项中必须含有文件名及该文件所在的物理地址（指针）</li>
+<li>磁盘存储空间：文件和目录必定占用存储空间</li>
+</ol>
+
+</blockquote>
+
+<blockquote class="gdoc-hint info">
+  <p><strong>对对象操纵和管理的软件集合</strong></p>
+<p>文件系统的核心部分，主要功能包括：</p>
+<ol>
+<li>文件存储空间的管理</li>
+<li>文件目录的管理</li>
+<li>文件逻辑地址和物理地址的转换机制</li>
+<li>文件读写的管理</li>
+<li>文件共享和保护</li>
+</ol>
+
+</blockquote>
+
+<blockquote class="gdoc-hint info">
+  <strong>文件系统接口</strong></p>
+<ol>
+<li>命令接口</li>
+<li>程序接口：系统调用</li>
+</ol>
+</blockquote>
+
+<h2 id="14-文件操作">1.4 文件操作</h2>
+<ol>
+<li>创建文件：分配必要的外存空间，建立目录项</li>
+<li>删除文件：从目录中查找对应的目录项并使之成为空项，回收该文件占用的存储空间</li>
+<li>读文件</li>
+<li>写文件</li>
+<li>截断文件</li>
+<li>设置文件读/写位置</li>
+</ol>
+<h1 id="2-文件的逻辑结构">2. 文件的逻辑结构</h1>
+<p>文件逻辑结构是用户视角的文件组织形式，它独立于文件的物理特性（存储方式）。文件逻辑结构可分为记录式文件（有结构文件）和流式文件（字符流）。</p>
+<h2 id="21-记录式文件">2.1 记录式文件</h2>
+<h3 id="211-顺序文件">2.1.1 顺序文件</h3>
+<p>由一系列记录按照某种顺序排列所形成的文件，其中的记录通常是定长记录。</p>
+<ul>
+<li>文件记录可以按照写入时间排序（串结构），也可以按照关键字排序（顺序结构）。</li>
+<li>对串结构文件查找每次必须从头开始</li>
+<li>对顺序结构文件查找可以使用如折半查找、插值查找等算法</li>
+<li>删除或增加记录需要移动其他记录</li>
+</ul>
+<h3 id="212-索引文件">2.1.2 索引文件</h3>
+<p>当记录的长度可变时，通常建立一张索引表，并为每个记录设置一个表项。</p>
+<ul>
+<li>顺序存取和直接实现方便</li>
+<li>当记录较多时索引表需要较多额外存储资源</li>
+</ul>
+<h3 id="213-索引顺序文件">2.1.3 索引顺序文件</h3>
+<p>为文件建立一张索引表，为<strong>每组记录</strong>的第一个记录设置一个表项，组内组织为顺序结构，</p>
+<ul>
+<li>组间索引，组内顺序</li>
+</ul>
+<h2 id="22-直接文件和哈希文件">2.2 直接文件和哈希文件</h2>
+<h3 id="221-直接文件">2.2.1 直接文件</h3>
+<p>根据记录的键值对线性表或链表进行检索，已找到指定记录的物理地址，即记录键值本身觉得记录的物理地址。</p>
+<h3 id="222-哈希文件">2.2.2 哈希文件</h3>
+<p>利用Hash函数将记录键值转换为相应记录的地址，通过目录表可实现文件存储空间的动态分配。</p>
+<p><img src="/pbasic/os-fs-3.png" alt="Hash文件的逻辑结构"  /></p>
+<h1 id="3-外存分配方式">3. 外存分配方式</h1>
+<h2 id="31-连续分配方式">3.1 连续分配方式</h2>
+<p>连续分配要求为每个文件分配一组相邻的盘块。一组盘块的地址定义了磁盘上的一段线性地址。</p>
+<ul>
+<li>顺序访问容易、速度快</li>
+<li>要求连续的存储空间，必须事先知道文件的长度，容易产生外部碎片</li>
+</ul>
+<h2 id="32-链接分配">3.2 链接分配</h2>
+<p>通过每个盘块上的链接指针将同属于一个文件的多个离散盘块链接成一个链表，离散分配，消除外部碎片，提高外存利用率，增删改查方便。</p>
+<ul>
+<li>隐式链接：每个盘块保护文件开始、文件结束盘块和下一个盘块的指针。</li>
+<li>显式链接：将盘块指针显式的放在内存的一张链接表（文件分配表，FAT）中。
+为提高效率，可以将连续的盘块组合为簇，以簇为分配单位。</li>
+</ul>
+<p><img src="/pbasic/os-fs-4.png" alt="FAT簇大小与最大分区"  /></p>
+<ul>
+<li>FAT需要占用较大的内存空间</li>
+<li>不能支持高效的直接存取</li>
+</ul>
+<h2 id="33-索引分配">3.3 索引分配</h2>
+<h3 id="331-单级索引分配">3.3.1 单级索引分配</h3>
+<p>将每个文件对应的盘块号集中存放，为每个文件分配一个索引块（表），再把分配给该文件的所有盘块号都记录在索引块中。</p>
+<ul>
+<li>支持直接访问</li>
+<li>不会产生外部碎片</li>
+<li>对小文件需要块索引利用率极低</li>
+</ul>
+<h3 id="332-多级索引分配">3.3.2 多级索引分配</h3>
+<p>一级索引表 -&gt; 二级索引表 -&gt; 三级索引表 -&gt; &hellip; -&gt; 盘块号</p>
+<p><img src="/pbasic/os-fs-5.png" alt="两级索引"  /></p>
+<h3 id="333-混合索引分配">3.3.3 混合索引分配</h3>
+<p>将多种索引分配方式相结合而形成的一种分配方式。</p>
+<ul>
+<li>直接地址</li>
+<li>一次间接地址</li>
+<li>多次间接地址</li>
+</ul>
+<h1 id="4-目录管理">4. 目录管理</h1>
+<p>对目录管理的基本要求：</p>
+<ul>
+<li>按名存取</li>
+<li>提高目录的检索速度</li>
+<li>文件共享</li>
+<li>运行文件重名</li>
+</ul>
+<h2 id="41-文件控制块和索引节点">4.1 文件控制块和索引节点</h2>
+<p><strong>文件控制块FCB</strong>：文件与文件控制块一一对应，一个文件控制块就是一个文件目录项。文件控制块的有序集合称为文件目录，通常一个文件目录可以被看做是一个文件，称为目录文件。</p>
+<p>FCB通常包含三类信息：基本信息、存取控制信息和使用信息。</p>
+<ul>
+<li>基本信息：文件名，文件物理位置，文件逻辑结构（流式文件or记录式文件），文件物理结构（顺序文件、链接文件、索引文件）</li>
+<li>存取控制信息：文件的存取权限（user, group, other）</li>
+<li>使用信息：文件建立日期，修改日期，当前使用信息等。</li>
+</ul>
+<p><strong>索引节点（i节点）</strong>：将文件名和文件描述信息分开，使文件描述信息单独形成一个称为索引节点的数据结构。在文件目录中的每个目录项仅由文件名和指向该文件所对应的i节点的指针所构成。</p>
+<ul>
+<li>磁盘索引节点：存储在磁盘上的所有节点，主要包括文件标识符、文件类型、存取权限、物理地址等。</li>
+<li>内存索引节点：存放于内存中的所有节点，当文件打开时将磁盘索引节点拷贝到内存中，增加索引节点编号，状态，访问计数，链接指针等信息。</li>
+</ul>
+<h2 id="42-文件目录结构">4.2 文件目录结构</h2>
+<h3 id="421-单级目录结构">4.2.1 单级目录结构</h3>
+<p>整个文件系统仅建立一张目录表。缺点：查找速度慢、不允许重名、不便于文件共享。</p>
+<p><img src="/pbasic/os-fs-6.png" alt="单级目录"  /></p>
+<h3 id="422-两级目录">4.2.2 两级目录</h3>
+<p>系统建立一个主文件目录（MFD），并为每个用户单独建立一个用户文件目录(UFD)。两级目录提高了目录检索速度，不同的用户文件可以重名，可实现不同用户访问共享文件。</p>
+<p><img src="/pbasic/os-fs-7.png" alt="两级目录"  /></p>
+<h3 id="431-多级目录">4.3.1 多级目录</h3>
+<p>树形目录结构，主目录称为<strong>根目录</strong>，数据文件称为树叶，其他目录均作为树的节点。为提高文件系统的灵活性，允许一个目录文件中的目录项机作为目录文件的FCB，又是数据文件的FCB，增加一位指示位即可。</p>
+<p><img src="/pbasic/os-fs-8.png" alt="多级目录"  /></p>
+<ul>
+<li>路径名：从根目录到当前访问的文件</li>
+<li>当前目录：用户当前访问的目录
+<ul>
+<li>绝对路径：唯一，从根目录开始</li>
+<li>相对路径：不唯一</li>
+</ul>
+</li>
+</ul>
+<h2 id="43-目录查询技术">4.3 目录查询技术</h2>
+<h3 id="431-线性检索法">4.3.1 线性检索法</h3>
+<p>根据目录结构顺序检索。</p>
+<h3 id="431-hash检索法">4.3.1 Hash检索法</h3>
+<p>建立文件目录的Hash表，先将文件名变换为文件目录的索引值，再利用该索引值到目录中查找。</p>
+<ul>
+<li>可能存在冲突：不同文件名相同Hash值</li>
+<li>不支持模式匹配功能</li>
+</ul>
+<h1 id="5-文件存储空间管理">5. 文件存储空间管理</h1>
+<h2 id="51-空闲表法和空闲链表法">5.1 空闲表法和空闲链表法</h2>
+<p><strong>空闲表法</strong>属于<strong>连续分配方式</strong>，为每个文件分配一块连续的存储空间。系统为外存上的所有空闲区建立一张空闲表，每个空闲区对于一个空闲表项。
+<blockquote class="gdoc-hint danger">
+  外存存储空间分配的基本单位是<strong>磁盘块</strong>，而不是字节。
+</blockquote>
+</p>
+<p><strong>空闲链表法</strong>属于<strong>离散分配方式</strong>，将所有空闲盘区组成一条空闲链，可分为空闲盘块链表和空闲盘区链表。</p>
+<h2 id="52-位示图法">5.2 位示图法</h2>
+<p>位示图利用二进制位来表示磁盘中盘块的使用情况，0表示空闲，1表示已分配。</p>
+<h2 id="53-成组链接法">5.3 成组链接法</h2>
+<p>将空闲盘块分组，取前面的组存储空闲的盘块组，类似于多级目录的形式。<strong>最后一组的最后一个盘块用于结尾标志</strong>。</p>
+<p><img src="/pbasic/os-fs-9.png" alt="成组链接法"  /></p>
+<h1 id="6-文件共享与文件保护">6. 文件共享与文件保护</h1>
+<h2 id="61-文件共享">6.1 文件共享</h2>
+<ul>
+<li>基于索引节点的文件共享</li>
+<li>基于符号链接的文件共享</li>
+</ul>
+<h2 id="62-文件保护">6.2 文件保护</h2>
+<p>影响文件安全性的主要因素：</p>
+<ol>
+<li>人为因素：人有意或无意行为导致的数据破坏或丢失</li>
+<li>系统因素：系统出现异常导致的数据破坏或丢失，如磁盘出现故障或损坏</li>
+<li>自然因素：数据随时间发生溢出或逐渐消失</li>
+</ol>
+<p>可采取的措施：</p>
+<ol>
+<li>存取控制机制防止人为因素造成的文件不安全性</li>
+<li>磁盘容错技术防止磁盘故障所造成的文件不安全性</li>
+<li>后备系统防止自然因素导致的文件不安全性</li>
+</ol>
+<h3 id="621-磁盘容错技术">6.2.1 磁盘容错技术</h3>
+<ol>
+<li>磁盘镜像</li>
+<li>磁盘双工</li>
+<li>基于集群的容错：双机热备份，公用磁盘</li>
+</ol>
+<h1 id="7-数据一致性控制">7. 数据一致性控制</h1>
+<h2 id="71-事务">7.1 事务</h2>
+<p>事务时用于访问和修改各种数据项的程序单位，可以看做是一系列相关读写操作。</p>
+<p>事务记录：</p>
+<ul>
+<li>事务名</li>
+<li>数据项名</li>
+<li>旧值</li>
+<li>新值</li>
+</ul>
+<h2 id="72-检查点">7.2 检查点</h2>
+<p>引入检查点，对事务记录表中的事务记录的清理工作周期化，每各一段时间进行事务记录清理。</p>
+<h2 id="73-并发控制">7.3 并发控制</h2>
+
+
+    </article>
+
+                
+
+
+
+
+
+
+
+
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+
+
+
+
+
+<div class="gdoc-page__footer flex flex-wrap justify-between">
+    
+    
+</div>
+
+            </div>
+        </main>
+
+        <footer class="gdoc-footer">
+    <div class="container flex flex-wrap">
+        <span class="gdoc-footer__item">
+            Built with <a href="https://gohugo.io/" class="gdoc-footer__link">Hugo</a> and
+            <svg class="icon heart"><use xlink:href="#heart"></use></svg>
+        </span>
+        
+        
+    </div>
+</footer>
+
+    </div>
+
+    
+
+
+
+
+<script defer src="/js/en.search.min.c8e955343bfe0248e415a4d6686a21b8f6429bd355a3613448fadf17bfdae324.js"></script>
+
+
+
+<script defer src="/js/clipboard-af8ab36589.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var clipboard = new ClipboardJS('.clip');
+    });
+</script>
+
+
+</body>
+</html>

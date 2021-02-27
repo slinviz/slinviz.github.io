@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hadoop on Lin&#39;s Blog Site</title>
+    <title>Hadoop on Lin&#39;s Doc Site</title>
     <link>https://slinviz.github.io/bigdata/hadoop/</link>
-    <description>Recent content in Hadoop on Lin&#39;s Blog Site</description>
+    <description>Recent content in Hadoop on Lin&#39;s Doc Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -11,7 +11,7 @@
     
     
     <item>
-      <title>Hadoop Overview</title>
+      <title>Overview</title>
       <link>https://slinviz.github.io/bigdata/hadoop/overview/</link>
       <pubDate>Sat, 13 Feb 2021 20:38:25 +0800</pubDate>
       
