@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Redis">
+<meta name="description" content="Java Error和Exception">
 
-<title>Redis | Lin&#39;s Doc Site</title>
+<title>Java Error和Exception | Lin&#39;s Doc Site</title>
 
 <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -31,7 +31,6 @@
 <link rel="preload" href="/custom.css" as="style">
 <link rel="stylesheet" href="/custom.css" media="all">
 
-<link rel="alternate" type="application/rss+xml" href="https://slinviz.github.io/database/redis/index.xml" title="Lin's Doc Site" />
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
 </head>
@@ -757,7 +756,7 @@
 
             <li>
             
-            <input type="checkbox" id="navtree-5446b4f0" class="gdoc-nav__toggle" >
+            <input type="checkbox" id="navtree-5446b4f0" class="gdoc-nav__toggle" checked>
             <label for="navtree-5446b4f0" class="flex justify-between">
             
             
@@ -787,7 +786,7 @@
 
             <li>
             
-            <input type="checkbox" id="navtree-c11bb358" class="gdoc-nav__toggle" >
+            <input type="checkbox" id="navtree-c11bb358" class="gdoc-nav__toggle" checked>
             <label for="navtree-c11bb358" class="flex justify-between">
             
             
@@ -819,7 +818,7 @@
             
             
                 <span class="flex">
-                    <a href="/plang/java/basic/exceptions/" class="gdoc-nav__entry ">
+                    <a href="/plang/java/basic/exceptions/" class="gdoc-nav__entry is-active">
                         Java Error和Exception
                     </a>
                 </span>
@@ -1119,7 +1118,23 @@
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/database/' href='/database/'><span itemprop='name'>数据库</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Redis</span><meta itemprop='position' content='3' /></li>
+        
+        
+        
+        
+    
+    
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/plang/' href='/plang/'><span itemprop='name'>编程语言</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/plang/java/' href='/plang/java/'><span itemprop='name'>Java</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/plang/java/basic/' href='/plang/java/basic/'><span itemprop='name'>Java 基础</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Java Error和Exception</span><meta itemprop='position' content='5' /></li>
+    
+
+    
+
     
 
     
@@ -1133,7 +1148,7 @@
     <div>
         <span class="editpage">
             <svg class="icon code"><use xlink:href="#code"></use></svg>
-            <a href="https://github.com/slinviz/linblog/tree/main/content/database/redis/_index.md">
+            <a href="https://github.com/slinviz/linblog/tree/main/content/plang/java/basic/exceptions.md">
                 Edit this page
             </a>
         </span>
@@ -1141,9 +1156,140 @@
     
 </div>
 
+
     <article class="gdoc-markdown">
-        <h1>Redis</h1>
-        
+        <h1>Java Error和Exception</h1>
+        <p>Java中如果某个方法不能按照正常的途径完成任务，就可以通过另一种路径退出方法。此时JVM会抛出一个封装了错误信息的对象，<strong>方法会立刻退出同时不返回任何值</strong>。</p>
+<p>Java 中的“异常”可以分为Error（错误）和Exception（异常）两大类，它们都是Throwable的子类。其中：</p>
+<ul>
+<li>Error： Java运行时系统的内部错误或资源耗尽。当出现这样的错误，JVM会告知用户出现错误，并终止程序。</li>
+<li>Exception： 异常可分为编译阶段的CheckedException和程序正常运行过程中抛出的RuntimeException两大类。
+<ul>
+<li>CheckedException：继承自<code>java.lang.Exception</code>类，一般是外部错误，发生在编译阶段，Java编译期会强制程序去捕获此类异常（要求使用<code>try{}catch{}finally{}</code>显式的去包裹可能出现这类异常的代码段）。</li>
+<li>RuntimeException：运行时异常，如空指针，数组索引越界等，还有CheckedException，出现这类异常一定是程序错误。</li>
+</ul>
+</li>
+</ul>
+
+
+<script defer src="/js/mermaid-71505ed73e.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        mermaid.initialize({
+            flowchart: { useMaxWidth: true }
+        });
+    });
+</script>
+
+
+
+<pre class="gdoc-mermaid mermaid">
+classDiagram
+    class Object
+    class Throwable
+    class Error
+    class Exception
+    class RuntimeException
+
+    Object <|-- Throwable
+    Throwable <|-- Error
+    Throwable <|-- Exception
+    Exception <|-- RuntimeException
+
+    class NumberFormatException
+    class ClassCastException
+    class NullPointerException
+    class ArithmeticException
+    class ArrayIndexOutOfBoundsException
+
+    RuntimeException <|-- NumberFormatException
+    RuntimeException <|-- ClassCastException
+    RuntimeException <|-- NullPointerException
+    RuntimeException <|-- ArithmeticException
+    RuntimeException <|-- ArrayIndexOutOfBoundsException
+
+    class AWTError
+    calss ThreadDeath
+    Error <|-- AWTError
+    Error <|-- ThreadDeath
+
+    class SQLException
+    class IOException
+    class ClassNotFoundException
+
+    Exception <|-- SQLException
+    Exception <|-- IOException
+    Exception <|-- ClassNotFoundException
+</pre>
+
+<h2 id="异常处理">异常处理</h2>
+<ol>
+<li><code>throw</code> 主动从方法中抛出异常交给上层调用处理。</li>
+<li><code>throws</code> 声明函数可能出现的异常。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">throw</th>
+<th align="left">throws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">使用位置</td>
+<td align="left">方法内部</td>
+<td align="left">方法声明后</td>
+</tr>
+<tr>
+<td align="left">功能</td>
+<td align="left">抛出具体的异常对象，执行到throw方法调用接收，返回异常给上层调用</td>
+<td align="left">声明可能出现的异常，让调用者知道该方法可能出现的异常</td>
+</tr>
+<tr>
+<td align="left">是否处理异常</td>
+<td align="left">不处理，抛出异常给上层调用</td>
+<td align="left">不处理，指明可能出现的异常</td>
+</tr>
+</tbody>
+</table>
+<p>使用对比：</p>
+<div class="gdoc-columns flex flex-wrap">
+  
+  <div class="gdoc-columns__content gdoc-markdown--nested flex-even">
+    <p><strong>throw</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-Java" data-lang="Java"><span class="kd">class</span> <span class="nc">ThrowExample</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">throwTest</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="o">.</span><span class="o">.</span><span class="o">.</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">ArithmeticException</span><span class="o">(</span><span class="s">&#34;Divided zero!&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">ArithmeticException</span> <span class="n">ex</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+  </div>
+  
+  <div class="gdoc-columns__content gdoc-markdown--nested flex-even">
+    <p><strong>throws</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-Java" data-lang="Java"><span class="kd">class</span> <span class="nc">ThrowsExample</span><span class="o">{</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">throwsTest</span><span class="o">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">NumberFormatException</span><span class="o">,</span>
+            <span class="n">NullPointerException</span> <span class="o">{</span>
+            <span class="c1">// method body
+</span><span class="c1"></span>            <span class="o">.</span><span class="o">.</span><span class="o">.</span>
+        <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div>
+  </div>
+  
+</div>
+
+<p>Reference:</p>
+<p><a class="gdoc-markdown__link" href="https://mermaid-js.github.io/mermaid/#/classDiagram">https://mermaid-js.github.io/mermaid/#/classDiagram</a></p>
+
 
     </article>
 
