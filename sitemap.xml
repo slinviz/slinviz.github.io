@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://slinviz.github.io/pbasic/dsalg/leetcode/</loc>
+    <lastmod>2021-03-01T10:02:28+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/bigdata/spark/cache-checkpoint/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-01T10:02:28+08:00</lastmod>
   </url>
   
   <url>
@@ -14,7 +19,7 @@
   
   <url>
     <loc>https://slinviz.github.io/pbasic/cn/cn-tcp/</loc>
-    <lastmod>2021-02-27T16:21:42+08:00</lastmod>
+    <lastmod>2021-03-01T10:02:28+08:00</lastmod>
   </url>
   
   <url>
