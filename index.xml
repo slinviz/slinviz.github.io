@@ -11,6 +11,66 @@
     
     
     <item>
+      <title>HDFS</title>
+      <link>https://slinviz.github.io/bigdata/hadoop/hdfs/</link>
+      <pubDate>Wed, 03 Mar 2021 14:08:44 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/bigdata/hadoop/hdfs/</guid>
+      <description>HDFS 架构  1. NameNode  1.1 fsimage 和 editlog   2. SecondaryNameNode 3. DataNode 4. 数据流水线复制 5. 安全模式 6. 文件存储空间回收 7. HDFS 的健壮性   NameNode 高并发保障技术  1. 双缓存（Double-Buffer）机制 2. 分段加锁机制  2.1 加锁 2.2 多线程并发 2.3 批量数据刷磁盘和网络优化     部署 Hadoop 集群  0. 安装和配置环境变量 1. 修改/增加 HDFS/MapReduce/YARN 相关配置 2. 启动集群 2.1 格式化 NameNode 2.2 启动 Hadoop 集群 3. 创建目录并存储文件   Reference   HDFS 架构 HDFS 是 Hadoop 的分布式文件系统，非常适合存储大文件和写入一次读取多次的文件，具有高吞吐量、高容错等特性，支持扩展到上千台商业服务器上。目前许多大数据处理平台（例如 Spark，Hive，Hbase等）都将 HDFS 作为底层的文件存储。</description>
+    </item>
+    
+    <item>
+      <title>Scala 基本数据类型和流程控制</title>
+      <link>https://slinviz.github.io/plang/scala/basic/</link>
+      <pubDate>Wed, 03 Mar 2021 09:11:44 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/plang/scala/basic/</guid>
+      <description>  Scala 基本数据类型   Scala 基本数据类型 Byte, Short, Int, Long, Float, Double, Char, Boolean, String, RichInt, RichDouble, StringOps
+格式化字符串
+printf(&amp;#34;Hello, %s! You are %d years old.%n&amp;#34;, name, age) print(f&amp;#34;Hello, ${name}! In six months, you&amp;#39;ll be ${age+0.5}%7.2f years old.%n&amp;#34;) print(s&amp;#34;$$$price&amp;#34;)  在 Scala 中，变量或函数的类型总是写在变量或函数名称的后面。 在 Scala 中， 仅当同一行代码中存在多条语句时才需要用分号;隔开。 Scala 中的操作符实际上是方法，且不能对操作符进行重载，但允许定义操作符。   </description>
+    </item>
+    
+    <item>
+      <title>YARN</title>
+      <link>https://slinviz.github.io/bigdata/hadoop/yarn/</link>
+      <pubDate>Tue, 02 Mar 2021 20:58:50 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/bigdata/hadoop/yarn/</guid>
+      <description>集群资源管理者-YARN YARN（Yet Another Resource Negotiator）是 Hadoop 2.0 引入的集群资源管理系统。用户可以将多种服务框架部署在YARN上，由YARN进行统一的管理和资源分配。
+YARN 框架 ResourceManager-RM RM 是整个集群资源的主要管理者和协调者，RM 负责对用户提交的应用程序分配资源。资源分配根据应用程序优先级，队列容量，ACLs，数据位置等信息做出决策，然后以共享的、安全的、多租户的方式制定策略，调度集群资源。
+NodeManager-NM NM 负责管理当前节点的管理者，负责节点资源监视和节点健康跟踪，它还负责当前节点内所有容器的生命周期管理。具体如下：
+ NM 启动时向 RM 注册并定时发送心跳信息，等待 RM 的命令； 维护Container生命周期，监控container的资源使用情况； 管理任务运行时的相关依赖，根据ApplicationMaster的需要，在启动container之前将程序及其依赖拷贝到本地。  ApplicationMaster-AM 在用户提交一个Application时，YARN 会启动一个轻量级进程ApplicationMaster， 负责协调来自RM的资源，并通过NM监视容器内资源的使用情况，同时负责任务的监控与容错。具体如下：
+ 根据Application运行状态动态决定资源需求； 向RM申请资源并监控申请的资源的使用情况； 跟踪任务进度和状态，报告资源使用情况和应用的进度信息； 复杂任务的容错。  Container Container是 YARN 中的资源抽象，它封装了某个节点上的多维度资源，如内存、CPU、网络、磁盘等。当AM向RM申请资源时，RM为AM返回的资源使用Container表示的。YARN会为每个任务分配一个 Container，该任务只能使用该Container中描述的资源。AM可以在Container中运行任何类型的任务。如MapReduce中的Map Task和Reduce Task。
+YARN 工作原理 概述  Client通过 RM 向YARN提交Application； RM 选择一个 NM， 然后启动一个 Container 运行 ApplicationMaster； ApplicationMaster 根据实际需求向 RM 申请更多的 Container 资源，（如果任务很小，AM 会选择在自己的 JVM 中运行任务）； AM 根据获取到的 Container 资源执行分布式任务计算。  详述 </description>
+    </item>
+    
+    <item>
+      <title>操作系统</title>
+      <link>https://slinviz.github.io/pbasic/os/os/</link>
+      <pubDate>Tue, 02 Mar 2021 08:44:01 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/pbasic/os/os/</guid>
+      <description>1. 什么是操作系统？  操作系统是管理计算机硬件和软件资源的程序，是计算机的基石。 OS本质上是配置在计算机硬件上的第一层软件，用于管理计算机硬件和软件资源。 OS做为用户和计算机硬件系统之间的接口，屏蔽了硬件层的复杂性。操作系统就像是硬件使用的负责人，统筹着各种相关事项。 操作系统内核是操作系统的核心部分，它负责系统的内存管理，硬件设备管理，文件系统管理和应用程序管理。内核是连接应用程序和硬件之间的桥梁，决定着系统的性能和稳定性。  2. 什么是系统调用？ 根据进程访问资源的特点，可以将进程在系统上的运行分为两个级别：
+ 用户态：用户态运行的进程可以直接读取用户程序的数据 系统态：系统态运行的进程几乎可以访问计算机的任何资源，不受限制  一般情况下用户程序都是运行在用户态，当需要调用操作系统的系统态级别的子功能的时候就需要系统调用了。也就是说用户程序中凡是与系统态级别的资源的操作，如文件管理、进程控制、内存管理等，就需要通过系统调用的方式向操作系统提出服务请求，并由操作系统代为完成。
+系统调用按功能大致可分为：
+ 设备管理：完成设备的请求或释放，以及设备的启动等功能。 文件管理：完成文件读、写、创建和删除等功能。 内存管理：完成内存的分配，回收，虚拟地址转换等功能。 进程控制：完成进程的创建，撤销，阻塞以及唤醒等功能。 进程通信：完成进程之间的消息传递或信号传递等功能。  </description>
+    </item>
+    
+    <item>
+      <title>进程和线程</title>
+      <link>https://slinviz.github.io/pbasic/os/os-process/</link>
+      <pubDate>Tue, 02 Mar 2021 08:36:34 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/pbasic/os/os-process/</guid>
+      <description>1. 基本概念 2. 进程和线程的区别 3. 进程的状态 4. 进程间通信方式  4.1 管道/匿名管道 4.2 有名管道 4.3 信号 4.4 消息队列 4.5 信号量 4.6 共享内存 4.7 套接字   5. 线程间同步 6. 进程调度算法  6.1 先到先服务（FCFS）调度算法 6.2 短作业优先（SJF）调度算法 6.3 时间片轮转（RR）调度算法 6.4 多级反馈队列调度算法 6.5 优先级调度算法     1. 基本概念   进程（Process）
+进程是一个动态的概念，通常指的是进程实体 = PCB + 程序段 + 数据段。PCB主要包括程序计数器，程序上下文，程序资源（文件、信号等）等。
+  线程（Thread）
+线程实际上是进程内部的一条执行序列（执行流），执行序列是指一组有序指令加数据的集合，执行序列是以函数为单位的。线程是一种轻量级的进程。线程一定是在进程内部进行活动的，并且每一个线程都拥有一个独立的计数器、进程栈和一组进程寄存器。强调一点，进程调度的对象是线程，而不是进程。
+  协程（Coroutine） 协程是一种用户态的轻量级线程，调度由用户控制，拥有自己独立的寄存器上下文和栈。协程的切换效率比线程还要高，协程和线程的区别包括：
+   线程是由CPU调度，而协程是由用户调度 线程存在安全问题，协程比线程较安全 线程使用同步机制，协程使用异步机制  管程（Monitor）</description>
+    </item>
+    
+    <item>
       <title>Object 类</title>
       <link>https://slinviz.github.io/plang/java/basic/object/</link>
       <pubDate>Mon, 01 Mar 2021 14:52:19 +0800</pubDate>

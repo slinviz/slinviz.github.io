@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HDFS">
+
+<title>HDFS | Lin&#39;s Doc Site</title>
+
+<link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
+
+<link rel="preload" as="font" href="/fonts/Metropolis.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-Bold.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-BoldItalic.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationSans-Italic.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/LiberationMono.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/DroidSans.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/GeekdocIcons.woff2" type="font/woff2" crossorigin="anonymous">
+
+<link rel="preload" href="/main-f5793ba4b9.min.css" as="style">
+<link rel="stylesheet" href="/main-f5793ba4b9.min.css" media="all">
+
+<link rel="preload" href="/mobile-2eb10ce87d.min.css" as="style">
+<link rel="stylesheet" href="/mobile-2eb10ce87d.min.css" media="screen and (max-width: 45rem)">
+
+<link rel="preload" href="/print-f79fc3e5d7.min.css" as="style">
+<link rel="stylesheet" href="/print-f79fc3e5d7.min.css" media="print">
+
+<link rel="preload" href="/custom.css" as="style">
+<link rel="stylesheet" href="/custom.css" media="all">
+
+<!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
+
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage">
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_back" xmlns="http://www.w3.org/2000/svg"><path d="M24 10.526v2.947H5.755l8.351 8.421-2.105 2.105-12-12 12-12 2.105 2.105-8.351 8.421H24z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_left_alt" xmlns="http://www.w3.org/2000/svg"><path d="M5.965 10.526V6.035L0 12l5.965 5.965v-4.491H24v-2.947H5.965z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="arrow_right_alt" xmlns="http://www.w3.org/2000/svg"><path d="M18.035 10.526V6.035L24 12l-5.965 5.965v-4.491H0v-2.947h18.035z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="bitbucket" xmlns="http://www.w3.org/2000/svg"><path d="M15.905 13.355c.189 1.444-1.564 2.578-2.784 1.839-1.375-.602-1.375-2.784-.034-3.403 1.151-.705 2.818.223 2.818 1.564zm1.907-.361c-.309-2.44-3.076-4.056-5.328-3.042-1.426.636-2.389 2.148-2.32 3.747.086 2.097 2.08 3.815 4.176 3.626s3.729-2.234 3.472-4.331zm4.108-9.315c-.756-.997-2.045-1.169-3.179-1.358-3.214-.516-6.513-.533-9.727.034-1.066.172-2.269.361-2.939 1.323 1.1 1.031 2.664 1.186 4.073 1.358 2.544.327 5.156.344 7.699.017 1.426-.172 3.008-.309 4.073-1.375zm.979 17.788c-.481 1.684-.206 3.953-1.994 4.932-3.076 1.701-6.806 1.89-10.191 1.289-1.787-.327-3.884-.894-4.864-2.578-.43-1.65-.705-3.334-.98-5.018l.103-.275.309-.155c5.121 3.386 12.288 3.386 17.427 0 .808.241.206 1.22.189 1.805zM26.01 4.951c-.584 3.764-1.255 7.51-1.908 11.257-.189 1.1-1.255 1.719-2.148 2.183-3.214 1.615-6.96 1.89-10.483 1.512-2.389-.258-4.829-.894-6.771-2.389-.911-.705-.911-1.908-1.083-2.922-.602-3.523-1.289-7.046-1.719-10.604.206-1.547 1.942-2.217 3.231-2.698C6.848.654 8.686.362 10.508.19c3.884-.378 7.854-.241 11.618.859 1.341.395 2.784.945 3.695 2.097.412.533.275 1.203.189 1.805z"/></symbol><symbol viewBox="-2.29 -2.29 28.57 28.57" id="bookmark" xmlns="http://www.w3.org/2000/svg"><path d="M15.268 4.392q.868 0 1.532.638t.664 1.506v17.463l-7.659-3.268-7.608 3.268V6.536q0-.868.664-1.506t1.532-.638h10.876zm4.34 14.144V4.392q0-.868-.638-1.532t-1.506-.664H6.537q0-.868.664-1.532T8.733 0h10.876q.868 0 1.532.664t.664 1.532v17.412z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="code" xmlns="http://www.w3.org/2000/svg"><path d="M9.917 24.5a1.75 1.75 0 10-3.501.001 1.75 1.75 0 003.501-.001zm0-21a1.75 1.75 0 10-3.501.001A1.75 1.75 0 009.917 3.5zm11.666 2.333a1.75 1.75 0 10-3.501.001 1.75 1.75 0 003.501-.001zm1.75 0a3.502 3.502 0 01-1.75 3.026c-.055 6.581-4.721 8.039-7.82 9.023-2.898.911-3.846 1.349-3.846 3.117v.474a3.502 3.502 0 011.75 3.026c0 1.932-1.568 3.5-3.5 3.5s-3.5-1.568-3.5-3.5c0-1.294.711-2.424 1.75-3.026V6.526A3.502 3.502 0 014.667 3.5c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5a3.502 3.502 0 01-1.75 3.026v9.06c.93-.456 1.914-.766 2.807-1.039 3.391-1.075 5.323-1.878 5.359-5.687a3.502 3.502 0 01-1.75-3.026c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="date" xmlns="http://www.w3.org/2000/svg"><path d="M27.192 28.844V11.192H4.808v17.652h22.384zm0-25.689q1.277 0 2.253.976t.976 2.253v22.459q0 1.277-.976 2.216t-2.253.939H4.808q-1.352 0-2.291-.901t-.939-2.253V6.385q0-1.277.939-2.253t2.291-.976h1.577V.001h3.23v3.155h12.769V.001h3.23v3.155h1.577zm-3.155 11.267v3.155h-3.23v-3.155h3.23zm-6.46 0v3.155h-3.155v-3.155h3.155zm-6.384 0v3.155h-3.23v-3.155h3.23z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="download" xmlns="http://www.w3.org/2000/svg"><path d="M2.866 28.209h26.269v3.79H2.866v-3.79zm26.268-16.925L16 24.418 2.866 11.284h7.493V.001h11.283v11.283h7.493z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="email" xmlns="http://www.w3.org/2000/svg"><path d="M28.845 9.615v-3.23L16 14.422 3.155 6.385v3.23L16 17.577zm0-6.46q1.277 0 2.216.977T32 6.385v19.23q0 1.277-.939 2.253t-2.216.977H3.155q-1.277 0-2.216-.977T0 25.615V6.385q0-1.277.939-2.253t2.216-.977h25.69z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="git" xmlns="http://www.w3.org/2000/svg"><path d="M27.472 12.753L15.247.529a1.803 1.803 0 00-2.55 0l-2.84 2.84 2.137 2.137a2.625 2.625 0 013.501 3.501l3.499 3.499a2.625 2.625 0 11-1.237 1.237l-3.499-3.499c-.083.04-.169.075-.257.106v7.3a2.626 2.626 0 11-1.75 0v-7.3a2.626 2.626 0 01-1.494-3.607L8.62 4.606l-8.09 8.09a1.805 1.805 0 000 2.551l12.225 12.224a1.803 1.803 0 002.55 0l12.168-12.168a1.805 1.805 0 000-2.551z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="github" xmlns="http://www.w3.org/2000/svg"><path d="M16 .394c8.833 0 15.999 7.166 15.999 15.999 0 7.062-4.583 13.062-10.937 15.187-.813.146-1.104-.354-1.104-.771 0-.521.021-2.25.021-4.396 0-1.5-.5-2.458-1.083-2.958 3.562-.396 7.312-1.75 7.312-7.896 0-1.75-.625-3.167-1.646-4.291.167-.417.708-2.042-.167-4.25-1.333-.417-4.396 1.646-4.396 1.646a15.032 15.032 0 00-8 0S8.937 6.602 7.603 7.018c-.875 2.208-.333 3.833-.167 4.25-1.021 1.125-1.646 2.542-1.646 4.291 0 6.125 3.729 7.5 7.291 7.896-.458.417-.875 1.125-1.021 2.146-.917.417-3.25 1.125-4.646-1.333-.875-1.521-2.458-1.646-2.458-1.646-1.562-.021-.104.979-.104.979 1.042.479 1.771 2.333 1.771 2.333.938 2.854 5.396 1.896 5.396 1.896 0 1.333.021 2.583.021 2.979 0 .417-.292.917-1.104.771C4.582 29.455-.001 23.455-.001 16.393-.001 7.56 7.165.394 15.998.394zM6.063 23.372c.042-.083-.021-.187-.146-.25-.125-.042-.229-.021-.271.042-.042.083.021.187.146.25.104.062.229.042.271-.042zm.646.709c.083-.062.062-.208-.042-.333-.104-.104-.25-.146-.333-.062-.083.062-.062.208.042.333.104.104.25.146.333.062zm.625.937c.104-.083.104-.25 0-.396-.083-.146-.25-.208-.354-.125-.104.062-.104.229 0 .375s.271.208.354.146zm.875.875c.083-.083.042-.271-.083-.396-.146-.146-.333-.167-.417-.062-.104.083-.062.271.083.396.146.146.333.167.417.062zm1.187.521c.042-.125-.083-.271-.271-.333-.167-.042-.354.021-.396.146s.083.271.271.312c.167.062.354 0 .396-.125zm1.313.104c0-.146-.167-.25-.354-.229-.187 0-.333.104-.333.229 0 .146.146.25.354.229.187 0 .333-.104.333-.229zm1.208-.208c-.021-.125-.187-.208-.375-.187-.187.042-.312.167-.292.312.021.125.187.208.375.167s.312-.167.292-.292z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="gitlab" xmlns="http://www.w3.org/2000/svg"><path d="M1.629 11.034L14 26.888.442 17.048a1.09 1.09 0 01-.39-1.203l1.578-4.811zm7.217 0h10.309l-5.154 15.854zM5.753 1.475l3.093 9.559H1.63l3.093-9.559a.548.548 0 011.031 0zm20.618 9.559l1.578 4.811c.141.437-.016.922-.39 1.203l-13.558 9.84 12.371-15.854zm0 0h-7.216l3.093-9.559a.548.548 0 011.031 0z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="heart" xmlns="http://www.w3.org/2000/svg"><path d="M16 29.714a1.11 1.11 0 01-.786-.321L4.072 18.643c-.143-.125-4.071-3.714-4.071-8 0-5.232 3.196-8.357 8.535-8.357 3.125 0 6.053 2.464 7.464 3.857 1.411-1.393 4.339-3.857 7.464-3.857 5.339 0 8.535 3.125 8.535 8.357 0 4.286-3.928 7.875-4.089 8.035L16.785 29.392c-.214.214-.5.321-.786.321z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="keyborad_arrow_down" xmlns="http://www.w3.org/2000/svg"><path d="M3.281 5.36L14 16.079 24.719 5.36 28 8.641l-14 14-14-14z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="keyborad_arrow_left" xmlns="http://www.w3.org/2000/svg"><path d="M25.875 28.25L22.125 32 6.126 16.001 22.125.002l3.75 3.75-12.25 12.25z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="keyborad_arrow_right" xmlns="http://www.w3.org/2000/svg"><path d="M6.125 28.25L18.375 16 6.125 3.75 9.875 0l15.999 15.999L9.875 31.998z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="link" xmlns="http://www.w3.org/2000/svg"><path d="M24.037 7.963q3.305 0 5.634 2.366T32 16t-2.329 5.671-5.634 2.366h-6.46v-3.08h6.46q2.028 0 3.493-1.465t1.465-3.493-1.465-3.493-3.493-1.465h-6.46v-3.08h6.46zM9.615 17.578v-3.155h12.77v3.155H9.615zM3.005 16q0 2.028 1.465 3.493t3.493 1.465h6.46v3.08h-6.46q-3.305 0-5.634-2.366T0 16.001t2.329-5.671 5.634-2.366h6.46v3.08h-6.46q-2.028 0-3.493 1.465t-1.465 3.493z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="menu" xmlns="http://www.w3.org/2000/svg"><path d="M.001 5.334h31.998v3.583H.001V5.334zm0 12.416v-3.5h31.998v3.5H.001zm0 8.916v-3.583h31.998v3.583H.001z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="notification" xmlns="http://www.w3.org/2000/svg"><path d="M22.615 19.384l2.894 2.894v1.413H2.49v-1.413l2.894-2.894V12.25q0-3.365 1.716-5.856t4.745-3.231v-1.01q0-.875.606-1.514T13.999 0t1.548.639.606 1.514v1.01q3.029.74 4.745 3.231t1.716 5.856v7.134zM14 27.999q-1.211 0-2.053-.808t-.841-2.019h5.788q0 1.144-.875 1.986T14 27.999z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="path" xmlns="http://www.w3.org/2000/svg"><path d="M28 12.62h-9.793V8.414h-2.826v11.173h2.826v-4.206H28V26.62h-9.793v-4.206H12.62v-14H9.794v4.206H.001V1.381h9.793v4.206h8.413V1.381H28V12.62z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="person" xmlns="http://www.w3.org/2000/svg"><path d="M16 20.023q5.052 0 10.526 2.199t5.473 5.754v4.023H0v-4.023q0-3.555 5.473-5.754t10.526-2.199zM16 16q-3.275 0-5.614-2.339T8.047 8.047t2.339-5.661T16 0t5.614 2.386 2.339 5.661-2.339 5.614T16 16z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="search" xmlns="http://www.w3.org/2000/svg"><path d="M11.925 20.161q3.432 0 5.834-2.402t2.402-5.834-2.402-5.834-5.834-2.402-5.834 2.402-2.402 5.834 2.402 5.834 5.834 2.402zm10.981 0L32 29.255 29.255 32l-9.094-9.094v-1.458l-.515-.515q-3.26 2.831-7.721 2.831-4.976 0-8.45-3.432T.001 11.925t3.474-8.45 8.45-3.474 8.407 3.474 3.432 8.45q0 1.802-.858 4.075t-1.973 3.646l.515.515h1.458z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="shield" xmlns="http://www.w3.org/2000/svg"><path d="M22.167 15.166V3.5h-8.166v20.726c.93-.492 2.424-1.349 3.883-2.497 1.95-1.531 4.284-3.919 4.284-6.562zm3.499-13.999v14c0 7.674-10.737 12.523-11.192 12.724-.146.073-.31.109-.474.109s-.328-.036-.474-.109c-.456-.201-11.192-5.049-11.192-12.724v-14C2.334.529 2.863 0 3.501 0H24.5c.638 0 1.167.529 1.167 1.167z"/></symbol><symbol viewBox="-2.29 -2.29 32.57 32.57" id="tags" xmlns="http://www.w3.org/2000/svg"><path d="M6.606 7.549c0-1.047-.84-1.887-1.887-1.887s-1.887.84-1.887 1.887.84 1.887 1.887 1.887 1.887-.84 1.887-1.887zm15.732 8.493c0 .501-.206.988-.546 1.327l-7.239 7.254c-.354.339-.84.546-1.342.546s-.988-.206-1.327-.546L1.342 14.066C.59 13.329 0 11.899 0 10.852V4.718a1.9 1.9 0 011.887-1.887h6.134c1.047 0 2.477.59 3.229 1.342L21.792 14.7c.339.354.546.84.546 1.342zm5.661 0c0 .501-.206.988-.546 1.327l-7.239 7.254c-.354.339-.84.546-1.342.546-.767 0-1.15-.354-1.651-.87l6.93-6.93c.339-.339.546-.826.546-1.327s-.206-.988-.546-1.342L13.609 4.173c-.752-.752-2.182-1.342-3.229-1.342h3.303c1.047 0 2.477.59 3.229 1.342L27.454 14.7c.339.354.546.84.546 1.342z"/></symbol><symbol viewBox="-2.29 -2.29 36.57 36.57" id="telescope" xmlns="http://www.w3.org/2000/svg"><path d="M25.026 3.335a.466.466 0 00-.646-.238L13.362 8.91a.463.463 0 00-.216.575l.227.593-6.36 3.488a.462.462 0 00-.205.583l.211.508-6.755 3.228a.463.463 0 00-.228.595l1.386 3.341a.463.463 0 00.583.259l7.056-2.5.211.508a.462.462 0 00.557.267l6.733-1.941.202.527a.46.46 0 00.566.277l12.03-3.702a.46.46 0 00.293-.613L25.026 3.335zM2.109 21.061l-1.049-2.53 6.314-3.018 1.332 3.211-6.596 2.337zm7.857-1.708l-.22-.531-1.706-4.113-.22-.53 5.863-3.216 2.197 5.676.347.908-6.261 1.806zm7.505-1.146l-.188-.491c-.003-.01-.001-.022-.006-.032l-.572-1.478-2.549-6.668 10.201-5.381 4.249 10.624-11.136 3.428zm8.943-16.723a.463.463 0 00-.86.344l5.552 13.881a.464.464 0 00.602.258.464.464 0 00.258-.602L26.413 1.484zM16.268 20.627h-2.776c-1.055 0-1.851.796-1.851 1.851v1.217l-5.44 6.347a.462.462 0 10.702.602l5.415-6.316h2.101v6.015a.463.463 0 00.926 0v-6.015h2.101l5.414 6.316a.462.462 0 10.703-.602l-5.44-6.347v-1.148c0-1.076-.813-1.92-1.851-1.92zm.925 2.777h-4.627v-.925c0-.545.38-.925.925-.925h2.776c.527 0 .925.428.925.995v.856z"/></symbol></svg>
+
+    <div class="wrapper">
+        <input type="checkbox" class="hidden" id="menu-control" />
+        <header class="gdoc-header">
+    <div class="container flex align-center justify-between">
+        
+        <label for="menu-control" class="gdoc-nav__control">
+            <svg class="icon menu"><use xlink:href="#menu"></use></svg>
+            <svg class="icon arrow-back"><use xlink:href="#arrow_back"></use></svg>
+        </label>
+        
+        <a class="gdoc-header__link" href="https://slinviz.github.io/">
+            <span class="gdoc-brand flex align-center">
+                <img class="gdoc-brand__img" src="/logo.jpeg" alt="" width=38 height=38>
+                Lin&#39;s Doc Site
+            </span>
+        </a>
+    </div>
+</header>
+
+
+        <main class="container flex flex-even">
+            <aside class="gdoc-nav">
+                <nav>
+    
+    <div class="gdoc-search">
+        <svg class="icon search"><use xlink:href="#search"></use></svg>
+        <input type="text" id="gdoc-search-input" class="gdoc-search__input" placeholder="Search..."
+            aria-label="Search" maxlength="64" />
+        <div class="gdoc-search__spinner spinner hidden"></div>
+        <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
+    </div>
+
+
+
+    <section class="gdoc-nav--main">
+        <h2>Navigation</h2>
+        
+            
+
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/bigdata/" class="gdoc-nav__entry ">
+                        BigData
+                    </a>
+                </span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-82da63d0" class="gdoc-nav__toggle" checked>
+            <label for="navtree-82da63d0" class="flex justify-between">
+            
+            
+                <span class="flex">Hadoop</span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/bigdata/hadoop/hdfs/" class="gdoc-nav__entry is-active">
+                        HDFS
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/bigdata/hadoop/overview/" class="gdoc-nav__entry ">
+                        Overview
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/bigdata/hadoop/yarn/" class="gdoc-nav__entry ">
+                        YARN
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-f7ba8876" class="gdoc-nav__toggle" >
+            <label for="navtree-f7ba8876" class="flex justify-between">
+            
+            
+                <span class="flex">Spark</span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/bigdata/spark/cache-checkpoint/" class="gdoc-nav__entry ">
+                        Cache与Checkpoint
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/ml/" class="gdoc-nav__entry ">
+                        Machine Learning
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-49728d74" class="gdoc-nav__toggle" >
+            <label for="navtree-49728d74" class="flex justify-between">
+            
+            
+                <span class="flex">
+                    <a href="/papers/" class="gdoc-nav__entry ">
+                        Paper Review
+                    </a>
+                </span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/papers/mermaidtest/" class="gdoc-nav__entry ">
+                        Mermaidtest
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/papers/TPDS/" class="gdoc-nav__entry ">
+                        TPDS
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/database/" class="gdoc-nav__entry ">
+                        数据库
+                    </a>
+                </span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">MySQL</span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Redis</span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/database/dbsql/" class="gdoc-nav__entry ">
+                        数据库与SQL
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/" class="gdoc-nav__entry ">
+                        编程基础
+                    </a>
+                </span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-2cecbb49" class="gdoc-nav__toggle" >
+            <label for="navtree-2cecbb49" class="flex justify-between">
+            
+            
+                <span class="flex">操作系统OS</span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/os/os/" class="gdoc-nav__entry ">
+                        操作系统
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/os/os-fs/" class="gdoc-nav__entry ">
+                        文件管理
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/os/os-process/" class="gdoc-nav__entry ">
+                        进程和线程
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-e1816f7c" class="gdoc-nav__toggle" >
+            <label for="navtree-e1816f7c" class="flex justify-between">
+            
+            
+                <span class="flex">数据结构与算法</span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/dsalg/leetcode/" class="gdoc-nav__entry ">
+                        Leetcode刷题记录
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-9ef0f4fe" class="gdoc-nav__toggle" >
+            <label for="navtree-9ef0f4fe" class="flex justify-between">
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/cn/" class="gdoc-nav__entry ">
+                        计算机网络
+                    </a>
+                </span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/cn/cn-arch/" class="gdoc-nav__entry ">
+                        OSI与TCP/IP架构
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/cn/cn-tcpudp/" class="gdoc-nav__entry ">
+                        TCP与UDP协议的区别
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/pbasic/cn/cn-tcp/" class="gdoc-nav__entry ">
+                        TCP协议
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/plang/" class="gdoc-nav__entry ">
+                        编程语言
+                    </a>
+                </span>
+            
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-5446b4f0" class="gdoc-nav__toggle" >
+            <label for="navtree-5446b4f0" class="flex justify-between">
+            
+            
+                <span class="flex">Java</span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-c11bb358" class="gdoc-nav__toggle" >
+            <label for="navtree-c11bb358" class="flex justify-between">
+            
+            
+                <span class="flex">Java 基础</span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/plang/java/basic/exceptions/" class="gdoc-nav__entry ">
+                        Java Error和Exception
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/plang/java/basic/object/" class="gdoc-nav__entry ">
+                        Object 类
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">Python</span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            <input type="checkbox" id="navtree-905e5d55" class="gdoc-nav__toggle" >
+            <label for="navtree-905e5d55" class="flex justify-between">
+            
+            
+                <span class="flex">Scala</span>
+            
+            
+                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
+                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/plang/scala/mvn-repo/" class="gdoc-nav__entry ">
+                        Mvn Repo Modify
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/plang/scala/basic/" class="gdoc-nav__entry ">
+                        Scala 基本数据类型和流程控制
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+            
+            </li>
+            
+            
+        
+    </ul>
+
+
+
+
+
+        
+    </section>
+
+    <section class="gdoc-nav--more">
+        
+            <h2>More</h2>
+            
+
+
+
+
+<ul class="gdoc-nav__list">
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                <svg class="icon notification"><use xlink:href="#notification"></use></svg>
+                <a href="/"
+                    class="gdoc-nav__entry ">
+                    News
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                <svg class="icon download"><use xlink:href="#download"></use></svg>
+                <a href="https://github.com/slinviz/linblog/releases"
+                    class="gdoc-nav__entry ">
+                    Releases
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+    
+    
+
+    <li>
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <span class="flex">
+                <svg class="icon github"><use xlink:href="#github"></use></svg>
+                <a href="https://github.com/slinviz/linblog"
+                    class="gdoc-nav__entry ">
+                    View Source
+                </a>
+            </span>
+            
+        
+
+        
+    </li>
+
+
+</ul>
+
+
+
+
+
+        
+    </section>
+</nav>
+
+            </aside>
+
+            <div class="gdoc-page">
+                
+    
+
+
+    
+
+
+
+
+
+
+<div class="gdoc-page__header flex flex-wrap
+     justify-between 
+    
+    " itemprop="breadcrumb">
+    
+    <div>
+        <svg class="icon path hidden-mobile"><use xlink:href="#path"></use></svg>
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            
+            
+            
+            
+    
+    
+        
+        
+        
+        
+    
+    
+        
+        
+        
+        
+    
+    
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/bigdata/' href='/bigdata/'><span itemprop='name'>BigData</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/bigdata/hadoop/' href='/bigdata/hadoop/'><span itemprop='name'>Hadoop</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>HDFS</span><meta itemprop='position' content='4' /></li>
+    
+
+    
+
+    
+
+    
+
+        </ol>
+    </div>
+    
+    
+    <div>
+        <span class="editpage">
+            <svg class="icon code"><use xlink:href="#code"></use></svg>
+            <a href="https://github.com/slinviz/linblog/tree/main/content/bigdata/hadoop/hdfs.md">
+                Edit this page
+            </a>
+        </span>
+    </div>
+    
+</div>
+
+
+    <article class="gdoc-markdown">
+        <h1>HDFS</h1>
+        
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#hdfs-架构">HDFS 架构</a>
+      <ul>
+        <li><a href="#1-namenode">1. NameNode</a>
+          <ul>
+            <li><a href="#11-fsimage-和-editlog">1.1 fsimage 和 editlog</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-secondarynamenode">2. SecondaryNameNode</a></li>
+        <li><a href="#3-datanode">3. DataNode</a></li>
+        <li><a href="#4-数据流水线复制">4. 数据流水线复制</a></li>
+        <li><a href="#5-安全模式">5. 安全模式</a></li>
+        <li><a href="#6-文件存储空间回收">6. 文件存储空间回收</a></li>
+        <li><a href="#7-hdfs-的健壮性">7. HDFS 的健壮性</a></li>
+      </ul>
+    </li>
+    <li><a href="#namenode-高并发保障技术">NameNode 高并发保障技术</a>
+      <ul>
+        <li><a href="#1-双缓存double-buffer机制">1. 双缓存（Double-Buffer）机制</a></li>
+        <li><a href="#2-分段加锁机制">2. 分段加锁机制</a>
+          <ul>
+            <li><a href="#21-加锁">2.1 加锁</a></li>
+            <li><a href="#22-多线程并发">2.2 多线程并发</a></li>
+            <li><a href="#23-批量数据刷磁盘和网络优化">2.3 批量数据刷磁盘和网络优化</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#部署-hadoop-集群">部署 Hadoop 集群</a>
+      <ul>
+        <li><a href="#0-安装和配置环境变量">0. 安装和配置环境变量</a></li>
+        <li><a href="#1-修改增加-hdfsmapreduceyarn-相关配置">1. 修改/增加 HDFS/MapReduce/YARN 相关配置</a></li>
+        <li><a href="#2-启动集群">2. 启动集群</a></li>
+        <li><a href="#21-格式化-namenode">2.1 格式化 NameNode</a></li>
+        <li><a href="#22-启动-hadoop-集群">2.2 启动 Hadoop 集群</a></li>
+        <li><a href="#3-创建目录并存储文件">3. 创建目录并存储文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav><hr></div>
+
+
+<h1 id="hdfs-架构">HDFS 架构</h1>
+<p>HDFS 是 Hadoop 的分布式文件系统，非常适合存储大文件和写入一次读取多次的文件，具有高吞吐量、高容错等特性，支持扩展到上千台商业服务器上。目前许多大数据处理平台（例如 Spark，Hive，Hbase等）都将 HDFS 作为底层的文件存储。</p>
+<p>HDFS 采用 Master/Slave 架构，主要由单个 NameNode（Master）和多个 DataNode（Slave）组成，为了提高 NameNode 的效率，还引入了 SecondaryNameNode。</p>
+<p>HDFS 具有以下特点：</p>
+<ul>
+<li>核心架构的目标：实现错误检测和快速、自动的恢复（硬件错误是常态不是异常）；</li>
+<li>简单的一致性模型：文件经创建、写入和关闭后就不需要改变（一次写、多次读），简化了数据一致性问题；</li>
+<li>HDFS中的文件都是一次性写入的，并且严格要求任何时候只能有一个写入者。</li>
+</ul>
+<p><img src="/bigdata/hadoop-arch-1.png" alt="hdfs architecture"  /></p>
+<h2 id="1-namenode">1. NameNode</h2>
+<ul>
+<li>NameNode 负责管理整个HDFS集群的元数据和执行有关文件系统命名空间的操作：文件目录树，权限设置，副本数，BlockID，客户端对文件系统的访问等。</li>
+<li>NameNode 负责监控 DataNode 的状态。DataNode 定期向 NameNode 发送心跳和块状态抱够。</li>
+<li>NameNode 还负责接收来自 Client 的各种请求，并作出相应的应答。</li>
+</ul>
+<blockquote class="gdoc-hint info">
+  HDFS 的<strong>文件系统命名空间</strong> 的层次结构与大多数文件系统类似 (如 Linux)， 支持目录和文件的创建、移动、删除和重命名等操作，支持配置用户和访问权限，但不支持硬链接和软连接。NameNode 负责维护文件系统名称空间，记录对名称空间或其属性的任何更改。
+</blockquote>
+
+<blockquote class="gdoc-hint danger">
+  HDFS 的元数据存储在 NameManger 的 <strong>内存</strong>中，同时持久化保存在本地磁盘文件<code>fsimage</code>（命名空间镜像文件）和 <code>editlog</code>（操作日志文件）中。
+</blockquote>
+
+<p>HDFS 把文件分成固定大小的块 <code>Block</code>，并根据冗余系数（默认<code>replication</code> 为3）存储到集群中。数据块副本存放策略是<strong>机架感知</strong>：大多数情况下副本系数为3，HDFS 的存放策略将一个副本存放在本地机架的节点上，一个副本放在同一机架的另一个节点上，最后一个副本放在不同机架的节点上。读取策略是尽量读取距离近的副本。</p>
+<pre><code>Hadoop 1.x : blocksize = 64M
+Hadoop 2.x : blocksize = 128M
+</code></pre><h3 id="11-fsimage-和-editlog">1.1 fsimage 和 editlog</h3>
+<p><code>fsimage</code> 是内存命名空间元数据在外存的镜像文件。<code>editlog</code> 文件则记录着用户多文件的各自操作记录，当客户端对 HDFS 中的文件进行新增或者修改等操作是，操作记录首先被记入 <code>editlog</code> 文件中，当操作成功后将相应的元数据更新到内存中，以防止发生意外导致丢失内存中的数据。<code>editlog</code> 只能<strong>顺序追加记录</strong>，<code>fsimage</code>和<code>editlog</code>两个文件结合可以构造出完整的内存数据.NameNode 每次重启时将<code>editlog</code>里的操作日志读到内存中回放即可恢复元数据。</p>
+<h2 id="2-secondarynamenode">2. SecondaryNameNode</h2>
+<p>为了保证当 NameNode 出现故障之后不丢失数据或能快速恢复 HDFS 的元数据，引入了 SecondaryNameNode，它主要负责定期合并 <code>fsimage</code> 和 <code>editlog</code> ，维护和 NameNode 相同的元数据。必要时候可以作为 NameNode 的热备份。</p>
+<p>在高可用（HA）情况下，主节点（Active NameNode）每次修改元数据都会生成一条 <code>editlog</code> 记录，该日志记录既写入磁盘文件（NameNode 本地的<code>editlog</code> 文件）也写入JournalNodes集群，然后 SecondaryNameNode 从 JournalNodes 集群拉取操作日志并应用到自己的文件目录树中，跟主节点保持一致，每隔一段时间<code>dfs.namenode.checkpoint.period</code> SecondaryNameNode 将完整的元数据写入到自己的磁盘文件<code>fsimage</code>，即<code>checkpoint</code>操作，之后再将 <code>fsimage</code> 上传到主节点（Active NameNode），并清空<code>editlog</code>，如果此时主节点重启，则只需将<code>fsimage</code>读入内存即可恢复元数据，然后再将新的<code>editlog</code>里的少量修改操作记录放回内存中即可。</p>
+<h2 id="3-datanode">3. DataNode</h2>
+<ul>
+<li>DataNode 是 HDFS 中实际存储和读写数据块的节点，一个 Block 会在多个 DataNode 中进行冗余备份，而一个 DataNode 对于一个块最多只包含一个备份。</li>
+<li>DataNode 还负责提供来自客户端的读写请求，执行块的创建，删除等操作。</li>
+<li>DataNode 会定期向 NameNode 发送心跳信号和块状态报告。
+<ul>
+<li>心跳信号（Heartbeat）：表明当前 DataNode 节点正常工作</li>
+<li>块状态报告（Block Report）：包含该DataNode上所有数据块的列表</li>
+</ul>
+</li>
+<li>DataNode 之间也会相互通信，执行数据块的复制任务，同时在客户端执行写操作的时候，DataNode 之间需要相互配置，以保证写操作的一致性。</li>
+<li>DataNode 还会接收和执行来自 NameNode 的命令，如删除某些数据块或把数据块复制到另一个 DataNode。</li>
+</ul>
+<h2 id="4-数据流水线复制">4. 数据流水线复制</h2>
+<ol start="0">
+<li>当Client 向 HDFS 文件写入数据的时候，一开始是写到<strong>本地临时文件</strong>中。假设该文件的副本系数设置为3，当本地临时文件累积到一个数据块的大小时，客户端会从 NameNode 获取一个 Datanode 的列表用于存放副本；</li>
+<li>然后客户端开始向第一个 Datanode 传输数据，第一个 Datanode 一小部分一小部分(4 KB)地接收数据，将每一部分写入本地仓库，并同时传输该部分到列表中第二个 Datanode 节点；</li>
+<li>第二个Datanode 也是这样，一小部分一小部分地接收数据，写入本地仓库，并同时传给第三个 Datanode。</li>
+<li>最后，第三个 Datanode 接收数据并存储在本地。</li>
+<li></li>
+</ol>
+<p>因此，Datanode能流水线式地从前一个节点接收数据，并在同时转发给下一个节点，数据以流水线的方式从前一个 Datanode 复制到下一个。</p>
+<blockquote class="gdoc-hint info">
+  <p><strong>通信协议</strong></p>
+<p>HDFS 的通信协议都是建立在<code>TCP/IP</code>协议之上，Client 与 NameNode 之间使用<code>ClientProtocol</code>，DataNode 与 NameNode 之间使用<code>DatanodeProtocal</code>。</p>
+
+</blockquote>
+
+<h2 id="5-安全模式">5. 安全模式</h2>
+<p>处于安全模式的 NameNode 是不会进行数据块的复制的。每个数据块都有一个指定的最小副本数，当 NameNode 检测确认某个数据块的副本数目达到这个最小值，那么该数据块就会被认为是副本安全(safely replicated)的；在一定百分比（参数可配置）的数据块被 NameNode 检测确认是安全之后（加上一个额外的30秒等待时间），NameNode将退出安全模式状态。接下来它会确定还有哪些数据块的副本没有达到指定数目，并将这些数据块复制到其他 DataNode上。</p>
+<h2 id="6-文件存储空间回收">6. 文件存储空间回收</h2>
+<ul>
+<li>文件删除和恢复：当用户或应用程序删除某个文件时，这个文件并没有立刻从 HDFS 中删除。实际上，HDFS 会将这个文件重命名转移到.Trash 目录，保存时间可配置，默认是6个小时。</li>
+<li>减少副本系数：当一个文件的副本系数被减小后，NameNode 会选择过剩的副本删除。下次心跳检测时会将该信息传递给 DataNode。DataNode遂即移除相应的数据块，释放存储空间。</li>
+</ul>
+<h2 id="7-hdfs-的健壮性">7. HDFS 的健壮性</h2>
+<ol>
+<li>磁盘数据错误，心跳检测和重新复制：当 DataNode 宕机或者副本遭到破坏，副本系数增加等，经NameNode不断检测判断后启动重新复制；</li>
+<li>集群均衡：自动将数据移动到其它空闲的 DataNode 上；当某些文件请求增加，可启动计划重新创建新的副本并平衡集群数据；</li>
+<li>数据完整性：计算数据块检验和，并将检验和以隐藏文件的形式存储到同一个 HDFS 命名空间下，客户端获取和进行检验，如果不对则读取其它副本；</li>
+<li>元数据磁盘错误恢复：支持维护多个<code>fsimage</code> 和<code>editlog</code>，修改同步到副本上。</li>
+</ol>
+<h1 id="namenode-高并发保障技术">NameNode 高并发保障技术</h1>
+<h2 id="1-双缓存double-buffer机制">1. 双缓存（Double-Buffer）机制</h2>
+<p>NameNode 在写入<code>editlog</code>的过程中如果只对同一块内存缓冲，同时存在大量写入和读出是不可能的，因为不能并发读写同一块共享内存数据！因此 HDFS 在读写<code>editlog</code>时采取了 Double-Buffer 双缓冲机制，将一块内存缓冲分成两个部分：</p>
+<ul>
+<li>一部分用于写入操作日志</li>
+<li>另一部分用于读取后写入磁盘和 JournalNodes 集群</li>
+</ul>
+<h2 id="2-分段加锁机制">2. 分段加锁机制</h2>
+<h3 id="21-加锁">2.1 加锁</h3>
+<ol>
+<li>首先各个线程依次第一次获取锁，生成顺序递增的<code>txid</code>，然后将edit log写入内存双缓冲的区域1，接着就立马第一次释放锁;</li>
+<li>趁着这个空隙，后面的线程就可以再次立马第一次获取锁，然后立即写自己的edit log到内存缓冲；写内存那么快，可能才耗时几十微妙，接着就立马第一次释放锁；</li>
+<li>接着各个线程竞争第二次获取锁，有线程获取到锁之后，就判断是否有其他线程在写磁盘和网络？如果没有，那么这个幸运儿线程直接交换双缓冲的区域1和区域2，接着第二次释放锁。这个过程相当快速，内存里判断几个条件，耗时不了几微秒；</li>
+<li>现在内存缓冲区已经被交换了，后面的线程可以立马快速的依次获取锁，然后将edit log写入内存缓冲的区域2，而内存缓冲区域1中的数据被锁定了，不能写；</li>
+</ol>
+<p><img src="/bigdata/hadoop-arch-2.png" alt="分段加锁"  /></p>
+<h3 id="22-多线程并发">2.2 多线程并发</h3>
+<ol start="5">
+<li>接着，之前那个幸运儿线程将内存缓冲的区域1中的数据读取出来（此时没线程写区域1了，都在写区域2），将里面的edti log都写入磁盘文件，以及通过网络写入JournalNodes集群。这个过程可是很耗时的！但是做过优化了，在写磁盘和网络的过程中，是不持有锁的！因此后面的线程可以快速的第一次获取锁后，立马写入内存缓冲的区域2，然后释放锁。这个时候大量的线程都可以快速的写入内存，没有阻塞和卡顿！</li>
+</ol>
+<h3 id="23-批量数据刷磁盘和网络优化">2.3 批量数据刷磁盘和网络优化</h3>
+<ol start="6">
+<li>在幸运儿线程把数据写磁盘和网络的过程中，排在后面的大量线程快速的第一次获取锁，写内存缓冲区域2，释放锁，之后，这些线程第二次获取到锁后会发现有人在写磁盘，所以会立即释放锁，然后休眠1秒后再次尝试获取锁。此时大量的线程并发过来的话，都会在这里快速的第二次获取锁，然后发现有人在写磁盘和网络，快速的释放锁，休眠。这个过程不会长时间的阻塞其他线程！因为都会快速的释放锁，所以后面的线程还是可以迅速的第一次获取锁后写内存缓冲！而且这时，一定会有很多线程发现，好像之前那个幸运儿线程的<code>txid</code>是排在自己之后的，那么肯定就把自己的edit log从缓冲里写入磁盘和网络了。这些线程甚至都不会休眠等待，直接就会返回后去干别的事情了，压根儿不会卡在这里。</li>
+<li>然后那个幸运儿线程写完磁盘和网络之后，就会唤醒之前休眠的那些线程。那些线程会依次排队再第二次获取锁后进入判断，发现没有线程在写磁盘和网络了！然后就会再判断，有没有排在自己之后的线程已经将自己的edti log写入磁盘和网络了。如果有的话，就直接返回了。没有的话，那么就成为第二个幸运儿线程，交换两块缓冲区，区域1和区域2交换一下。然后释放锁，自己开始将区域2的数据写入磁盘和网络。这个时候后面的线程如果要写edits log的，还是可以第一次获取锁后立马写内存缓冲再释放锁，以此类推。</li>
+</ol>
+<h1 id="部署-hadoop-集群">部署 Hadoop 集群</h1>
+<p>由于机器有限，这里将 Hadoop 的主要组件 HDFS、MapReduce 和 YARN 都部署到了同一台机器上，并且重点关注启动 HDFS 并存储文件到 HDFS 的过程。</p>
+<h2 id="0-安装和配置环境变量">0. 安装和配置环境变量</h2>
+<p>从 Apache <a class="gdoc-markdown__link" href="https://archive.apache.org/dist/hadoop/common/">Hadoop Releases</a> 页面下载相应的 Hadoop 文件包，这里下载的是<code>hadoop-2.7.7</code>。下载完成之后解压并配置相应的环境变量 <code>HADOOP_HOME</code> 并将 <code>${HADOOP_HOME}/bin</code> 将入到系统搜索路径 <code>PATH</code> 中。注意，<code>JDK</code> 等也需要配置。</p>
+<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell">$ tar -zxf hadoop-2.7.7.tar.gz -C /usr/local
+</code></pre></div><h2 id="1-修改增加-hdfsmapreduceyarn-相关配置">1. 修改/增加 HDFS/MapReduce/YARN 相关配置</h2>
+<p>修改 <code>${HADOOP_HOME}/etc/hadoop</code> 目录下的 Hadoop 相关配置文件，主要包括 <code>core-site.xml, hdfs-site.xml, mapred-site.xml, yarn-site.xml</code> 等。注意，集群的节点在 <code>${HADOOP_HOME}/etc/hadoop/slaves</code> 中配置。</p>
+<p>在多机分布式模式下，还需要将配置文件分发到各个节点。</p>
+
+
+
+
+<div class="gdoc-tabs">
+  
+    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-uniqueid" id="tabs-uniqueid-0"
+      checked="checked"  />
+    <label for="tabs-uniqueid-0" class="gdoc-tabs__label">
+      core-site.xml
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;/usr/local/hadoop/tmp&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+    </div>
+  
+    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-uniqueid" id="tabs-uniqueid-1"
+       />
+    <label for="tabs-uniqueid-1" class="gdoc-tabs__label">
+      hdfs-site.xml
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;1&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+    </div>
+  
+    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-uniqueid" id="tabs-uniqueid-2"
+       />
+    <label for="tabs-uniqueid-2" class="gdoc-tabs__label">
+      mapred-site.xml
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+    </div>
+  
+    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-uniqueid" id="tabs-uniqueid-3"
+       />
+    <label for="tabs-uniqueid-3" class="gdoc-tabs__label">
+      yarn-site.xml
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <pre><code>&lt;configuration&gt;
+    &lt;!-- Site specific YARN configuration properties --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+        &lt;value&gt;localhost&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+    </div>
+  
+</div>
+
+<h2 id="2-启动集群">2. 启动集群</h2>
+<h2 id="21-格式化-namenode">2.1 格式化 NameNode</h2>
+<p>在启动集群之前，建议先在 NameNode上执行 <code>hdfs namenode -format</code> 命令格式化 HDFS 文件系统。格式化完毕后可以看到在 <code>${hadoop.tmp.dir}</code> 目录下生成了 <code>dfs/name</code> 目录，其中包括 <code>fsimage</code> 和 <code>seen_txid</code> （transactionid）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell">$ hdfs namenode -format <span class="c1"># format the DFS filesystem</span>
+<span class="c1"># The contents in ${hadoop.tmp.dir} after above command</span>
+.
+└── tmp
+    └── dfs
+        └── name
+            └── current
+                ├── VERSION
+                ├── fsimage_0000000000000000000
+                ├── fsimage_0000000000000000000.md5
+                └── seen_txid
+</code></pre></div><h2 id="22-启动-hadoop-集群">2.2 启动 Hadoop 集群</h2>
+<p>格式化完成后即可运行 <code>${HADOOP_HOME}/sbin/start-all.sh</code> 脚本一次性启动集群的所有组件，包括 HDFS 的 <code>NameNode, SecondaryNameNode, DataNode</code> 和 YARN 的 <code>ResourceManager, NodeManager</code> 进程。</p>
+<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell"><span class="c1"># Start HDFS MapReduce and YARN</span>
+$ <span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/start-all.sh
+
+<span class="c1"># Process</span>
+$ jps
+<span class="m">70689</span> SecondaryNameNode
+<span class="m">70803</span> ResourceManager
+<span class="m">70582</span> DataNode
+<span class="m">70889</span> NodeManager
+<span class="m">70495</span> NameNode
+<span class="m">71870</span> Jps
+</code></pre></div><p>因为这里将所有组件都部署到了同一台机器下，所有可以在<code>${hadoop.tmp.dir}</code> 目录下看到为 <code>NameNode, SecondaryNameNode, DataNode</code> 创建的目录。</p>
+<ul>
+<li>NameNode : name</li>
+<li>SecondaryNameNode : namesecondary</li>
+<li>DataNode : data</li>
+</ul>
+<p><code>nm-local-dir</code> 目录是 <code>NodeManager</code> 创建的目录，用于缓存用户程序和相应的配置文件。</p>
+<p>对于 <code>NameNode, SecondaryNameNode</code> ，它们主要是存储和维护 HDFS 的元数据 <code>fsimage</code> 和操作日志 <code>editlog</code>，而 <code>DataNode</code> 主要是存储实际的数据块 <code>Block</code>，此处暂时还未向文件系统写入数据，因此暂时没有对应的数据块文件。</p>
+<p><img src="/bigdata/hadoop-deploy-1.png" alt="init hadoop cluster"  /></p>
+<h2 id="3-创建目录并存储文件">3. 创建目录并存储文件</h2>
+<p>经过以上几步后集群就以及正常启动了，下面下 HDFS 中写入一个文件。首先，创建一个 <code>data</code> 目录，然后将 <code>test.txt</code> 上传到文件系统中，最后使用 <code>hdfs dfs cat data/test.txt</code> 查看文件的内容。</p>
+<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell">$ hdfs dfs -mkdir -p data
+$ hdfs dfs -put test.txt data/
+$ hdfs dfs -cat data/test.txt
+</code></pre></div><p><img src="/bigdata/hadoop-deploy-3.png" alt="ls and cat file"  /></p>
+<p>从浏览器中查看 HDFS 的相关信息，如集群节点的状态等，也可以直接在浏览器中浏览文件系统的内容，如下，虽然只存了很小的一个文件（33B），但 HDFS 还是分配了一个 <code>128M</code> 的数据块。</p>
+<p><img src="/bigdata/hadoop-deploy-4.png" alt="browse from web page"  /></p>
+<p>再次查看 <code>${hadoop.tmp.dir}</code> 目录， 可以发现 <code>dfs/data</code> 目录的子目录中已经写入了数据块文件，它们存储的就是刚才上传到 HDFS 中的 test.txt 的实际数据。因为这里设置的 <code>replication</code> 为1，并且test.txt也只需要一个数据块即可存储，所以这里只能看到一个数据块文件（和保存它的元数据信息文件）。</p>
+<p><img src="/bigdata/hadoop-deploy-2.png" alt="save file to hdfs"  /></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://juejin.cn/post/6844903992066048014">https://juejin.cn/post/6844903992066048014</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/37219709">https://zhuanlan.zhihu.com/p/37219709</a></li>
+<li><a href="https://hadoop.apache.org/docs/r1.0.4/cn/hdfs_design.html">https://hadoop.apache.org/docs/r1.0.4/cn/hdfs_design.html</a></li>
+<li><a href="https://github.com/heibaiying/BigData-Notes/blob/master/notes/Hadoop-HDFS.md">https://github.com/heibaiying/BigData-Notes/blob/master/notes/Hadoop-HDFS.md</a></li>
+<li><a href="https://www.cnblogs.com/52mm/p/p13.html">https://www.cnblogs.com/52mm/p/p13.html</a></li>
+<li><a href="https://juejin.cn/post/6844903713966915598">https://juejin.cn/post/6844903713966915598</a></li>
+</ul>
+
+
+    </article>
+
+                
+
+
+
+
+
+
+
+
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+            
+    
+    
+
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+        
+        
+
+        
+        
+            
+            
+            
+
+            
+
+            
+
+            
+        
+
+        
+        
+    
+
+        
+    
+
+
+
+
+
+<div class="gdoc-page__footer flex flex-wrap justify-between">
+    
+    
+</div>
+
+            </div>
+        </main>
+
+        <footer class="gdoc-footer">
+    <div class="container flex flex-wrap">
+        <span class="gdoc-footer__item">
+            Built with <a href="https://gohugo.io/" class="gdoc-footer__link">Hugo</a> and
+            <svg class="icon heart"><use xlink:href="#heart"></use></svg>
+        </span>
+        
+        
+    </div>
+</footer>
+
+    </div>
+
+    
+
+
+
+
+<script defer src="/js/en.search.min.c8e955343bfe0248e415a4d6686a21b8f6429bd355a3613448fadf17bfdae324.js"></script>
+
+
+
+<script defer src="/js/clipboard-af8ab36589.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var clipboard = new ClipboardJS('.clip');
+    });
+</script>
+
+
+</body>
+</html>
