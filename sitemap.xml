@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://slinviz.github.io/plang/java/jvm/</loc>
+    <lastmod>2021-03-04T17:13:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/bigdata/spark/storage/</loc>
+    <lastmod>2021-03-04T14:49:45+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/bigdata/hadoop/hdfs/</loc>
     <lastmod>2021-03-03T18:43:44+08:00</lastmod>
   </url>
@@ -24,7 +34,7 @@
   
   <url>
     <loc>https://slinviz.github.io/pbasic/os/os-process/</loc>
-    <lastmod>2021-03-03T18:43:44+08:00</lastmod>
+    <lastmod>2021-03-04T14:49:45+08:00</lastmod>
   </url>
   
   <url>
@@ -49,7 +59,7 @@
   
   <url>
     <loc>https://slinviz.github.io/pbasic/os/os-fs/</loc>
-    <lastmod>2021-02-27T16:21:42+08:00</lastmod>
+    <lastmod>2021-03-04T14:49:45+08:00</lastmod>
   </url>
   
   <url>

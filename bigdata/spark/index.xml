@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>[转载]Apache Spark 内存管理详解</title>
+      <link>https://slinviz.github.io/bigdata/spark/storage/</link>
+      <pubDate>Thu, 04 Mar 2021 11:50:08 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/bigdata/spark/storage/</guid>
+      <description>本文是对原文Apache Spark 内存管理详解的转载并做了部分排版修改，后续会加入一些自己的理解和补充。   0. 序言 1. 堆内和堆外内存规划  1.1 堆内内存 1.2 堆外内存 1.3 内存管理接口   2. 内存空间分配  2.1 静态内存管理 2.2 统一内存管理   3. 存储内存管理  3.1 RDD 的持久化机制 3.2 RDD 缓存的过程 3.3 淘汰和落盘   4. 执行内存管理  4.1 多任务间内存分配 4.2 Shuffle 的内存占用   结束语 参考资源 Reference   0. 序言 Spark 作为一个基于内存的分布式计算引擎，其内存管理模块在整个系统中扮演着非常重要的角色。理解 Spark 内存管理的基本原理，有助于更好地开发 Spark 应用程序和进行性能调优。本文旨在梳理出 Spark 内存管理的脉络，抛砖引玉，引出读者对这个话题的深入探讨。本文中阐述的原理基于 Spark 2.1 版本，阅读本文需要读者有一定的 Spark 和 Java 基础，了解 RDD、Shuffle、JVM 等相关概念。</description>
+    </item>
+    
+    <item>
       <title>Cache与Checkpoint</title>
       <link>https://slinviz.github.io/bigdata/spark/cache-checkpoint/</link>
       <pubDate>Sat, 27 Feb 2021 19:34:05 +0800</pubDate>
