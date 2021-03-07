@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>定义比较</title>
+      <link>https://slinviz.github.io/plang/java/basic/compare/</link>
+      <pubDate>Sat, 06 Mar 2021 15:15:47 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/plang/java/basic/compare/</guid>
+      <description>Comparable vs. Comparator     java.lang.Comparable java.util.Comparator     类型 接口 接口   使用时机 定义类时实现 类定义完成后，重新定义比较器   功能 实现类的 自然序 可定义多种比较方式   覆盖方法 public int compareTo(T o) public int compare(T o1, T o2)   实现次数 只能实现一次（类定义时） 可定义多个比较器类    Comparable 接口 java.lang.Comparable 在类定义的时候实现，可用于设定对象的默认排序（自然序），需要覆写public int compareTo(T o)方法。
+import java.lang.Comparable; import java.util.Comparator; import java.util.List; import java.util.ArrayList; import java.util.Collections; public class Person implements Comparable&amp;lt;Person&amp;gt; { String name; int age; public Person(String name, int age){ super(); this.</description>
+    </item>
+    
+    <item>
       <title>JVM</title>
       <link>https://slinviz.github.io/plang/java/jvm/</link>
       <pubDate>Thu, 04 Mar 2021 14:23:35 +0800</pubDate>
@@ -19,7 +29,7 @@
       <description>类加载机制 类加载过程  1. 加载 2. 验证 3. 准备 4. 解析 5. 初始化   类加载器  1. 类与类加载器 2. 双亲委派模型  双亲委派模型的工作过程   3. 破坏双亲委派模型   Reference   类加载机制  虚拟机把描述类的数据从 Class 文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这就是虚拟机的类加载机制。
  类的生命周期包括：加载、验证、准备、解析、初始化、使用和卸载，其中验证、准备、和解析统称为连接。
 加载、验证、准备、初始化和卸载这5个阶段的顺序是确定的。解析阶段可以在初始化阶段之后（java运行时绑定），阶段间通常是相互交叉地混合式进行的。  必须立即对类进行初始化的5中情况：
- 遇到new, getstatic, putstatic, invokestatic 这个4条字节码质量时，如果类没有进行过初始化，则需要先触发其初始化。即使用new关键字实例化对象、读取或者设置一个类的静态字段（被final修饰、已在编译期把结果放入常量池的静态字段除外）、以及调用一个类的静态方法时。 使用java.lang.reflect 包的方法对类进行反射调用的时候，如果类没有进行过初始化，则需要先触发其初始化。 初始化一个类的时候，如果发现其父类还没进行过初始化，则需要先触发其父类的初始化。 当虚拟机启动时，用户指定要执行的主类（包含 main() 方法的那个类），虚拟机会先初始化这个主类。 使用 JDK 1.7 动态语言支持时，如果一个 java.lang.invoke.MethodHandle 实例最后的解析结果 REF_getStatic, REF_putStatic, REF_invokeStatic 的方法句柄，并且这个方法句柄所对应的类没有进行过初始化，则需要先触发其初始化。   对于静态字段，只有直接定义这个字段的类才会被初始化，因此通过其子类来引用父类中定义的静态字段，只会触发父类的初始化而不会触发子类的初始化。如下代码只会输出：SuperClass init!  class SuperClass { static { System.</description>
+ 遇到new, getstatic, putstatic, invokestatic 这个4条字节码指令时，如果类没有进行过初始化，则需要先触发其初始化。即使用new关键字实例化对象、读取或者设置一个类的静态字段（被final修饰、已在编译期把结果放入常量池的静态字段除外）、以及调用一个类的静态方法时。 使用java.lang.reflect 包的方法对类进行反射调用的时候，如果类没有进行过初始化，则需要先触发其初始化。 初始化一个类的时候，如果发现其父类还没进行过初始化，则需要先触发其父类的初始化。 当虚拟机启动时，用户指定要执行的主类（包含 main() 方法的那个类），虚拟机会先初始化这个主类。 使用 JDK 1.7 动态语言支持时，如果一个 java.lang.invoke.MethodHandle 实例最后的解析结果 REF_getStatic, REF_putStatic, REF_invokeStatic 的方法句柄，并且这个方法句柄所对应的类没有进行过初始化，则需要先触发其初始化。   对于静态字段，只有直接定义这个字段的类才会被初始化，因此通过其子类来引用父类中定义的静态字段，只会触发父类的初始化而不会触发子类的初始化。如下代码只会输出：SuperClass init!  class SuperClass { static { System.</description>
     </item>
     
     <item>
@@ -46,9 +56,9 @@
       <pubDate>Wed, 03 Mar 2021 09:11:44 +0800</pubDate>
       
       <guid>https://slinviz.github.io/plang/scala/basic/</guid>
-      <description>  Scala 基本数据类型   Scala 基本数据类型 Byte, Short, Int, Long, Float, Double, Char, Boolean, String, RichInt, RichDouble, StringOps
+      <description>Scala 基本数据类型   Scala 基本数据类型 Byte, Short, Int, Long, Float, Double, Char, Boolean, String, RichInt, RichDouble, StringOps
 格式化字符串
-printf(&amp;#34;Hello, %s! You are %d years old.%n&amp;#34;, name, age) print(f&amp;#34;Hello, ${name}! In six months, you&amp;#39;ll be ${age+0.5}%7.2f years old.%n&amp;#34;) print(s&amp;#34;$$$price&amp;#34;)  在 Scala 中，变量或函数的类型总是写在变量或函数名称的后面。 在 Scala 中， 仅当同一行代码中存在多条语句时才需要用分号;隔开。 Scala 中的操作符实际上是方法，且不能对操作符进行重载，但允许定义操作符。   </description>
+printf(&amp;#34;Hello, %s! You are %d years old.%n&amp;#34;, name, age) print(f&amp;#34;Hello, ${name}! In six months, you&amp;#39;ll be ${age+0.5}%7.2f years old.%n&amp;#34;) print(s&amp;#34;$$$price&amp;#34;) println(raw&amp;#34;\n is a new line&amp;#34;) ; // \n is a new line  在 Scala 中，变量或函数的类型总是写在变量或函数名称的后面。 在 Scala 中， 仅当同一行代码中存在多条语句时才需要用分号;隔开。 Scala 中的操作符实际上是方法，Java中不能对操作符进行重载，但Scala允许定义操作符。   Scala中的类通常都有一个伴生对象，里面定义的方法类似于java中的静态方法。</description>
     </item>
     
     <item>

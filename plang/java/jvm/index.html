@@ -335,93 +335,6 @@
             
             
             
-
-            
-            
-            
-            
-            
-            
-
-            <li>
-            
-            <input type="checkbox" id="navtree-49728d74" class="gdoc-nav__toggle" >
-            <label for="navtree-49728d74" class="flex justify-between">
-            
-            
-                <span class="flex">
-                    <a href="/papers/" class="gdoc-nav__entry ">
-                        Paper Review
-                    </a>
-                </span>
-            
-            
-                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
-                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
-            </label>
-            
-
-            
-                
-    
-
-    <ul class="gdoc-nav__list">
-        
-            
-            
-
-            
-            
-            
-            
-            
-            
-
-            <li>
-            
-            
-                <span class="flex">
-                    <a href="/papers/mermaidtest/" class="gdoc-nav__entry ">
-                        Mermaidtest
-                    </a>
-                </span>
-            
-            
-
-            
-            </li>
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-
-            <li>
-            
-            
-                <span class="flex">
-                    <a href="/papers/TPDS/" class="gdoc-nav__entry ">
-                        TPDS
-                    </a>
-                </span>
-            
-            
-
-            
-            </li>
-            
-            
-        
-    </ul>
-
-            
-            </li>
-            
             
             
 
@@ -973,6 +886,30 @@
             </li>
             
             
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/plang/java/basic/compare/" class="gdoc-nav__entry ">
+                        定义比较
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
         
     </ul>
 
@@ -1362,7 +1299,7 @@
 
 <p>必须立即对类进行初始化的5中情况：</p>
 <ol>
-<li>遇到<code>new, getstatic, putstatic, invokestatic</code> 这个4条字节码质量时，如果类没有进行过初始化，则需要先触发其初始化。即使用new关键字实例化对象、读取或者设置一个类的静态字段（被final修饰、已在编译期把结果放入常量池的静态字段除外）、以及调用一个类的静态方法时。</li>
+<li>遇到<code>new, getstatic, putstatic, invokestatic</code> 这个4条字节码指令时，如果类没有进行过初始化，则需要先触发其初始化。即使用new关键字实例化对象、读取或者设置一个类的静态字段（被final修饰、已在编译期把结果放入常量池的静态字段除外）、以及调用一个类的静态方法时。</li>
 <li>使用<code>java.lang.reflect</code> 包的方法对类进行反射调用的时候，如果类没有进行过初始化，则需要先触发其初始化。</li>
 <li>初始化一个类的时候，如果发现其父类还没进行过初始化，则需要先触发其父类的初始化。</li>
 <li>当虚拟机启动时，用户指定要执行的主类（包含 <code>main()</code> 方法的那个类），虚拟机会先初始化这个主类。</li>
@@ -1390,7 +1327,7 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div><ol start="2">
-<li>通过数组定义来引用类，不会触发此类的初始。如下代码不会输出<code>SuperClass init!</code>。</li>
+<li>通过数组定义来引用类，不会触发此类的初始化。如下代码不会输出<code>SuperClass init!</code>。</li>
 </ol>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotInitialization</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span><span class="o">{</span>
@@ -1407,7 +1344,7 @@
 <h1 id="类加载过程">类加载过程</h1>
 <h2 id="1-加载">1. 加载</h2>
 <ol>
-<li>通过一个类的权限定名来或者定义此类的二进制字节流；</li>
+<li>通过一个类的权限定名来获取定义此类的二进制字节流；</li>
 <li>将这个字节流所代表的的静态存储结构转换为方法区的运行时数据结构；</li>
 <li>在内存中生成一个代表这个类的<code>java.lang.Class</code>对象，作为方法区这个类的各种数据的访问入口。</li>
 </ol>
@@ -1429,11 +1366,11 @@
 <p>虚拟机将常量池内的符号引用替换为直接引用的过程。</p>
 <ul>
 <li>符号引用：符号引用以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可，与虚拟机实现的内存布局无关。</li>
-<li>直接引用：直接引用可以是直接执行目标的指针、相对偏移量或是某个能间接定位到目标的句柄，与虚拟机实现的内存布局有关。</li>
+<li>直接引用：直接引用可以是直接指向目标的指针、相对偏移量或是某个能间接定位到目标的句柄，与虚拟机实现的内存布局有关。</li>
 </ul>
 <h2 id="5-初始化">5. 初始化</h2>
-<p>真正开始执行类中定义的Java程序代码（或者说字节码）。初始化时执行类构造器<code>&lt; clinit &gt;()</code> 方法的过程。
-<code>&lt; clinit &gt;()</code> 是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（<code>static{}</code>）中的语句合并产生的，编译器收集的顺序由语句在源文件中出现的顺序决定，静态语句块中只能方位定义在静态语句块之前的变量，在前面的静态语句块可以赋值，但不能访问。</p>
+<p>真正开始执行类中定义的Java程序代码（或者说字节码）。初始化是执行类构造器<code>&lt; clinit &gt;()</code> 方法的过程。
+<code>&lt; clinit &gt;()</code> 是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（<code>static{}</code>）中的语句合并产生的，编译器收集的顺序由语句在源文件中出现的顺序决定，静态语句块中只能访问（读取值）定义在静态语句块之前的变量，在前面的静态语句块可以对定义在该静态语句块后面的类变量赋值（设置值），但不能访问。</p>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span><span class="o">{</span>
     <span class="kd">static</span> <span class="o">{</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// 可以赋值后面定义的类变量
@@ -1462,7 +1399,7 @@
 <h3 id="双亲委派模型的工作过程">双亲委派模型的工作过程</h3>
 <ol>
 <li>如果一个类加载器收到了类加载请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此最终所有的加载请求最终都会传到顶层的启动类加载器。</li>
-<li>只有当父加载器反馈自己无法完成这个加载请求（<strong>它的搜索范围中没有找到所需的类</strong>）时，子加载器才会尝试自己去加载。</li>
+<li>只有当父加载器反馈自己无法完成这个加载请求（<strong>它的搜索范围中没有找到所需加载的类</strong>）时，子加载器才会尝试自己去加载。</li>
 </ol>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">protected</span> <span class="kd">synchronized</span> <span class="n">Class</span><span class="o">&lt;</span><span class="o">?</span><span class="o">&gt;</span> <span class="n">loadClass</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">resolve</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
     <span class="c1">// 首先，检查请求的类是否已经被加载过了
@@ -1492,9 +1429,9 @@
 <ol>
 <li>JDK 1.2 之后不提倡用户去覆写<code>loadClass()</code>方法，而是将类加载逻辑写到<code>findClass()</code>中。</li>
 <li>基础类调用用户代码，典型服务 JNDI。 线程上下文类加载器（Thread Context ClassLoader）。JNDI 服务使用这个线程上下文类加载器去加载所需要的JNDI的接口提供者（SPI）代码，也就是<strong>父类加载器请求子类加载器去完成类加载动作</strong>。Java 中所有涉及SPI的加载动作都采用这个加载方式，例如JNDI, JDBC, JCE, JAXB, JBI等。</li>
-<li>用户对程序动态性的追求：代码热替换（HotSwap），模块热部署（Hot Deployment）等。 OSGI规范，每个程序模块（Bundle）都有一个子集的类加载器，当需要更换一个Bundle是，就把Bundle连同类加载器一起换掉以实现代码的热替换。</li>
+<li>用户对程序动态性的追求：代码热替换（HotSwap），模块热部署（Hot Deployment）等。 OSGI规范，每个程序模块（Bundle）都有一个自己的类加载器，当需要更换一个Bundle时，就把Bundle连同类加载器一起换掉以实现代码的热替换。</li>
 </ol>
-<p>OSGI环境下，类加载器不再是双亲委派模型中的树状结构，而是更加复杂的网站结构。</p>
+<p>OSGI环境下，类加载器不再是双亲委派模型中的树状结构，而是更加复杂的网状结构。</p>
 <h1 id="reference">Reference</h1>
 <ol>
 <li>深入理解Java虚拟机：JVM高级特性与最佳实践（第2版）</li>

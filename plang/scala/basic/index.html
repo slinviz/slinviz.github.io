@@ -335,93 +335,6 @@
             
             
             
-
-            
-            
-            
-            
-            
-            
-
-            <li>
-            
-            <input type="checkbox" id="navtree-49728d74" class="gdoc-nav__toggle" >
-            <label for="navtree-49728d74" class="flex justify-between">
-            
-            
-                <span class="flex">
-                    <a href="/papers/" class="gdoc-nav__entry ">
-                        Paper Review
-                    </a>
-                </span>
-            
-            
-                <svg class="icon keyborad_arrow_left"><use xlink:href="#keyborad_arrow_left"></use></svg>
-                <svg class="icon keyborad_arrow_down hidden"><use xlink:href="#keyborad_arrow_down"></use></svg>
-            </label>
-            
-
-            
-                
-    
-
-    <ul class="gdoc-nav__list">
-        
-            
-            
-
-            
-            
-            
-            
-            
-            
-
-            <li>
-            
-            
-                <span class="flex">
-                    <a href="/papers/mermaidtest/" class="gdoc-nav__entry ">
-                        Mermaidtest
-                    </a>
-                </span>
-            
-            
-
-            
-            </li>
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-
-            <li>
-            
-            
-                <span class="flex">
-                    <a href="/papers/TPDS/" class="gdoc-nav__entry ">
-                        TPDS
-                    </a>
-                </span>
-            
-            
-
-            
-            </li>
-            
-            
-        
-    </ul>
-
-            
-            </li>
-            
             
             
 
@@ -973,6 +886,30 @@
             </li>
             
             
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/plang/java/basic/compare/" class="gdoc-nav__entry ">
+                        定义比较
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
         
     </ul>
 
@@ -1335,14 +1272,16 @@
 <div class="highlight"><pre class="chroma"><code class="language-Scala" data-lang="Scala">    <span class="n">printf</span><span class="o">(</span><span class="s">&#34;Hello, %s! You are %d years old.%n&#34;</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">)</span>
     <span class="n">print</span><span class="o">(</span><span class="s">f&#34;</span><span class="s">Hello, </span><span class="si">${</span><span class="n">name</span><span class="si">}</span><span class="s">! In six months, you&#39;ll be </span><span class="si">${</span><span class="n">age</span><span class="o">+</span><span class="mf">0.5</span><span class="si">}</span><span class="s">%7.2f years old.%n</span><span class="s">&#34;</span><span class="o">)</span>
     <span class="n">print</span><span class="o">(</span><span class="s">s&#34;</span><span class="s">$$</span><span class="si">$price</span><span class="s">&#34;</span><span class="o">)</span>
-</code></pre></div><blockquote class="gdoc-hint danger">
+    <span class="n">println</span><span class="o">(</span><span class="s">raw&#34;\n is a new line&#34;</span><span class="o">)</span> <span class="o">;</span> <span class="c1">// \n is a new line
+</span></code></pre></div><blockquote class="gdoc-hint danger">
   <ul>
 <li>在 Scala 中，变量或函数的类型总是写在变量或函数名称的后面。</li>
 <li>在 Scala 中， 仅当同一行代码中存在多条语句时才需要用分号<code>;</code>隔开。</li>
-<li>Scala 中的操作符实际上是方法，且不能对操作符进行重载，但允许定义操作符。</li>
+<li>Scala 中的操作符实际上是方法，Java中不能对操作符进行重载，但Scala允许定义操作符。</li>
 </ul>
 </blockquote>
 
+<p>Scala中的类通常都有一个伴生对象，里面定义的方法类似于java中的静态方法。</p>
 
 
     </article>

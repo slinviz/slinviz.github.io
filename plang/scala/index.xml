@@ -16,9 +16,9 @@
       <pubDate>Wed, 03 Mar 2021 09:11:44 +0800</pubDate>
       
       <guid>https://slinviz.github.io/plang/scala/basic/</guid>
-      <description>  Scala 基本数据类型   Scala 基本数据类型 Byte, Short, Int, Long, Float, Double, Char, Boolean, String, RichInt, RichDouble, StringOps
+      <description>Scala 基本数据类型   Scala 基本数据类型 Byte, Short, Int, Long, Float, Double, Char, Boolean, String, RichInt, RichDouble, StringOps
 格式化字符串
-printf(&amp;#34;Hello, %s! You are %d years old.%n&amp;#34;, name, age) print(f&amp;#34;Hello, ${name}! In six months, you&amp;#39;ll be ${age+0.5}%7.2f years old.%n&amp;#34;) print(s&amp;#34;$$$price&amp;#34;)  在 Scala 中，变量或函数的类型总是写在变量或函数名称的后面。 在 Scala 中， 仅当同一行代码中存在多条语句时才需要用分号;隔开。 Scala 中的操作符实际上是方法，且不能对操作符进行重载，但允许定义操作符。   </description>
+printf(&amp;#34;Hello, %s! You are %d years old.%n&amp;#34;, name, age) print(f&amp;#34;Hello, ${name}! In six months, you&amp;#39;ll be ${age+0.5}%7.2f years old.%n&amp;#34;) print(s&amp;#34;$$$price&amp;#34;) println(raw&amp;#34;\n is a new line&amp;#34;) ; // \n is a new line  在 Scala 中，变量或函数的类型总是写在变量或函数名称的后面。 在 Scala 中， 仅当同一行代码中存在多条语句时才需要用分号;隔开。 Scala 中的操作符实际上是方法，Java中不能对操作符进行重载，但Scala允许定义操作符。   Scala中的类通常都有一个伴生对象，里面定义的方法类似于java中的静态方法。</description>
     </item>
     
     <item>

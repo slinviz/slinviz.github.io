@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>定义比较</title>
+      <link>https://slinviz.github.io/plang/java/basic/compare/</link>
+      <pubDate>Sat, 06 Mar 2021 15:15:47 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/plang/java/basic/compare/</guid>
+      <description>Comparable vs. Comparator     java.lang.Comparable java.util.Comparator     类型 接口 接口   使用时机 定义类时实现 类定义完成后，重新定义比较器   功能 实现类的 自然序 可定义多种比较方式   覆盖方法 public int compareTo(T o) public int compare(T o1, T o2)   实现次数 只能实现一次（类定义时） 可定义多个比较器类    Comparable 接口 java.lang.Comparable 在类定义的时候实现，可用于设定对象的默认排序（自然序），需要覆写public int compareTo(T o)方法。
+import java.lang.Comparable; import java.util.Comparator; import java.util.List; import java.util.ArrayList; import java.util.Collections; public class Person implements Comparable&amp;lt;Person&amp;gt; { String name; int age; public Person(String name, int age){ super(); this.</description>
+    </item>
+    
+    <item>
       <title>Object 类</title>
       <link>https://slinviz.github.io/plang/java/basic/object/</link>
       <pubDate>Mon, 01 Mar 2021 14:52:19 +0800</pubDate>
