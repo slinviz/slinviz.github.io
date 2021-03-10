@@ -11,6 +11,85 @@
     
     
     <item>
+      <title>蚂蚁金服面经</title>
+      <link>https://slinviz.github.io/interview/ant/</link>
+      <pubDate>Tue, 09 Mar 2021 20:57:00 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/interview/ant/</guid>
+      <description>在Boss直聘上看到蚂蚁智能平台的招聘信息，感觉跟我当前的研究方向非常相似，就投递了简历，没想到不久就得到了回应，然后加了微信了解了更多的岗位信息。因为已经是周五了（周末不上班啊），然后让下周一（2021.03.08）跟面试官约面试。
+效率可以说是很不错的，约了第二天（3.09）早上电话面试（虽然最后还是用钉钉进行了视频面试）。
+初面/一面 面试内容包括：
+首先肯定是自我介绍啦，balabala&amp;hellip;.
+然后面试官开始提问：
+ OSI七层模型，每层用到了哪些协议；TCP协议如何保证可靠性  第一次面试有点紧张，7层模型是说清楚了，但是后面说协议就搞混了。。。
+ 操作系统内存管理：分页管理和分段管理； CPU缓存一致性  这个是一点都不了解啊。
+ Java 内存模型(synchronized. volatile) 垃圾回收器 cms，g1, serial （serial old） synchronized 怎么保证一致性  自己说了Java内存模型保证了 原子性，一致性和顺序性（结果说错了，是原子性，可见性和有序性，￣□￣｜｜），然后就问了synchronized怎么保证一致性。
+  Spark RDD的五要素
+  Spark 应用程序提交调度执行整个过程；
+  Spark 为什么比MapReduce 性能好
+  Spark怎么防止内存溢出
+  java xxx 锁机制（忘了，反正不知道）
+  MySQL InnoDB和MyISAM 引擎的区别
+  MySQL默认的引擎是什么，为什么是它？
+  隔离级别？MySQL的默认级别？Oracle 的默认隔离级别？
+  从支持的锁粒度、索引两方面进行了比较
+最后就是算法啦
+ 算法：1.字符串中找所有回文串 2. 怎么判断链表有环  因为我是用的手机视频，所以没办法写代码啊，，，于是主动跟面试官说可以先给题目，然后给思路，随后跟面试官讨论（算法这块儿还是薄弱啊，┭┮﹏┭┮）</description>
+    </item>
+    
+    <item>
+      <title>性能调优</title>
+      <link>https://slinviz.github.io/bigdata/spark/tune/</link>
+      <pubDate>Mon, 08 Mar 2021 21:03:26 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/bigdata/spark/tune/</guid>
+      <description>概述 Spark 性能调优总体可以分为两个方面，一是从代码层面进行调优，主要包括 RDD Lineage的设计，RDD 算子的合理使用，Spark 作业数据倾斜调优和shuffle 阶段的调优；而是从资源的层面进行调优，这部分主要是通过修改 Spark 的配置参数来完成，主要包括 Executor 的内存划分。
+代码优化 1. RDD Lineage 设计 在 Spark中，数据是顺着 RDD Lineage进行流动计算的。
+1.1 复用已存在的 RDD 在Spark的开发过程中，应尽量复用已经存在的 RDD， 即避免创建过多的 RDD。坚持对于同一份数据，只创建一个RDD的原则。
+1.2 对多次使用的 RDD 进行持久化 Spark 是惰性计算的，只有在需要时才会去对 RDD 进行计算。 如果某段 Lineage 上的 RDD 会被多次用到而且没有被持久化，那么每次用到时都得重新计算，而对其进行持久化后就可以直接读取之前已经计算好的数据。 Spark 提供了Cache和Checkpoint两种机制来进行 RDD 的持久化，其中Checkpoint机制会破坏 RDD 的Lineage。
+对RDD进行持久化时应优先将其缓存在内存中并且尽量避免将 RDD 放到磁盘上，有时候重新计算 RDD 可能比从磁盘中读取还要块。
+1.3 尽量避免使用 shuffle 类算子 shuffle 是spark程序中最消耗资源的过程，很容易出现 OOM 错误。在shuffle阶段，各个Executor需要通过网络从其他节点拉取数据，并且 还会将数据写到磁盘上（读当然也需要从磁盘读取），从而会大幅降低 spark的性能。磁盘IO和网络传输
+1.3.1 利用 Broadcast 避免 shuffle 1.3.2 使用 map-side 预聚合的 shuffle 在map端进行预聚合，可以减少key对应的数据，从而减少磁盘IO和网络传输开销。 如用reduceByKey | aggregateByKey 替代 groupByKey。</description>
+    </item>
+    
+    <item>
+      <title>Trait</title>
+      <link>https://slinviz.github.io/plang/scala/trait/</link>
+      <pubDate>Mon, 08 Mar 2021 17:35:44 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/plang/scala/trait/</guid>
+      <description>Trait  Scala 中类可以实现任意数量的 Trait Trait 可以要求实现它们的类具有某些字段、方法或超类 Trait 可以提供方法和字段的实现 多个Trait叠加在一起时，顺序很重要——其方法先被执行的Trait排在更后面 Trait 中未实现的方法默认是 abstract 的 重写 Trait 中的抽象方法时无需 override 关键词 所有 Java 接口都可以当做 Scala 的 Trait 使用 构造单个对象时可以为其添加 Trait 和类一样，Trait 也可以有构造器：由字段初始化和其他 Trait 语句构成 Trait 不能有构造器参数，每个 Trait都有一个无参数的构造器  缺少构造器参数是 Trait 与类之间的唯一技术差别， 除此之外，Trait 可以具备类的所有特性，如具体的和抽象的字段，以及超类。
+ Scala 需要将Trait翻译成 JVM 的类和接口  </description>
+    </item>
+    
+    <item>
+      <title>TC</title>
+      <link>https://slinviz.github.io/papers/TC/</link>
+      <pubDate>Sun, 07 Mar 2021 19:47:54 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/papers/TC/</guid>
+      <description>模型压缩 紧凑的模型结构  用小卷积核1x1替代大的卷积核，如3x3。可以现在减少模型参数。 Filters prunning。删除不重要的或者冗余的卷积核。  粗细粒度聚合数据点 粗粒度-》n细粒度-》n*m原始训练数据</description>
+    </item>
+    
+    <item>
+      <title>TKDE</title>
+      <link>https://slinviz.github.io/papers/TKDE/</link>
+      <pubDate>Sun, 07 Mar 2021 19:47:48 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/papers/TKDE/</guid>
+      <description>背景 迭代机器学习算法通常需要海量的训练数据对模型进行多次迭代训练，最终才可能获得可以接受的模型。 显然，随着模型的逐步训练，训练集中只有越来越少的样本对模型参数更新产生影响，直接体现就是loss越来越小， 或者说小批量随机梯度下降算法中用于模型参数更新的梯度值越来越小，最后趋近于0。 也就是说此时训练集中很大一部分训练样本对模型参数更新的影响已经很小，甚至于没有影响。因此在迭代训练中 依然对其进行forward-backward操作其实是在浪费计算资源，如果有合适的方法将这部分数据样本移除，那么就 可以显著减少计算负载，减少模型训练的时间。
+核心思想 删除对模型参数更新影响小的训练样本，选择对模型更新影响较大的部分训练数据进行模型训练，即减少每轮迭代的训练数据。
+关键问题  如何度量某个训练样本对模型更新的影响？ 如何高效的识别和删除对模型参数更新影响小的数据样本？  解决方法   如何度量某个训练样本对模型更新的影响？   解决方案：将相似的训练样本聚集到一起，生成单个特别的样本（聚合数据点），用这个生成的样本对模型参数更新的影响来近似代表着些相似的 训练样本对模型参数更新的影响。比如10000个训练样本，之前对每个样本分别计算其影响值，现在将100个相似的样本放在一起，生成 100个聚合数据点，这样就只用算着100个聚合点的影响值就可以了。
+注意：生成的聚合数据点只用于近似计算影响值，而不会参与到实际的模型训练过程中。 还有就是对聚合数据点的生成和使用应该尽可能的快，防止增加额外的开销。
+图像分类中，将图像的像素展开成一个向量，然后使用Incremental SVD进行降维，降维后使用 LSH，局部敏感哈希进行划分， 最后对划分在同一组中的特征求均值，得到均值向量作为聚合数据点的特征向量。
+在Spark平台下，可以将具有相同的标签的数据划分为一个RDD的Partition，然后并行的对每个Partition计算聚合数据点，最后在进行合并。
+ 如何高效的识别和删除对模型参数更新影响小的数据样本？   关键：影响值的计算，可以选用loss也可以选用梯度的绝对值之和。 然而计算梯度的开销较大，而且最后的结果跟用loss计算的结果相差不大。
+阈值：判断冗余数据的阈值：1. 设定百分比，比如50% 则删除50%的数据。 2. 将影响值从小到大排序，将累计和小于总和的1%的前x个样本作为 冗余数据删除。
+在BigDL中，每个Executor复杂处理一个Partition的训练样本，而根据每个Executor分配的CPU核数用多线程进行计算。 存在的问题是某些线程可能会删除更多的数据，因此最后需要将各个线程筛选过后的样本聚合后重新平均地划分到各个线程中， 以减少出现计算快的线程需要等待慢的线程很久。
+核心集：构建比原数据集更小的数据集来近似代表原数据集 重要性采样：根据梯度值对训练样本进行重要性采样 </description>
+    </item>
+    
+    <item>
       <title>定义比较</title>
       <link>https://slinviz.github.io/plang/java/basic/compare/</link>
       <pubDate>Sat, 06 Mar 2021 15:15:47 +0800</pubDate>
@@ -67,12 +146,8 @@ printf(&amp;#34;Hello, %s! You are %d years old.%n&amp;#34;, name, age) print(f&
       <pubDate>Tue, 02 Mar 2021 20:58:50 +0800</pubDate>
       
       <guid>https://slinviz.github.io/bigdata/hadoop/yarn/</guid>
-      <description>集群资源管理者-YARN YARN（Yet Another Resource Negotiator）是 Hadoop 2.0 引入的集群资源管理系统。用户可以将多种服务框架部署在YARN上，由YARN进行统一的管理和资源分配。
-YARN 框架 ResourceManager-RM RM 是整个集群资源的主要管理者和协调者，RM 负责对用户提交的应用程序分配资源。资源分配根据应用程序优先级，队列容量，ACLs，数据位置等信息做出决策，然后以共享的、安全的、多租户的方式制定策略，调度集群资源。
-NodeManager-NM NM 负责管理当前节点的管理者，负责节点资源监视和节点健康跟踪，它还负责当前节点内所有容器的生命周期管理。具体如下：
- NM 启动时向 RM 注册并定时发送心跳信息，等待 RM 的命令； 维护Container生命周期，监控container的资源使用情况； 管理任务运行时的相关依赖，根据ApplicationMaster的需要，在启动container之前将程序及其依赖拷贝到本地。  ApplicationMaster-AM 在用户提交一个Application时，YARN 会启动一个轻量级进程ApplicationMaster， 负责协调来自RM的资源，并通过NM监视容器内资源的使用情况，同时负责任务的监控与容错。具体如下：
- 根据Application运行状态动态决定资源需求； 向RM申请资源并监控申请的资源的使用情况； 跟踪任务进度和状态，报告资源使用情况和应用的进度信息； 复杂任务的容错。  Container Container是 YARN 中的资源抽象，它封装了某个节点上的多维度资源，如内存、CPU、网络、磁盘等。当AM向RM申请资源时，RM为AM返回的资源使用Container表示的。YARN会为每个任务分配一个 Container，该任务只能使用该Container中描述的资源。AM可以在Container中运行任何类型的任务。如MapReduce中的Map Task和Reduce Task。
-YARN 工作原理 概述  Client通过 RM 向YARN提交Application； RM 选择一个 NM， 然后启动一个 Container 运行 ApplicationMaster； ApplicationMaster 根据实际需求向 RM 申请更多的 Container 资源，（如果任务很小，AM 会选择在自己的 JVM 中运行任务）； AM 根据获取到的 Container 资源执行分布式任务计算。  详述 </description>
+      <description>0. 概述 1. YARN Master/Slave 架构  1.1 ResourceManager-RM  1.1.1Scheduler 1.1.2 ApplicationManager   1.2 NodeManager-NM  1.2.1 Container   1.3 ApplicationMaster-AM   2. YARN 的三种调度器  2.1 FIFO Scheduler 2.2 Capacity Scheduler 2.3 Fair Scheduler   3. YARN 工作原理  3.1 概述 3.2 详述   Reference   0. 概述 YARN（Yet Another Resource Negotiator）是 Hadoop 2.0 引入的集群资源管理系统。用户可以将多种服务框架部署在YARN上，由YARN进行统一的管理和资源分配。
+YARN 的核心思想是将资源调度和应用程序管理分开，集群资源由一个全局的 ResourceManager 统一调度管理（节点资源由 NodeManager 代为管理）；为每个应用程序创建一个 ApplicationMaster，负责应用程序的管理。在 YARN 中集群资源被抽象为 Container，资源的分配和管理实际上就是对 Container 的分配和管理，Container 中的资源主要包括内存、CPU、网络、磁盘等。</description>
     </item>
     
     <item>
@@ -120,7 +195,7 @@ hashCode() 方法返回该对象的哈希码给调用者。</description>
       <guid>https://slinviz.github.io/plang/java/basic/exceptions/</guid>
       <description>Java中如果某个方法不能按照正常的途径完成任务，就可以通过另一种路径退出方法。此时JVM会抛出一个封装了错误信息的对象，方法会立刻退出同时不返回任何值。
 Java 中的“异常”可以分为Error（错误）和Exception（异常）两大类，它们都是Throwable的子类。其中：
- Error： Java运行时系统的内部错误或资源耗尽。当出现这样的错误，JVM会告知用户出现错误，并终止程序。 Exception： 异常可分为编译阶段的CheckedException和程序正常运行过程中抛出的RuntimeException两大类。  CheckedException：继承自java.lang.Exception类，一般是外部错误，发生在编译阶段，Java编译期会强制程序去捕获此类异常（要求使用try{}catch{}finally{}显式的去包裹可能出现这类异常的代码段）。 RuntimeException：运行时异常，如空指针，数组索引越界等，还有CheckedException，出现这类异常一定是程序错误。      document.addEventListener(&#34;DOMContentLoaded&#34;, function(event) { mermaid.initialize({ flowchart: { useMaxWidth: true } }); });  classDiagram class Object class Throwable class Error class Exception class RuntimeException Object 异常处理  throw 主动从方法中抛出异常交给上层调用处理。 throws 声明函数可能出现的异常。      throw throws     使用位置 方法内部 方法声明后   功能 抛出具体的异常对象，执行到throw方法调用接收，返回异常给上层调用 声明可能出现的异常，让调用者知道该方法可能出现的异常   是否处理异常 不处理，抛出异常给上层调用 不处理，指明可能出现的异常    使用对比：</description>
+ Error： Java运行时系统的内部错误或资源耗尽。当出现这样的错误，JVM会告知用户出现错误，并终止程序。 Exception： 异常可分为编译阶段的CheckedException和程序正常运行过程中抛出的RuntimeException两大类。  CheckedException：继承自java.lang.Exception类，一般是外部错误，发生在编译阶段，Java编译期会强制程序去捕获此类异常（要求使用try{}catch{}finally{}显式的去包裹可能出现这类异常的代码段）。 RuntimeException：运行时异常，如空指针，数组索引越界等，还有CheckedException，出现这类异常一定是程序错误。      document.addEventListener(&#34;DOMContentLoaded&#34;, function(event) { mermaid.initialize({ flowchart: { useMaxWidth: true } }); });  classDiagram class Object class Throwable class Error class Exception class RuntimeException Object 异常处理  throw 主动从方法中抛出异常交给上层调用处理。 throws 声明函数可能出现的异常。 系统自动抛出异常。      throw throws     使用位置 方法内部 方法声明后   功能 抛出具体的异常对象，执行到throw方法调用接收，返回异常给上层调用 声明可能出现的异常类，让调用者知道该方法可能出现的异常   是否处理异常 不处理，抛出异常给上层调用 不处理，指明可能出现的异常    使用对比：</description>
     </item>
     
     <item>
@@ -225,6 +300,7 @@ Java 中的“异常”可以分为Error（错误）和Exception（异常）两�
 2. 节点性能评估模块 负责评估当前节点的性能。具体地，采集当前节点完成一个迭代所需要的时间，并像Gossip训练平衡模块报告结果。
 3. Gossip训练平衡模块 根据各个节点性能评估模块报告的信息，以运行最快的节点为基础，计算其它个节点需要删除的冗余数据的比例并反馈给各节点。
 4. 精度感知的训练模块 评估指标：当前模型在聚合数据点的损失值 聚合数据点的损失值以批量的形式计算。 使用聚合数据点评估训练数据对当前模型参数更新的影响，排序后删除影响较小的部分训练数据，比例由Gossip训练平衡模块确定。
+Redis 通信优化 所有节点均与Redis通信，为每个节点建立一个与之关联的键，用于存储该节点本次迭代的梯度。 在一个sorted set存储每个节点的时间开销&amp;lt;node, timecost&amp;gt; ， 每个节点拉去花费时间最少的节点机器时间开销， 然后根据自己的时间开销计算需要删除的数据的比例。 zrange key 0 1 withscores
 评估 1CPU（Intel E5-2695） + 2GPU（12GB TiTAN Xp, 11G GeForce RTX 2080Ti） 服务器
 LeNet AlexNet SqueezeNet MobileNet-v2 MNIST CIFAR10 lr=0.01 bs=64 momentum=0.9</description>
     </item>

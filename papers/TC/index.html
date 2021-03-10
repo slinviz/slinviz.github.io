@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="HDFS">
+<meta name="description" content="TC">
 
-<title>HDFS | Lin&#39;s Doc Site</title>
+<title>TC | Lin&#39;s Doc Site</title>
 
 <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -120,7 +120,7 @@
 
             <li>
             
-            <input type="checkbox" id="navtree-82da63d0" class="gdoc-nav__toggle" checked>
+            <input type="checkbox" id="navtree-82da63d0" class="gdoc-nav__toggle" >
             <label for="navtree-82da63d0" class="flex justify-between">
             
             
@@ -152,7 +152,7 @@
             
             
                 <span class="flex">
-                    <a href="/bigdata/hadoop/hdfs/" class="gdoc-nav__entry is-active">
+                    <a href="/bigdata/hadoop/hdfs/" class="gdoc-nav__entry ">
                         HDFS
                     </a>
                 </span>
@@ -1336,15 +1336,7 @@
         
     
     
-        
-        
-        
-        
-    
-    
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/bigdata/' href='/bigdata/'><span itemprop='name'>BigData</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/bigdata/hadoop/' href='/bigdata/hadoop/'><span itemprop='name'>Hadoop</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>HDFS</span><meta itemprop='position' content='4' /></li>
-    
-
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/papers/' href='/papers/'><span itemprop='name'>Paper Review</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>TC</span><meta itemprop='position' content='3' /></li>
     
 
     
@@ -1358,7 +1350,7 @@
     <div>
         <span class="editpage">
             <svg class="icon code"><use xlink:href="#code"></use></svg>
-            <a href="https://github.com/slinviz/linblog/tree/main/content/bigdata/hadoop/hdfs.md">
+            <a href="https://github.com/slinviz/linblog/tree/main/content/papers/TC.md">
                 Edit this page
             </a>
         </span>
@@ -1368,292 +1360,15 @@
 
 
     <article class="gdoc-markdown">
-        <h1>HDFS</h1>
-        
-
-
-  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#hdfs-架构">HDFS 架构</a>
-      <ul>
-        <li><a href="#1-namenode">1. NameNode</a>
-          <ul>
-            <li><a href="#11-fsimage-和-editlog">1.1 fsimage 和 editlog</a></li>
-          </ul>
-        </li>
-        <li><a href="#2-secondarynamenode">2. SecondaryNameNode</a></li>
-        <li><a href="#3-datanode">3. DataNode</a></li>
-        <li><a href="#4-数据流水线复制">4. 数据流水线复制</a></li>
-        <li><a href="#5-安全模式">5. 安全模式</a></li>
-        <li><a href="#6-文件存储空间回收">6. 文件存储空间回收</a></li>
-        <li><a href="#7-hdfs-的健壮性">7. HDFS 的健壮性</a></li>
-      </ul>
-    </li>
-    <li><a href="#namenode-高并发保障技术">NameNode 高并发保障技术</a>
-      <ul>
-        <li><a href="#1-双缓存double-buffer机制">1. 双缓存（Double-Buffer）机制</a></li>
-        <li><a href="#2-分段加锁机制">2. 分段加锁机制</a>
-          <ul>
-            <li><a href="#21-加锁">2.1 加锁</a></li>
-            <li><a href="#22-多线程并发">2.2 多线程并发</a></li>
-            <li><a href="#23-批量数据刷磁盘和网络优化">2.3 批量数据刷磁盘和网络优化</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#部署-hadoop-集群">部署 Hadoop 集群</a>
-      <ul>
-        <li><a href="#0-安装和配置环境变量">0. 安装和配置环境变量</a></li>
-        <li><a href="#1-修改增加-hdfsmapreduceyarn-相关配置">1. 修改/增加 HDFS/MapReduce/YARN 相关配置</a></li>
-        <li><a href="#2-启动集群">2. 启动集群</a></li>
-        <li><a href="#21-格式化-namenode">2.1 格式化 NameNode</a></li>
-        <li><a href="#22-启动-hadoop-集群">2.2 启动 Hadoop 集群</a></li>
-        <li><a href="#3-创建目录并存储文件">3. 创建目录并存储文件</a></li>
-      </ul>
-    </li>
-    <li><a href="#reference">Reference</a></li>
-  </ul>
-</nav><hr></div>
-
-
-<h1 id="hdfs-架构">HDFS 架构</h1>
-<p>HDFS 是 Hadoop 的分布式文件系统，非常适合存储大文件和写入一次读取多次的文件，具有高吞吐量、高容错等特性，支持扩展到上千台商业服务器上。目前许多大数据处理平台（例如 Spark，Hive，Hbase等）都将 HDFS 作为底层的文件存储。</p>
-<p>HDFS 采用 Master/Slave 架构，主要由单个 NameNode（Master）和多个 DataNode（Slave）组成，为了提高 NameNode 的效率，还引入了 SecondaryNameNode。</p>
-<p>HDFS 具有以下特点：</p>
-<ul>
-<li>核心架构的目标：实现错误检测和快速、自动的恢复（硬件错误是常态不是异常）；</li>
-<li>简单的一致性模型：文件经创建、写入和关闭后就不需要改变（一次写、多次读），简化了数据一致性问题；</li>
-<li>HDFS中的文件都是一次性写入的，并且严格要求任何时候只能有一个写入者。</li>
-</ul>
-<p><img src="/bigdata/hadoop-arch-1.png" alt="hdfs architecture"  /></p>
-<h2 id="1-namenode">1. NameNode</h2>
-<ul>
-<li>NameNode 负责管理整个HDFS集群的元数据和执行有关文件系统命名空间的操作：文件目录树，权限设置，副本数，BlockID，客户端对文件系统的访问等。</li>
-<li>NameNode 负责监控 DataNode 的状态。DataNode 定期向 NameNode 发送心跳和块状态报告。</li>
-<li>NameNode 还负责接收来自 Client 的各种请求，并作出相应的应答。</li>
-</ul>
-<blockquote class="gdoc-hint info">
-  HDFS 的<strong>文件系统命名空间</strong> 的层次结构与大多数文件系统类似 (如 Linux)， 支持目录和文件的创建、移动、删除和重命名等操作，支持配置用户和访问权限，但不支持硬链接和软连接。NameNode 负责维护文件系统名称空间，记录对名称空间或其属性的任何更改。
-</blockquote>
-
-<blockquote class="gdoc-hint danger">
-  HDFS 的元数据存储在 NameManger 的 <strong>内存</strong>中，同时持久化保存在本地磁盘文件<code>fsimage</code>（命名空间镜像文件）和 <code>editlog</code>（操作日志文件）中。
-</blockquote>
-
-<p>HDFS 把文件分成固定大小的块 <code>Block</code>，并根据冗余系数（默认<code>replication</code> 为3）存储到集群中。数据块副本存放策略是<strong>机架感知</strong>：大多数情况下副本系数为3，HDFS 的存放策略将一个副本存放在本地机架的节点上，一个副本放在同一机架的另一个节点上，最后一个副本放在不同机架的节点上。读取策略是尽量读取距离近的副本。</p>
-<pre><code>Hadoop 1.x : blocksize = 64M
-Hadoop 2.x : blocksize = 128M
-</code></pre><h3 id="11-fsimage-和-editlog">1.1 fsimage 和 editlog</h3>
-<p><code>fsimage</code> 是内存命名空间元数据在外存的镜像文件。<code>editlog</code> 文件则记录着用户对文件的各自操作记录，当客户端对 HDFS 中的文件进行新增或者修改等操作时，操作记录首先被记入 <code>editlog</code> 文件中，当操作成功后将相应的元数据更新到内存中，以防止发生意外导致丢失内存中的数据。<code>editlog</code> 只能<strong>顺序追加记录</strong>，<code>fsimage</code>和<code>editlog</code>两个文件结合可以构造出完整的内存数据。NameNode 每次重启时将<code>editlog</code>里的操作日志读到内存中回放即可恢复元数据。</p>
-<h2 id="2-secondarynamenode">2. SecondaryNameNode</h2>
-<p>为了保证当 NameNode 出现故障之后不丢失数据或能快速恢复 HDFS 的元数据，引入了 SecondaryNameNode，它主要负责定期合并 <code>fsimage</code> 和 <code>editlog</code> ，维护和 NameNode 相同的元数据。必要时候可以作为 NameNode 的热备份。</p>
-<p>在高可用（HA）情况下，主节点（Active NameNode）每次修改元数据都会生成一条 <code>editlog</code> 记录，该日志记录既写入磁盘文件（NameNode 本地的<code>editlog</code> 文件）也写入JournalNodes集群，然后 SecondaryNameNode 从 JournalNodes 集群拉取操作日志并应用到自己的文件目录树中，跟主节点保持一致，每隔一段时间<code>dfs.namenode.checkpoint.period</code> SecondaryNameNode 将完整的元数据写入到自己的磁盘文件<code>fsimage</code>，即<code>checkpoint</code>操作，之后再将 <code>fsimage</code> 上传到主节点（Active NameNode），并清空主节点旧的 <code>editlog</code>。如果此时主节点重启，则只需将<code>fsimage</code>读入内存即可恢复元数据，然后再将新的<code>editlog</code>里的少量修改操作记录放回内存中即可。</p>
-<h2 id="3-datanode">3. DataNode</h2>
-<ul>
-<li>DataNode 是 HDFS 中实际存储和读写数据块的节点，一个 Block 会在多个 DataNode 中进行冗余备份，而一个 DataNode 对于一个块最多只包含一个备份。</li>
-<li>DataNode 还负责提供来自客户端的读写请求，执行块的创建，删除等操作。</li>
-<li>DataNode 会定期向 NameNode 发送心跳信号和块状态报告。
-<ul>
-<li>心跳信号（Heartbeat）：表明当前 DataNode 节点正常工作</li>
-<li>块状态报告（Block Report）：包含该DataNode上所有数据块的列表</li>
-</ul>
-</li>
-<li>DataNode 之间也会相互通信，执行数据块的复制任务，同时在客户端执行写操作的时候，DataNode 之间需要相互配和，以保证写操作的一致性。</li>
-<li>DataNode 还会接收和执行来自 NameNode 的命令，如删除某些数据块或把数据块复制到另一个 DataNode。</li>
-</ul>
-<h2 id="4-数据流水线复制">4. 数据流水线复制</h2>
-<ol start="0">
-<li>当Client 向 HDFS 文件写入数据的时候，一开始是写到<strong>本地临时文件</strong>中。假设该文件的副本系数设置为3，当本地临时文件累积到一个数据块的大小时，客户端会从 NameNode 获取一个 Datanode 的列表用于存放副本；</li>
-<li>然后客户端开始向第一个 Datanode 传输数据，第一个 Datanode 一小部分一小部分(4 KB)地接收数据，将每一部分写入本地仓库，并同时传输该部分到列表中第二个 Datanode 节点；</li>
-<li>第二个Datanode 也是这样，一小部分一小部分地接收数据，写入本地仓库，并同时传给第三个 Datanode。</li>
-<li>最后，第三个 Datanode 接收数据并存储在本地。</li>
-</ol>
-<p>因此，Datanode能流水线式地从前一个节点接收数据，并同时转发给下一个节点，数据以流水线的方式从前一个 Datanode 复制到下一个。</p>
-<blockquote class="gdoc-hint info">
-  <p><strong>通信协议</strong></p>
-<p>HDFS 的通信协议都是建立在<code>TCP/IP</code>协议之上，Client 与 NameNode 之间使用<code>ClientProtocol</code>，DataNode 与 NameNode 之间使用<code>DatanodeProtocal</code>。</p>
-
-</blockquote>
-
-<h2 id="5-安全模式">5. 安全模式</h2>
-<p>处于安全模式的 NameNode 是不会进行数据块的复制的。每个数据块都有一个指定的最小副本数，当 NameNode 检测确认某个数据块的副本数目达到这个最小值，那么该数据块就会被认为是副本安全(safely replicated)的；在一定百分比（参数可配置）的数据块被 NameNode 检测确认是安全之后（加上一个额外的30秒等待时间），NameNode将退出安全模式状态。接下来它会确定还有哪些数据块的副本没有达到指定数目，并将这些数据块复制到其他 DataNode上。</p>
-<h2 id="6-文件存储空间回收">6. 文件存储空间回收</h2>
-<ul>
-<li>文件删除和恢复：当用户或应用程序删除某个文件时，这个文件并没有立刻从 HDFS 中删除。实际上，HDFS 会将这个文件重命名转移到.Trash 目录，保存时间可配置，默认是6个小时。</li>
-<li>减少副本系数：当一个文件的副本系数被减小后，NameNode 会选择过剩的副本删除。下次心跳检测时会将该信息传递给 DataNode。DataNode遂即移除相应的数据块，释放存储空间。</li>
-</ul>
-<h2 id="7-hdfs-的健壮性">7. HDFS 的健壮性</h2>
+        <h1>TC</h1>
+        <h2 id="模型压缩">模型压缩</h2>
+<h3 id="紧凑的模型结构">紧凑的模型结构</h3>
 <ol>
-<li>磁盘数据错误，心跳检测和重新复制：当 DataNode 宕机或者副本遭到破坏，副本系数增加等，经NameNode不断检测判断后启动重新复制；</li>
-<li>集群均衡：自动将数据移动到其它空闲的 DataNode 上；当某些文件请求增加，可启动计划重新创建新的副本并平衡集群数据；</li>
-<li>数据完整性：计算数据块校验和，并将校验和以隐藏文件的形式存储到同一个 HDFS 命名空间下，客户端获取和进行校验，如果不对则读取其它副本；</li>
-<li>元数据磁盘错误恢复：支持维护多个<code>fsimage</code> 和<code>editlog</code>，修改同步到副本上。</li>
+<li>用小卷积核1x1替代大的卷积核，如3x3。可以现在减少模型参数。</li>
+<li>Filters prunning。删除不重要的或者冗余的卷积核。</li>
 </ol>
-<h1 id="namenode-高并发保障技术">NameNode 高并发保障技术</h1>
-<h2 id="1-双缓存double-buffer机制">1. 双缓存（Double-Buffer）机制</h2>
-<p>NameNode 在写入<code>editlog</code>的过程中如果只对同一块内存缓冲，同时存在大量写入和读出是不可能的，因为不能并发读写同一块共享内存数据！因此 HDFS 在读写<code>editlog</code>时采取了 Double-Buffer 双缓冲机制，将一块内存缓冲分成两个部分：</p>
-<ul>
-<li>一部分用于写入操作日志</li>
-<li>另一部分用于读取后写入磁盘和 JournalNodes 集群</li>
-</ul>
-<h2 id="2-分段加锁机制">2. 分段加锁机制</h2>
-<h3 id="21-加锁">2.1 加锁</h3>
-<ol>
-<li>首先各个线程依次第一次获取锁，生成顺序递增的<code>txid</code>，然后将edit log写入内存双缓冲的区域1，接着就立马第一次释放锁;</li>
-<li>趁着这个空隙，后面的线程就可以再次立马第一次获取锁，然后立即写自己的edit log到内存缓冲；写内存那么快，可能才耗时几十微秒，接着就立马第一次释放锁；</li>
-<li>接着各个线程竞争第二次获取锁，有线程获取到锁之后，就判断是否有其他线程在写磁盘和网络？如果没有，那么这个幸运儿线程直接交换双缓冲的区域1和区域2，接着第二次释放锁。这个过程相当快速，内存里判断几个条件，耗时不了几微秒；</li>
-<li>现在内存缓冲区已经被交换了，后面的线程可以立马快速的依次获取锁，然后将edit log写入内存缓冲的区域2，而内存缓冲区域1中的数据被锁定了，不能写；</li>
-</ol>
-<p><img src="/bigdata/hadoop-arch-2.png" alt="分段加锁"  /></p>
-<h3 id="22-多线程并发">2.2 多线程并发</h3>
-<ol start="5">
-<li>接着，之前那个幸运儿线程将内存缓冲的区域1中的数据读取出来（此时没线程写区域1了，都在写区域2），将里面的edit log都写入磁盘文件，以及通过网络写入JournalNodes集群。这个过程可是很耗时的！但是做过优化了，在写磁盘和网络的过程中，是不持有锁的！因此后面的线程可以快速的第一次获取锁后，立马写入内存缓冲的区域2，然后释放锁。这个时候大量的线程都可以快速的写入内存，没有阻塞和卡顿！</li>
-</ol>
-<h3 id="23-批量数据刷磁盘和网络优化">2.3 批量数据刷磁盘和网络优化</h3>
-<ol start="6">
-<li>在幸运儿线程把数据写磁盘和网络的过程中，排在后面的大量线程快速的第一次获取锁，写内存缓冲区域2，释放锁，之后，这些线程第二次获取到锁后会发现有人在写磁盘，所以会立即释放锁，然后休眠1秒后再次尝试获取锁。此时大量的线程并发过来的话，都会在这里快速的第二次获取锁，然后发现有人在写磁盘和网络，快速的释放锁，休眠。这个过程不会长时间的阻塞其他线程！因为都会快速的释放锁，所以后面的线程还是可以迅速的第一次获取锁后写内存缓冲！而且这时，一定会有很多线程发现，好像之前那个幸运儿线程的<code>txid</code>是排在自己之后的，那么肯定就把自己的edit log从缓冲里写入磁盘和网络了。这些线程甚至都不会休眠等待，直接就会返回后去干别的事情了，压根儿不会卡在这里。</li>
-<li>然后那个幸运儿线程写完磁盘和网络之后，就会唤醒之前休眠的那些线程。那些线程会依次排队再第二次获取锁后进入判断，发现没有线程在写磁盘和网络了！然后就会再判断，有没有排在自己之后的线程已经将自己的edit log写入磁盘和网络了。如果有的话，就直接返回了。没有的话，那么就成为第二个幸运儿线程，交换两块缓冲区，区域1和区域2交换一下。然后释放锁，自己开始将区域2的数据写入磁盘和网络。这个时候后面的线程如果要写edits log的，还是可以第一次获取锁后立马写内存缓冲再释放锁，以此类推。</li>
-</ol>
-<h1 id="部署-hadoop-集群">部署 Hadoop 集群</h1>
-<p>由于机器有限，这里将 Hadoop 的主要组件 HDFS、MapReduce 和 YARN 都部署到了同一台机器上，并且重点关注启动 HDFS 并存储文件到 HDFS 的过程。</p>
-<h2 id="0-安装和配置环境变量">0. 安装和配置环境变量</h2>
-<p>从 Apache <a class="gdoc-markdown__link" href="https://archive.apache.org/dist/hadoop/common/">Hadoop Releases</a> 页面下载相应的 Hadoop 文件包，这里下载的是<code>hadoop-2.7.7</code>。下载完成之后解压并配置相应的环境变量 <code>HADOOP_HOME</code> 并将 <code>${HADOOP_HOME}/bin</code> 将入到系统搜索路径 <code>PATH</code> 中。注意，<code>JDK</code> 等也需要配置。</p>
-<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell">$ tar -zxf hadoop-2.7.7.tar.gz -C /usr/local
-</code></pre></div><h2 id="1-修改增加-hdfsmapreduceyarn-相关配置">1. 修改/增加 HDFS/MapReduce/YARN 相关配置</h2>
-<p>修改 <code>${HADOOP_HOME}/etc/hadoop</code> 目录下的 Hadoop 相关配置文件，主要包括 <code>core-site.xml, hdfs-site.xml, mapred-site.xml, yarn-site.xml</code> 等。注意，集群的节点在 <code>${HADOOP_HOME}/etc/hadoop/slaves</code> 中配置。</p>
-<p>在多机分布式模式下，还需要将配置文件分发到各个节点。</p>
-
-
-
-
-<div class="gdoc-tabs">
-  
-    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-uniqueid" id="tabs-uniqueid-0"
-      checked="checked"  />
-    <label for="tabs-uniqueid-0" class="gdoc-tabs__label">
-      core-site.xml
-    </label>
-    <div class="gdoc-markdown--nested gdoc-tabs__content">
-      <pre><code>&lt;configuration&gt;
-    &lt;property&gt;
-        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
-        &lt;value&gt;/usr/local/hadoop/tmp&lt;/value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-        &lt;name&gt;fs.defaultFS&lt;/name&gt;
-        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
-    &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre>
-    </div>
-  
-    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-uniqueid" id="tabs-uniqueid-1"
-       />
-    <label for="tabs-uniqueid-1" class="gdoc-tabs__label">
-      hdfs-site.xml
-    </label>
-    <div class="gdoc-markdown--nested gdoc-tabs__content">
-      <pre><code>&lt;configuration&gt;
-    &lt;property&gt;
-        &lt;name&gt;dfs.replication&lt;/name&gt;
-        &lt;value&gt;1&lt;/value&gt;
-    &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre>
-    </div>
-  
-    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-uniqueid" id="tabs-uniqueid-2"
-       />
-    <label for="tabs-uniqueid-2" class="gdoc-tabs__label">
-      mapred-site.xml
-    </label>
-    <div class="gdoc-markdown--nested gdoc-tabs__content">
-      <pre><code>&lt;configuration&gt;
-    &lt;property&gt;
-        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
-        &lt;value&gt;yarn&lt;/value&gt;
-    &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre>
-    </div>
-  
-    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-uniqueid" id="tabs-uniqueid-3"
-       />
-    <label for="tabs-uniqueid-3" class="gdoc-tabs__label">
-      yarn-site.xml
-    </label>
-    <div class="gdoc-markdown--nested gdoc-tabs__content">
-      <pre><code>&lt;configuration&gt;
-    &lt;!-- Site specific YARN configuration properties --&gt;
-    &lt;property&gt;
-        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
-        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
-        &lt;value&gt;localhost&lt;/value&gt;
-    &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre>
-    </div>
-  
-</div>
-
-<h2 id="2-启动集群">2. 启动集群</h2>
-<h2 id="21-格式化-namenode">2.1 格式化 NameNode</h2>
-<p>在启动集群之前，建议先在 NameNode上执行 <code>hdfs namenode -format</code> 命令格式化 HDFS 文件系统。格式化完毕后可以看到在 <code>${hadoop.tmp.dir}</code> 目录下生成了 <code>dfs/name</code> 目录，其中包括 <code>fsimage</code> 和 <code>seen_txid</code> （transactionid）。</p>
-<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell">$ hdfs namenode -format <span class="c1"># format the DFS filesystem</span>
-<span class="c1"># The contents in ${hadoop.tmp.dir} after above command</span>
-.
-└── tmp
-    └── dfs
-        └── name
-            └── current
-                ├── VERSION
-                ├── fsimage_0000000000000000000
-                ├── fsimage_0000000000000000000.md5
-                └── seen_txid
-</code></pre></div><h2 id="22-启动-hadoop-集群">2.2 启动 Hadoop 集群</h2>
-<p>格式化完成后即可运行 <code>${HADOOP_HOME}/sbin/start-all.sh</code> 脚本一次性启动集群的所有组件，包括 HDFS 的 <code>NameNode, SecondaryNameNode, DataNode</code> 和 YARN 的 <code>ResourceManager, NodeManager</code> 进程。</p>
-<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell"><span class="c1"># Start HDFS MapReduce and YARN</span>
-$ <span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/start-all.sh
-
-<span class="c1"># Process</span>
-$ jps
-<span class="m">70689</span> SecondaryNameNode
-<span class="m">70803</span> ResourceManager
-<span class="m">70582</span> DataNode
-<span class="m">70889</span> NodeManager
-<span class="m">70495</span> NameNode
-<span class="m">71870</span> Jps
-</code></pre></div><p>因为这里将所有组件都部署到了同一台机器下，所有可以在<code>${hadoop.tmp.dir}</code> 目录下看到为 <code>NameNode, SecondaryNameNode, DataNode</code> 创建的目录。</p>
-<ul>
-<li>NameNode : name</li>
-<li>SecondaryNameNode : namesecondary</li>
-<li>DataNode : data</li>
-</ul>
-<p><code>nm-local-dir</code> 目录是 <code>NodeManager</code> 创建的目录，用于缓存用户程序和相应的配置文件。</p>
-<p>对于 <code>NameNode, SecondaryNameNode</code> ，它们主要是存储和维护 HDFS 的元数据 <code>fsimage</code> 和操作日志 <code>editlog</code>，而 <code>DataNode</code> 主要是存储实际的数据块 <code>Block</code>，此处暂时还未向文件系统写入数据，因此暂时没有对应的数据块文件。</p>
-<p><img src="/bigdata/hadoop-deploy-1.png" alt="init hadoop cluster"  /></p>
-<h2 id="3-创建目录并存储文件">3. 创建目录并存储文件</h2>
-<p>经过以上几步后集群就以及正常启动了，下面下 HDFS 中写入一个文件。首先，创建一个 <code>data</code> 目录，然后将 <code>test.txt</code> 上传到文件系统中，最后使用 <code>hdfs dfs cat data/test.txt</code> 查看文件的内容。</p>
-<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell">$ hdfs dfs -mkdir -p data
-$ hdfs dfs -put test.txt data/
-$ hdfs dfs -cat data/test.txt
-</code></pre></div><p><img src="/bigdata/hadoop-deploy-3.png" alt="ls and cat file"  /></p>
-<p>从浏览器中查看 HDFS 的相关信息，如集群节点的状态等，也可以直接在浏览器中浏览文件系统的内容，如下，虽然只存了很小的一个文件（33B），但 HDFS 还是分配了一个 <code>128M</code> 的数据块。</p>
-<p><img src="/bigdata/hadoop-deploy-4.png" alt="browse from web page"  /></p>
-<p>再次查看 <code>${hadoop.tmp.dir}</code> 目录， 可以发现 <code>dfs/data</code> 目录的子目录中已经写入了数据块文件，它们存储的就是刚才上传到 HDFS 中的 test.txt 的实际数据。因为这里设置的 <code>replication</code> 为1，并且test.txt也只需要一个数据块即可存储，所以这里只能看到一个数据块文件（和保存它的元数据信息文件）。</p>
-<p><img src="/bigdata/hadoop-deploy-2.png" alt="save file to hdfs"  /></p>
-<h1 id="reference">Reference</h1>
-<ul>
-<li><a href="https://juejin.cn/post/6844903992066048014">https://juejin.cn/post/6844903992066048014</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/37219709">https://zhuanlan.zhihu.com/p/37219709</a></li>
-<li><a href="https://hadoop.apache.org/docs/r1.0.4/cn/hdfs_design.html">https://hadoop.apache.org/docs/r1.0.4/cn/hdfs_design.html</a></li>
-<li><a href="https://github.com/heibaiying/BigData-Notes/blob/master/notes/Hadoop-HDFS.md">https://github.com/heibaiying/BigData-Notes/blob/master/notes/Hadoop-HDFS.md</a></li>
-<li><a href="https://www.cnblogs.com/52mm/p/p13.html">https://www.cnblogs.com/52mm/p/p13.html</a></li>
-<li><a href="https://juejin.cn/post/6844903713966915598">https://juejin.cn/post/6844903713966915598</a></li>
-</ul>
+<h3 id="粗细粒度聚合数据点">粗细粒度聚合数据点</h3>
+<p>粗粒度-》n细粒度-》n*m原始训练数据</p>
 
 
     </article>

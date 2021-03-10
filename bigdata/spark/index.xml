@@ -11,6 +11,21 @@
     
     
     <item>
+      <title>性能调优</title>
+      <link>https://slinviz.github.io/bigdata/spark/tune/</link>
+      <pubDate>Mon, 08 Mar 2021 21:03:26 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/bigdata/spark/tune/</guid>
+      <description>概述 Spark 性能调优总体可以分为两个方面，一是从代码层面进行调优，主要包括 RDD Lineage的设计，RDD 算子的合理使用，Spark 作业数据倾斜调优和shuffle 阶段的调优；而是从资源的层面进行调优，这部分主要是通过修改 Spark 的配置参数来完成，主要包括 Executor 的内存划分。
+代码优化 1. RDD Lineage 设计 在 Spark中，数据是顺着 RDD Lineage进行流动计算的。
+1.1 复用已存在的 RDD 在Spark的开发过程中，应尽量复用已经存在的 RDD， 即避免创建过多的 RDD。坚持对于同一份数据，只创建一个RDD的原则。
+1.2 对多次使用的 RDD 进行持久化 Spark 是惰性计算的，只有在需要时才会去对 RDD 进行计算。 如果某段 Lineage 上的 RDD 会被多次用到而且没有被持久化，那么每次用到时都得重新计算，而对其进行持久化后就可以直接读取之前已经计算好的数据。 Spark 提供了Cache和Checkpoint两种机制来进行 RDD 的持久化，其中Checkpoint机制会破坏 RDD 的Lineage。
+对RDD进行持久化时应优先将其缓存在内存中并且尽量避免将 RDD 放到磁盘上，有时候重新计算 RDD 可能比从磁盘中读取还要块。
+1.3 尽量避免使用 shuffle 类算子 shuffle 是spark程序中最消耗资源的过程，很容易出现 OOM 错误。在shuffle阶段，各个Executor需要通过网络从其他节点拉取数据，并且 还会将数据写到磁盘上（读当然也需要从磁盘读取），从而会大幅降低 spark的性能。磁盘IO和网络传输
+1.3.1 利用 Broadcast 避免 shuffle 1.3.2 使用 map-side 预聚合的 shuffle 在map端进行预聚合，可以减少key对应的数据，从而减少磁盘IO和网络传输开销。 如用reduceByKey | aggregateByKey 替代 groupByKey。</description>
+    </item>
+    
+    <item>
       <title>[转载]Apache Spark 内存管理详解</title>
       <link>https://slinviz.github.io/bigdata/spark/storage/</link>
       <pubDate>Thu, 04 Mar 2021 11:50:08 +0800</pubDate>

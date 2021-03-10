@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://slinviz.github.io/interview/ant/</loc>
+    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/bigdata/spark/tune/</loc>
+    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/plang/scala/trait/</loc>
+    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/papers/TC/</loc>
+    <lastmod>2021-03-08T14:19:35+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/papers/TKDE/</loc>
+    <lastmod>2021-03-08T14:19:35+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/plang/java/basic/compare/</loc>
     <lastmod>2021-03-07T19:46:12+08:00</lastmod>
   </url>
@@ -19,7 +44,7 @@
   
   <url>
     <loc>https://slinviz.github.io/bigdata/hadoop/hdfs/</loc>
-    <lastmod>2021-03-03T18:43:44+08:00</lastmod>
+    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
   </url>
   
   <url>
@@ -29,7 +54,7 @@
   
   <url>
     <loc>https://slinviz.github.io/bigdata/hadoop/yarn/</loc>
-    <lastmod>2021-03-03T18:43:44+08:00</lastmod>
+    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
   </url>
   
   <url>
@@ -49,7 +74,7 @@
   
   <url>
     <loc>https://slinviz.github.io/plang/java/basic/exceptions/</loc>
-    <lastmod>2021-03-01T15:48:05+08:00</lastmod>
+    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
   </url>
   
   <url>
@@ -109,7 +134,7 @@
   
   <url>
     <loc>https://slinviz.github.io/papers/TPDS/</loc>
-    <lastmod>2021-02-26T19:47:09+08:00</lastmod>
+    <lastmod>2021-03-08T14:19:35+08:00</lastmod>
   </url>
   
   <url>
@@ -215,6 +240,11 @@
   <url>
     <loc>https://slinviz.github.io/pbasic/cn/</loc>
     <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slinviz.github.io/interview/</loc>
+    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
   </url>
   
 </urlset>
