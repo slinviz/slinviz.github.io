@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Scala 基本数据类型和流程控制">
+<meta name="description" content="MapReduce">
 
-<title>Scala 基本数据类型和流程控制 | Lin&#39;s Doc Site</title>
+<title>MapReduce | Lin&#39;s Doc Site</title>
 
 <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -120,7 +120,7 @@
 
             <li>
             
-            <input type="checkbox" id="navtree-82da63d0" class="gdoc-nav__toggle" >
+            <input type="checkbox" id="navtree-82da63d0" class="gdoc-nav__toggle" checked>
             <label for="navtree-82da63d0" class="flex justify-between">
             
             
@@ -1035,7 +1035,7 @@
 
             <li>
             
-            <input type="checkbox" id="navtree-905e5d55" class="gdoc-nav__toggle" checked>
+            <input type="checkbox" id="navtree-905e5d55" class="gdoc-nav__toggle" >
             <label for="navtree-905e5d55" class="flex justify-between">
             
             
@@ -1095,7 +1095,7 @@
             
             
                 <span class="flex">
-                    <a href="/plang/scala/basic/" class="gdoc-nav__entry is-active">
+                    <a href="/plang/scala/basic/" class="gdoc-nav__entry ">
                         Scala 基本数据类型和流程控制
                     </a>
                 </span>
@@ -1378,7 +1378,7 @@
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/plang/' href='/plang/'><span itemprop='name'>编程语言</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/plang/scala/' href='/plang/scala/'><span itemprop='name'>Scala</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Scala 基本数据类型和流程控制</span><meta itemprop='position' content='4' /></li>
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/bigdata/' href='/bigdata/'><span itemprop='name'>BigData</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/bigdata/hadoop/' href='/bigdata/hadoop/'><span itemprop='name'>Hadoop</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>MapReduce</span><meta itemprop='position' content='4' /></li>
     
 
     
@@ -1394,7 +1394,7 @@
     <div>
         <span class="editpage">
             <svg class="icon code"><use xlink:href="#code"></use></svg>
-            <a href="https://github.com/slinviz/linblog/tree/main/content/plang/scala/basic.md">
+            <a href="https://github.com/slinviz/linblog/tree/main/content/bigdata/hadoop/mapreduce.md">
                 Edit this page
             </a>
         </span>
@@ -1404,34 +1404,8 @@
 
 
     <article class="gdoc-markdown">
-        <h1>Scala 基本数据类型和流程控制</h1>
+        <h1>MapReduce</h1>
         
-
-
-  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#scala-基本数据类型">Scala 基本数据类型</a></li>
-  </ul>
-</nav><hr></div>
-
-
-<h1 id="scala-基本数据类型">Scala 基本数据类型</h1>
-<p><code>Byte, Short, Int, Long, Float, Double, Char, Boolean, String</code>, <code>RichInt, RichDouble, StringOps</code></p>
-<p>格式化字符串</p>
-<div class="highlight"><pre class="chroma"><code class="language-Scala" data-lang="Scala">    <span class="n">printf</span><span class="o">(</span><span class="s">&#34;Hello, %s! You are %d years old.%n&#34;</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">)</span>
-    <span class="n">print</span><span class="o">(</span><span class="s">f&#34;</span><span class="s">Hello, </span><span class="si">${</span><span class="n">name</span><span class="si">}</span><span class="s">! In six months, you&#39;ll be </span><span class="si">${</span><span class="n">age</span><span class="o">+</span><span class="mf">0.5</span><span class="si">}</span><span class="s">%7.2f years old.%n</span><span class="s">&#34;</span><span class="o">)</span>
-    <span class="n">print</span><span class="o">(</span><span class="s">s&#34;</span><span class="s">$$</span><span class="si">$price</span><span class="s">&#34;</span><span class="o">)</span>
-    <span class="n">println</span><span class="o">(</span><span class="s">raw&#34;\n is a new line&#34;</span><span class="o">)</span> <span class="o">;</span> <span class="c1">// \n is a new line
-</span></code></pre></div><blockquote class="gdoc-hint danger">
-  <ul>
-<li>在 Scala 中，变量或函数的类型总是写在变量或函数名称的后面。</li>
-<li>在 Scala 中， 仅当同一行代码中存在多条语句时才需要用分号<code>;</code>隔开。</li>
-<li>Scala 中的操作符实际上是方法，Java中不能对操作符进行重载，但Scala允许定义操作符。</li>
-</ul>
-</blockquote>
-
-<p>Scala中的类通常都有一个伴生对象，里面定义的方法类似于java中的静态方法。</p>
-
 
     </article>
 

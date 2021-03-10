@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>MapReduce</title>
+      <link>https://slinviz.github.io/bigdata/hadoop/mapreduce/</link>
+      <pubDate>Wed, 10 Mar 2021 16:41:09 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/bigdata/hadoop/mapreduce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>HDFS</title>
       <link>https://slinviz.github.io/bigdata/hadoop/hdfs/</link>
       <pubDate>Wed, 03 Mar 2021 14:08:44 +0800</pubDate>

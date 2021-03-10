@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://slinviz.github.io/bigdata/hadoop/mapreduce/</loc>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/interview/ant/</loc>
     <lastmod>2021-03-10T15:29:09+08:00</lastmod>
   </url>
@@ -154,17 +159,17 @@
   
   <url>
     <loc>https://slinviz.github.io/bigdata/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/bigdata/hadoop/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/plang/java/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
@@ -174,12 +179,12 @@
   
   <url>
     <loc>https://slinviz.github.io/</loc>
-    <lastmod>2021-02-27T16:21:42+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/ml/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
@@ -189,7 +194,7 @@
   
   <url>
     <loc>https://slinviz.github.io/papers/</loc>
-    <lastmod>2021-03-07T19:46:12+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
@@ -204,12 +209,12 @@
   
   <url>
     <loc>https://slinviz.github.io/plang/scala/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/bigdata/spark/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
@@ -219,7 +224,7 @@
   
   <url>
     <loc>https://slinviz.github.io/database/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
@@ -229,12 +234,12 @@
   
   <url>
     <loc>https://slinviz.github.io/pbasic/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/plang/</loc>
-    <lastmod>2021-02-27T21:17:57+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
   <url>
@@ -244,7 +249,7 @@
   
   <url>
     <loc>https://slinviz.github.io/interview/</loc>
-    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
+    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
   </url>
   
 </urlset>
