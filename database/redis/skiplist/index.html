@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="操作系统OS">
+<meta name="description" content="跳表">
 
-<title>操作系统OS | Lin&#39;s Doc Site</title>
+<title>跳表 | Lin&#39;s Doc Site</title>
 
 <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -31,7 +31,6 @@
 <link rel="preload" href="/custom.css" as="style">
 <link rel="stylesheet" href="/custom.css" media="all">
 
-<link rel="alternate" type="application/rss+xml" href="https://slinviz.github.io/pbasic/os/index.xml" title="Lin's Doc Site" />
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
 </head>
@@ -447,7 +446,7 @@
 
             <li>
             
-            <input type="checkbox" id="navtree-9e5a47df" class="gdoc-nav__toggle" >
+            <input type="checkbox" id="navtree-9e5a47df" class="gdoc-nav__toggle" checked>
             <label for="navtree-9e5a47df" class="flex justify-between">
             
             
@@ -479,7 +478,7 @@
             
             
                 <span class="flex">
-                    <a href="/database/redis/skiplist/" class="gdoc-nav__entry ">
+                    <a href="/database/redis/skiplist/" class="gdoc-nav__entry is-active">
                         跳表
                     </a>
                 </span>
@@ -566,7 +565,7 @@
 
             <li>
             
-            <input type="checkbox" id="navtree-2cecbb49" class="gdoc-nav__toggle" checked>
+            <input type="checkbox" id="navtree-2cecbb49" class="gdoc-nav__toggle" >
             <label for="navtree-2cecbb49" class="flex justify-between">
             
             
@@ -1462,7 +1461,15 @@
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/pbasic/' href='/pbasic/'><span itemprop='name'>编程基础</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>操作系统OS</span><meta itemprop='position' content='3' /></li>
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Lin</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/database/' href='/database/'><span itemprop='name'>数据库</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/database/redis/' href='/database/redis/'><span itemprop='name'>Redis</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>跳表</span><meta itemprop='position' content='4' /></li>
+    
+
     
 
     
@@ -1476,7 +1483,7 @@
     <div>
         <span class="editpage">
             <svg class="icon code"><use xlink:href="#code"></use></svg>
-            <a href="https://github.com/slinviz/linblog/tree/main/content/pbasic/os/_index.md">
+            <a href="https://github.com/slinviz/linblog/tree/main/content/database/redis/skiplist.md">
                 Edit this page
             </a>
         </span>
@@ -1484,9 +1491,26 @@
     
 </div>
 
+
     <article class="gdoc-markdown">
-        <h1>操作系统OS</h1>
-        
+        <h1>跳表</h1>
+        <h1 id="基本结构">基本结构</h1>
+<p>多级有序链表。</p>
+<h2 id="查询">查询</h2>
+<p>时间复杂度$O(logn)$</p>
+<h2 id="插入">插入</h2>
+<p>时间复杂度$O(logn)$</p>
+<h2 id="删除">删除</h2>
+<p>时间复杂度$O(logn)$</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li>
+<ol>
+<li><a class="gdoc-markdown__link" href="https://www.jianshu.com/p/9d8296562806">Skip List&ndash;跳表（全网最详细的跳表文章没有之一）</a></li>
+</ol>
+</li>
+</ul>
+
 
     </article>
 

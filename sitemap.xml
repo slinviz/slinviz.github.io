@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://slinviz.github.io/database/redis/skiplist/</loc>
+    <lastmod>2021-03-14T23:07:26+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/interview/bytedance/</loc>
-    <lastmod>2021-03-13T22:29:16+08:00</lastmod>
+    <lastmod>2021-03-14T21:03:43+08:00</lastmod>
   </url>
   
   <url>

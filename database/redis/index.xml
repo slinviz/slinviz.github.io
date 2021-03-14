@@ -10,5 +10,18 @@
 	<atom:link href="https://slinviz.github.io/database/redis/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>跳表</title>
+      <link>https://slinviz.github.io/database/redis/skiplist/</link>
+      <pubDate>Sun, 14 Mar 2021 21:04:24 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/database/redis/skiplist/</guid>
+      <description>基本结构 多级有序链表。
+查询 时间复杂度$O(logn)$
+插入 时间复杂度$O(logn)$
+删除 时间复杂度$O(logn)$
+Reference    Skip List&amp;ndash;跳表（全网最详细的跳表文章没有之一）    </description>
+    </item>
+    
   </channel>
 </rss>
