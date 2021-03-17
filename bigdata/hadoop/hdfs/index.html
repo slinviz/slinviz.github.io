@@ -179,7 +179,11 @@
             <li>
             
             
-                <span class="flex">MapReduce</span>
+                <span class="flex">
+                    <a href="/bigdata/hadoop/mapreduce/" class="gdoc-nav__entry ">
+                        MapReduce
+                    </a>
+                </span>
             
             
 
@@ -1291,6 +1295,30 @@
             </li>
             
             
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/interview/alimm/" class="gdoc-nav__entry ">
+                        阿里妈妈面经
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
         
     </ul>
 
@@ -1562,7 +1590,7 @@
 </blockquote>
 
 <blockquote class="gdoc-hint danger">
-  HDFS 的元数据存储在 NameManger 的 <strong>内存</strong>中，同时持久化保存在本地磁盘文件<code>fsimage</code>（命名空间镜像文件）和 <code>editlog</code>（操作日志文件）中。
+  HDFS 的元数据存储在 NameNode 的 <strong>内存</strong>中，同时持久化保存在本地磁盘文件<code>fsimage</code>（命名空间镜像文件）和 <code>editlog</code>（操作日志文件）中。
 </blockquote>
 
 <p>HDFS 把文件分成固定大小的块 <code>Block</code>，并根据冗余系数（默认<code>replication</code> 为3）存储到集群中。数据块副本存放策略是<strong>机架感知</strong>：大多数情况下副本系数为3，HDFS 的存放策略将一个副本存放在本地机架的节点上，一个副本放在同一机架的另一个节点上，最后一个副本放在不同机架的节点上。读取策略是尽量读取距离近的副本。</p>
@@ -1576,14 +1604,14 @@ Hadoop 2.x : blocksize = 128M
 <h2 id="3-datanode">3. DataNode</h2>
 <ul>
 <li>DataNode 是 HDFS 中实际存储和读写数据块的节点，一个 Block 会在多个 DataNode 中进行冗余备份，而一个 DataNode 对于一个块最多只包含一个备份。</li>
-<li>DataNode 还负责提供来自客户端的读写请求，执行块的创建，删除等操作。</li>
+<li>DataNode 还负责响应来自客户端的读写请求，执行块的创建，删除等操作。</li>
 <li>DataNode 会定期向 NameNode 发送心跳信号和块状态报告。
 <ul>
 <li>心跳信号（Heartbeat）：表明当前 DataNode 节点正常工作</li>
 <li>块状态报告（Block Report）：包含该DataNode上所有数据块的列表</li>
 </ul>
 </li>
-<li>DataNode 之间也会相互通信，执行数据块的复制任务，同时在客户端执行写操作的时候，DataNode 之间需要相互配和，以保证写操作的一致性。</li>
+<li>DataNode 之间也会相互通信，执行数据块的复制任务，同时在客户端执行写操作的时候，DataNode 之间需要相互配合，以保证写操作的一致性。</li>
 <li>DataNode 还会接收和执行来自 NameNode 的命令，如删除某些数据块或把数据块复制到另一个 DataNode。</li>
 </ul>
 <h2 id="4-数据流水线复制">4. 数据流水线复制</h2>

@@ -11,6 +11,27 @@
     
     
     <item>
+      <title>阿里妈妈面经</title>
+      <link>https://slinviz.github.io/interview/alimm/</link>
+      <pubDate>Wed, 17 Mar 2021 14:08:17 +0800</pubDate>
+      
+      <guid>https://slinviz.github.io/interview/alimm/</guid>
+      <description>一面 2021.03.16 15：00， 电话面试，大概 35 分钟
+自我介绍开场~
+先聊了一下项目，对项目的一些细节进行了交流
+jvm 内存划分，垃圾回收算法
+java HashMap
+Hadoop Shuffle 的过程
+Hadoop Shuffle 与 Spark Shuffle 的区别？
+时间比较短，就问了上面的几个问题
+然后面试官热情的给我介绍了阿里妈妈那边的主要业务，技术栈之类的
+提问环节
+最后，下一轮面试会有人跟我约时间的
+晚上接到了电话，不过因为已经填了字节的入职信息采集，就直接回绝了
+总体来说，这次面试很轻松，也可能是拿到了字节的offer没那么紧张了</description>
+    </item>
+    
+    <item>
       <title>跳表</title>
       <link>https://slinviz.github.io/database/redis/skiplist/</link>
       <pubDate>Sun, 14 Mar 2021 21:04:24 +0800</pubDate>
@@ -55,10 +76,12 @@ CMS 垃圾回收器的步骤，特点，G1 垃圾回收器的 java 堆划分
 实习时间
 linux 系统文件类型
 http 页面请求细节，即输入URL到浏览器，整个过程
+手写单例模式（不会不会），虽然我能说出来某些设计模式，可是我真不知道它具体怎么样啊。┭┮﹏┭┮
 链表反转，链表中间[n,m]反转
 问到懵逼
 自己给自己挖坑，啥也不会
-1小时 10 分钟左右</description>
+1小时 10 分钟左右
+三面 2021.</description>
     </item>
     
     <item>
@@ -77,7 +100,7 @@ Thread-class   可以用 Thread 和 ExecutorService 运行 Thread 本质上是�
       <pubDate>Wed, 10 Mar 2021 16:41:09 +0800</pubDate>
       
       <guid>https://slinviz.github.io/bigdata/hadoop/mapreduce/</guid>
-      <description></description>
+      <description>  0. 概述 Reference   0. 概述 Reference  MapReduce shuffle过程详解  </description>
     </item>
     
     <item>
@@ -216,7 +239,7 @@ printf(&amp;#34;Hello, %s! You are %d years old.%n&amp;#34;, name, age) print(f&
       <pubDate>Tue, 02 Mar 2021 20:58:50 +0800</pubDate>
       
       <guid>https://slinviz.github.io/bigdata/hadoop/yarn/</guid>
-      <description>0. 概述 1. YARN Master/Slave 架构  1.1 ResourceManager-RM  1.1.1Scheduler 1.1.2 ApplicationManager   1.2 NodeManager-NM  1.2.1 Container   1.3 ApplicationMaster-AM   2. YARN 的三种调度器  2.1 FIFO Scheduler 2.2 Capacity Scheduler 2.3 Fair Scheduler   3. YARN 工作原理  3.1 概述 3.2 详述   Reference   0. 概述 YARN（Yet Another Resource Negotiator）是 Hadoop 2.0 引入的集群资源管理系统。用户可以将多种服务框架部署在YARN上，由YARN进行统一的管理和资源分配。
+      <description>0. 概述 1. YARN Master/Slave 架构  1.1 ResourceManager-RM  1.1.1 Scheduler 1.1.2 ApplicationManager   1.2 NodeManager-NM  1.2.1 Container   1.3 ApplicationMaster-AM   2. YARN 的三种调度器  2.1 FIFO Scheduler 2.2 Capacity Scheduler 2.3 Fair Scheduler   3. YARN 工作原理  3.1 概述 3.2 详述   Reference   0. 概述 YARN（Yet Another Resource Negotiator）是 Hadoop 2.0 引入的集群资源管理系统。用户可以将多种服务框架部署在YARN上，由YARN进行统一的管理和资源分配。
 YARN 的核心思想是将资源调度和应用程序管理分开，集群资源由一个全局的 ResourceManager 统一调度管理（节点资源由 NodeManager 代为管理）；为每个应用程序创建一个 ApplicationMaster，负责应用程序的管理。在 YARN 中集群资源被抽象为 Container，资源的分配和管理实际上就是对 Container 的分配和管理，Container 中的资源主要包括内存、CPU、网络、磁盘等。</description>
     </item>
     

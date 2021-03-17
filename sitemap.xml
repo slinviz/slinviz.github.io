@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://slinviz.github.io/interview/alimm/</loc>
+    <lastmod>2021-03-17T14:14:35+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://slinviz.github.io/database/redis/skiplist/</loc>
     <lastmod>2021-03-14T23:07:26+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/interview/bytedance/</loc>
-    <lastmod>2021-03-14T21:03:43+08:00</lastmod>
+    <lastmod>2021-03-17T14:14:35+08:00</lastmod>
   </url>
   
   <url>
@@ -19,17 +24,17 @@
   
   <url>
     <loc>https://slinviz.github.io/bigdata/hadoop/mapreduce/</loc>
-    <lastmod>2021-03-10T16:53:29+08:00</lastmod>
+    <lastmod>2021-03-17T14:14:35+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/interview/ant/</loc>
-    <lastmod>2021-03-13T22:29:16+08:00</lastmod>
+    <lastmod>2021-03-17T14:14:35+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://slinviz.github.io/bigdata/spark/tune/</loc>
-    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
+    <lastmod>2021-03-17T14:14:35+08:00</lastmod>
   </url>
   
   <url>
@@ -64,7 +69,7 @@
   
   <url>
     <loc>https://slinviz.github.io/bigdata/hadoop/hdfs/</loc>
-    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
+    <lastmod>2021-03-17T14:14:35+08:00</lastmod>
   </url>
   
   <url>
@@ -74,7 +79,7 @@
   
   <url>
     <loc>https://slinviz.github.io/bigdata/hadoop/yarn/</loc>
-    <lastmod>2021-03-10T15:29:09+08:00</lastmod>
+    <lastmod>2021-03-17T14:14:35+08:00</lastmod>
   </url>
   
   <url>

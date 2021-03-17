@@ -16,7 +16,7 @@
       <pubDate>Wed, 10 Mar 2021 16:41:09 +0800</pubDate>
       
       <guid>https://slinviz.github.io/bigdata/hadoop/mapreduce/</guid>
-      <description></description>
+      <description>  0. 概述 Reference   0. 概述 Reference  MapReduce shuffle过程详解  </description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@
       <pubDate>Tue, 02 Mar 2021 20:58:50 +0800</pubDate>
       
       <guid>https://slinviz.github.io/bigdata/hadoop/yarn/</guid>
-      <description>0. 概述 1. YARN Master/Slave 架构  1.1 ResourceManager-RM  1.1.1Scheduler 1.1.2 ApplicationManager   1.2 NodeManager-NM  1.2.1 Container   1.3 ApplicationMaster-AM   2. YARN 的三种调度器  2.1 FIFO Scheduler 2.2 Capacity Scheduler 2.3 Fair Scheduler   3. YARN 工作原理  3.1 概述 3.2 详述   Reference   0. 概述 YARN（Yet Another Resource Negotiator）是 Hadoop 2.0 引入的集群资源管理系统。用户可以将多种服务框架部署在YARN上，由YARN进行统一的管理和资源分配。
+      <description>0. 概述 1. YARN Master/Slave 架构  1.1 ResourceManager-RM  1.1.1 Scheduler 1.1.2 ApplicationManager   1.2 NodeManager-NM  1.2.1 Container   1.3 ApplicationMaster-AM   2. YARN 的三种调度器  2.1 FIFO Scheduler 2.2 Capacity Scheduler 2.3 Fair Scheduler   3. YARN 工作原理  3.1 概述 3.2 详述   Reference   0. 概述 YARN（Yet Another Resource Negotiator）是 Hadoop 2.0 引入的集群资源管理系统。用户可以将多种服务框架部署在YARN上，由YARN进行统一的管理和资源分配。
 YARN 的核心思想是将资源调度和应用程序管理分开，集群资源由一个全局的 ResourceManager 统一调度管理（节点资源由 NodeManager 代为管理）；为每个应用程序创建一个 ApplicationMaster，负责应用程序的管理。在 YARN 中集群资源被抽象为 Container，资源的分配和管理实际上就是对 Container 的分配和管理，Container 中的资源主要包括内存、CPU、网络、磁盘等。</description>
     </item>
     

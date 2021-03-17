@@ -179,7 +179,11 @@
             <li>
             
             
-                <span class="flex">MapReduce</span>
+                <span class="flex">
+                    <a href="/bigdata/hadoop/mapreduce/" class="gdoc-nav__entry ">
+                        MapReduce
+                    </a>
+                </span>
             
             
 
@@ -1291,6 +1295,30 @@
             </li>
             
             
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/interview/alimm/" class="gdoc-nav__entry ">
+                        阿里妈妈面经
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
         
     </ul>
 
@@ -1540,7 +1568,7 @@
 <p>原因：在shuffle阶段通过网络拉取数据时，有的key对应的数据可能会很多，而有的会很少，从而导致数据倾斜。<strong>数据倾斜只会发生在shuffle过程中</strong></p>
 <h3 id="21-过滤少量导致数据倾斜的key">2.1 过滤少量导致数据倾斜的key</h3>
 <h3 id="22-提高shuffle操作的并行度">2.2 提高shuffle操作的并行度</h3>
-<h3 id="23-两阶段集合-局部聚合全局聚合">2.3 两阶段集合-局部聚合+全局聚合</h3>
+<h3 id="23-两阶段聚合-局部聚合全局聚合">2.3 两阶段聚合-局部聚合+全局聚合</h3>
 <h3 id="24-reduce-join-转-map-join">2.4 reduce join 转 map join</h3>
 <h3 id="25-采样数据倾斜key并分拆join操作">2.5 采样数据倾斜key并分拆join操作</h3>
 <h3 id="26-使用随机前后缀和扩容rdd进行join">2.6 使用随机前后缀和扩容RDD进行join</h3>
